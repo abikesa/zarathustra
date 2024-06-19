@@ -1,6 +1,6 @@
 ![](https://abikesa.github.io/why-python/pyton.png)
 
-                                            1. Senses
+                                             1. Senses
                                                       \
                                   2. Neuralnetworks -> 4. Communicate -> 5. Leadership -> 6. Accomplishments
                                                       /
