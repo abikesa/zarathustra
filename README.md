@@ -1,3 +1,6 @@
+> Human was the music       
+Natural the static      
+
 ![](https://abikesa.github.io/why-python/pyton.png)
 
                                              1. Senses
@@ -24,5 +27,5 @@
 
 5. Dionysian as Pessimism. Nietzsche’s shift from the duality of the Apollonian (rational, ordered, and beautiful) and Dionysian (chaotic, ecstatic, and sublime) to a more [exclusive focus](https://en.wikipedia.org/wiki/Nihilism#Positions) on the Dionysian reflects his evolving philosophical perspective and his eventual disillusionment with the overly structured, rational side represented by the Apollonian. This is his embrace of a pessimism that permeates his mature works. This Dionysian monster thought the human race was irredeemable, as did Solomon in Ecclesiastics, Shakespears in Macbeth, and Mozart in Don Giovani.
    
-6. Optimism as Apollonian. An [exuberant optimism](https://www.gutenberg.org/files/174/174-h/174-h.htm) that has a Bishop reciting at 80 years what he has been doing since he was 18 years 
+6. Optimism as Apollonian. An [exuberant optimism](https://www.gutenberg.org/files/174/174-h/174-h.htm) that has a Bishop reciting at 80 years what he has been doing since he was 18 years. But all this risks drawing one into nihilism. And thats where [iteration](https://abikesa.github.io/iterate/intro.html) comes in. With chaos as input at the bottom layer of a neuralnetwork, iteration represents layers and layers of processesing and "compute" that will reveal patterns and yield power to the one who harnesses and harvests this resource. Usually culutural heritage over millenia has offered this edge, but the training of neural networks with massive "compute" and unlimited data will abbreviate this process, as we witnessed from 2023=2024, where OpenAI became the go-to for both Microsoft & Apple. Their success spawned imitation by Google and Meta. We are cheerful since this isn't build on any will-to-systematization; we are very much embracing chaos or "honest" data from the real world. So out of the spirit of music, we are encoding all that natural static into a harmonic series and an equally-tempered chromatic scale.
 
