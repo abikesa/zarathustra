@@ -1,7 +1,7 @@
 > Human was the music       
 Natural the static      
 
-![](https://abikesa.github.io/why-python/pyton.png)
+![](https://abikesa.github.io/why-python/python.png)
 
                                              1. Senses
                                                       \
