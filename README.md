@@ -11,7 +11,7 @@ Natural the static
 
 
 ### Dionysus [1](https://abikesa.github.io/jerryseinfeld/), 2, [3](https://en.wikisource.org/wiki/An_Attempt_at_Self-Criticism)
-### Sing O Muse! [4](https://abikesa.github.io/why-python/)
+### [Sing](https://github.com/abikesa/zarathustra/blob/main/dionysian.md) O Muse! [4](https://abikesa.github.io/why-python/)
 ### Apollo 5, [6](https://www.gutenberg.org/files/174/174-h/174-h.htm)
 
 
