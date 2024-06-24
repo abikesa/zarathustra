@@ -16,7 +16,7 @@ Natural the static
 
 # "Beyond Good and Evil" (1886)
 
-1. **Senses & Affirmation of Life**: Nietzsche's philosophy evolved towards an affirmation of life, embracing chaos, passion, and the will to power, which are more closely aligned with the [Dionysian](https://abikesa.github.io/holding-it-down/). The Dionysian embodies the primal forces of life and creation, elements Nietzsche increasingly valued.
+1. **Senses & Affirmation of Life**: Nietzsche's philosophy evolved towards an affirmation of life, [embracing](https://github.com/abikesa/digital/blob/main/index.md) chaos, passion, and the will to power, which are more closely aligned with the [Dionysian](https://abikesa.github.io/holding-it-down/). The Dionysian embodies the primal forces of life and creation, elements Nietzsche increasingly valued.
 
 2. **Mind & Critique of Rationality**: Nietzsche became increasingly critical of Enlightenment rationality and the constraints it imposed on human creativity and vitality. The Apollonian, with its association to order and reason, may have come to represent these constraints, which Nietzsche saw as life-denying.
 
