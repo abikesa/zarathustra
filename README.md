@@ -1,7 +1,7 @@
-> [Human](zara.png) was the music       
+> [Human](https://abikesa.github.io/gospel/) was the music       
 Natural the static      
 
-![](python.png)
+![](zara.png)
 
                       1. Digital Information
                                             \
