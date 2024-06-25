@@ -1,4 +1,4 @@
-> [Human](https://abikesa.github.io/gospel/) was the music       
+> [Human](zara.png) was the music       
 Natural the static      
 
 ![](python.png)
