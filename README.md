@@ -3,11 +3,11 @@ Natural the static
 
 ![](zara.png)
 
-                      1. Digital Information
-                                            \
-              2. Azure's Computing Power -> 4. Public Square, Discussion Forum, Hustle & Bustle, The Streets, Wisdom Crieth -> 5. Human Expertise & Leadership e.g. Sam Altman -> 6. Dominance of AAA-MM-N
-                                            /
-                                            3. Nvidia-designed GPUs
+                                 1. Digital Information
+                                                       \
+              2. Microsofts Azure's Computing Power -> 4. Public Square, Discussion Forum, Hustle & Bustle, The Streets, Wisdom Crieth -> 5. Human Expertise & Leadership e.g. Sam Altman -> 6. Dominance of AAA-MM-N
+                                                       /
+                                                       3. Nvidia-designed GPUs
                                             
 ### [Dionysus](https://github.com/abikesa/dailygrind) [1](https://abikesa.github.io/jerryseinfeld/), 2, [3](https://en.wikisource.org/wiki/An_Attempt_at_Self-Criticism)
 ### [Sing](https://github.com/abikesa/zarathustra/blob/main/dionysian.md) O Muse! [4](https://abikesa.github.io/why-python/)
