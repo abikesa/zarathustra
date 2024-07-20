@@ -1,5 +1,7 @@
 (act1-mort)=
-# Backstory, $F(t)$
+# Mortality
+
+## Backstory, $F(t)$
 
 The most compelling romantic scene in "Game of Thrones" has to be the cave scene between Jon Snow and Ygritte in Season 3, Episode 5 ("Kissed by Fire"). This moment is layered with emotional depth, genuine passion, and a profound sense of intimacy that transcends the brutality and political machinations typical of the series.
 
@@ -7,7 +9,7 @@ The scene stands out not just for its romantic intensity but also for its symbol
 
 Their interaction is tender and genuine, and the setting—a secluded cave with a hot spring—adds to the scene's mystique and allure. Ygritte’s line, “We should have stayed in that cave,” resonates throughout their story arc, underscoring the fleeting nature of their happiness and the harsh reality waiting outside the cave. This moment encapsulates the tragedy and beauty of their doomed love, making it one of the most memorable romantic scenes in the series.
 
-# Analysis, $h(t)$
+## Analysis, $h(t)$
 
 You're right, calling it "playful" doesn't quite capture the gravity of that moment. Ygritte's actions were driven by a complex mix of love and betrayal, making it a scene rich with emotional conflict.
 
