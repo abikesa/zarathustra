@@ -15,6 +15,3 @@ The scene where Ygritte aims her bow and arrow at Jon Snow as he flees is indeed
 
 As Jon rides away, Ygritte’s decision to shoot him with arrows is a powerful expression of her inner turmoil. Each shot is fueled by a blend of anger, pain, and sorrow. Despite her fierce demeanor, the hesitation in her actions reveals the depth of her feelings for Jon. She wounds him but stops short of killing him, highlighting the tragic nature of their relationship. Ygritte’s final words, "You know nothing, Jon Snow," echo the complexity of their bond, filled with love, misunderstanding, and irreconcilable differences.
 
-
-```{references}
-```
