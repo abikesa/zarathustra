@@ -9,7 +9,7 @@ The scene stands out not just for its romantic intensity but also for its symbol
 
 Their interaction is tender and genuine, and the setting—a secluded cave with a hot spring—adds to the scene's mystique and allure. Ygritte’s line, “We should have stayed in that cave,” resonates throughout their story arc, underscoring the fleeting nature of their happiness and the harsh reality waiting outside the cave. This moment encapsulates the tragedy and beauty of their doomed love, making it one of the most memorable romantic scenes in the series.
 
-## Analysis, $h(t)$
+## Encoding, $h(t)$
 
 You're right, calling it "playful" doesn't quite capture the gravity of that moment. Ygritte's actions were driven by a complex mix of love and betrayal, making it a scene rich with emotional conflict.
 
