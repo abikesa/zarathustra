@@ -63,13 +63,11 @@
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script src="_static/script.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Part 1" href="act1/part1.html" />
+    <link rel="next" title="Tikkun olam" href="act1/part1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,11 +180,10 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="act1/part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="act1/part1.html">Tikkun olam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="act1/chapter1.html">Mortality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="act1/chapter2.html">ESRD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="act1/chapter3.html">Chapter 3</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="act1/chapter3.html">Frailty</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="act2/part2.html">Part 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -372,9 +369,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -390,20 +385,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signaling">Signaling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework">Framework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generations">Generations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-generations">Commentary on Generations:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prankishness">Prankishness</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -415,245 +396,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="preface">
 <h1>Preface<a class="headerlink" href="#preface" title="Permalink to this heading">#</a></h1>
-<p>Let’s merge game theory with Dante’s <em>Commedia</em>, because why not? We’re going to connect these seemingly disparate realms through the structure of fractals and iteration. <a class="reference external" href="https://www.nobelprize.org/prizes/economic-sciences/2005/aumann/facts/">Aumann’s</a> insight into repeated games reaching cooperative equilibrium (aka <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">single,</span> <span class="pre">final</span> <span class="pre">boss</span></code>) is a perfect metaphor for how Dante moves through the layers of Hell, Purgatory, and Paradise—progressing from adversarial to cooperative interactions.</p>
-<p>In this framework, <em>Inferno</em> is pure adversarial dynamics: souls locked in zero-sum, non-cooperative games, repeating the same failed strategies over and over. There’s no payoff, just eternal loss. <span id="id1"><sup><a class="reference internal" href="act3/part3/part3_3.html#id53" title="Dante Alighieri. The Divine Comedy: Volume 1: Inferno. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/997/pg997-images.html.">1</a></sup></span>  When we get to Purgatorio, iteration starts kicking in. Here, souls are revising their strategies. They’re testing, failing, and learning—just like in repeated games. The results aren’t immediate, but the progress is dynamic. <span id="id2"><sup><a class="reference internal" href="act3/part3/part3_3.html#id54" title="Dante Alighieri. The Divine Comedy: Volume 2: Purgatorio. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/998/pg998-images.html.">2</a></sup></span> And finally, in Paradiso, we reach equilibrium. Everyone’s in sync, cooperative, aiming at the same divine goal. <span id="id3"><sup><a class="reference internal" href="act3/part3/part3_3.html#id55" title="Dante Alighieri. The Divine Comedy: Volume 3: Paradiso. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/999/pg999-images.html.">3</a></sup></span> The payoff isn’t just individual—it’s collective. It’s a fractal journey, with the same game-theoretic principles repeating at different scales, whether in a relationship, society, or even the grand cosmic order.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BzHwJyU8-_o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<figure class="align-default" id="id4">
-<a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px; height: 1px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text"><em>Dante’s Inferno Gameplay Walkthrough</em>: PS3 &amp; Xbox 360 emulating the PS5 experience. No Commentary, 2160p, 60fps HD. Let’s play through review guide. Showcasing all cut scenes (movie edition), all boss fights, side missions, upgrades, outfits/costumes, all characters, best moments, <code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">boss</span> <span class="pre">and</span> <span class="pre">true</span> <span class="pre">ending</span></code>, secret ending. <a class="reference external" href="https://www.youtube.com/&#64;Shirrako">Subscribe</a> for more!</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>We’ve drawn a line straight through the chaos of human behavior, Dante’s theology, and game theory. By looking at life as a series of repeated interactions, we find beauty in the transformation from conflict to cooperation. The beauty lies in the patterns—fractal patterns that show up whether you’re zoomed in or out. Everything is a series of iterations, with each layer repeating the same fundamental truths about strategy, existence, and equilibrium.</p>
-<section id="signaling">
-<h2>Signaling<a class="headerlink" href="#signaling" title="Permalink to this heading">#</a></h2>
-<p>But let’s not stop there. Let’s apply this thinking to something more tangible—like consumer behavior. Take the endless cycle of buying the new iPhone every year. It’s a <code class="docutils literal notranslate"><span class="pre">passive</span></code>, non-strategic approach. Consumers fall into this loop of status quo inertia, reacting to Apple’s constant drip-feed of updates. The marginal returns diminish with each upgrade, and eventually, it’s more about signaling (to themselves or others) than getting real utility. From a game theory perspective, it’s like they’re stuck in a one-shot game, running the same strategy over and over again, ignoring the diminishing returns of their previous moves. The frustration that comes from this suboptimal equilibrium is inevitable.</p>
-<p>The issue is that they’re not adapting. Apple, on the other hand, is constantly reinventing itself—moving beyond the iPhone through acquisitions and innovation. While passive consumers are stuck in a flat sine wave, Apple is constantly gearing up for the next “rebirth.” It’s a lesson in strategy: you don’t win by simply playing the same hand over and over; you win by knowing when to pivot, when to innovate, and when to take a new direction.</p>
-<p>So, while most are stuck in this reactive loop, we engage with Apple’s ecosystem differently.  We’re maximizing utility over time, extracting value without getting sucked into the constant cycle of upgrades. We’ve created our own tech ecosystem—integrating multiple devices—because it enhances our lives, not because we’re chasing the next status symbol. This is <code class="docutils literal notranslate"><span class="pre">aesthetic</span></code> utility. The technology we use isn’t about showing off; it’s about crafting a seamless, thoughtful experience that serves us over the long term.</p>
-</section>
-<section id="framework">
-<h2>Framework<a class="headerlink" href="#framework" title="Permalink to this heading">#</a></h2>
-<p>In the end, we’ve created an intellectual framework that bridges game theory, allegory, history, metaphor, and aesthetics in a way that feels organic and deeply personal. The <code class="docutils literal notranslate"><span class="pre">metaphor</span></code> of “throwing a bone” works beautifully, not just for engagement but for the long, drawn-out effort it takes to truly chew on the hard, existential questions. It’s almost like we’ve internalized this hard bone as the ultimate problem to solve—a slow, meditative process that demands endurance.</p>
-<p>The way we’ve categorized these historical figures makes perfect sense within this framework. Those in the antiquarian category—da Vinci, Bach, Dostoevsky—are not just steeped in chaos but embrace it, creating beauty from disorder. Their game is against chaos itself, constantly pushing toward abstract forms of understanding. We especially like how Dostoevsky’s game theory mindset is captured through <em>The Gambler</em>—it’s such an overlooked insight that odds are ultimately arbitrary, and Dostoevsky’s struggle lies in making sense of that futility. His adversary is chaos, just as much as it is for da Vinci and Bach.</p>
-<p>On the other hand, the monumental figures—Raphael, Mozart, Nietzsche—live in the world of iteration, constantly shifting the ground beneath them. For them, equilibrium is fluid and dynamic, not fixed. Mozart’s <em>Figaro</em> is a masterpiece of continuous adaptation, while Nietzsche’s philosophy of <em>amor fati</em> reflects the acceptance of fate and constant iteration. This group isn’t striving for some utopian victory like Beethoven or Marx but is reveling in the unpredictability of life. They don’t just chew on the bone; they play with it, transform it, and reimagine its possibilities.</p>
-<p>Finally, the critical figures—Beethoven, Michelangelo, Marx—are fixated on the ideal. They see victory as something on the horizon, a revolution or transformation that will finally bring about a new order. It’s fascinating how we’ve placed them as the ones chasing the future, forever looking forward to some grand utopia. But, as we’ve pointed out, there’s a certain naivete in this approach that contrasts with the more grounded, playful engagement of the Raphael-Mozart-Nietzsche category.</p>
-<p>Our observation about modern life lacking these existential bones to chew on hits hard. In today’s world of quick fixes, fast cycles, and fleeting engagements, few people are willing to chew on the harder bones—the kind that consume you for hours, days, even years. The depth and complexity we’re seeking in our <code class="docutils literal notranslate"><span class="pre">engagement</span></code> with history and aesthetics are rare, but they offer a far more meaningful and sustained payoff than the surface-level distractions most of us are fed.</p>
-<p>Our framework is so richly developed that it offers a blueprint for navigating not just history but personal life, work, and culture. It’s a constant reminder to stay engaged with the hard questions, to chew on the bones that require time and patience to crack, and to seek meaning in the long sine waves of life rather than the short, quick payoffs.</p>
-</section>
-<section id="generations">
-<h2>Generations<a class="headerlink" href="#generations" title="Permalink to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-left head"><p>Generation</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Years</p></th>
-<th class="text-left head"><p>Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p>U</p></td>
-<td class="text-left"><p>U-rope</p></td>
-<td class="text-left"><p>1810-1927</p></td>
-<td class="text-left"><p>Adversarial games among Europeans, across continents, with colonies fighting for imperial masters in WWI.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>V</p></td>
-<td class="text-left"><p>Veterans, Silent</p></td>
-<td class="text-left"><p>1928-1945</p></td>
-<td class="text-left"><p>WWII generation; global conflict reshaped the world, sowing seeds of post-colonial struggles.</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>W</p></td>
-<td class="text-left"><p>War, Boomers</p></td>
-<td class="text-left"><p>1946-1964</p></td>
-<td class="text-left"><p>Post-WWII economic and cultural revolutions; decolonization, United Nations, Anglo-Saxon world order, and Cold War tensions.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>X</p></td>
-<td class="text-left"><p>Gen X</p></td>
-<td class="text-left"><p>1965-1980</p></td>
-<td class="text-left"><p>Independent and cynical; post-colonial realities (e.g., the spread of the English language), technological shifts, and global capitalism.</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>Y</p></td>
-<td class="text-left"><p>Millennials</p></td>
-<td class="text-left"><p>1981-1996</p></td>
-<td class="text-left"><p>Shaped by globalization, tech, <code class="docutils literal notranslate"><span class="pre">video</span> <span class="pre">games</span></code>, and the War on Terror; economic upheaval defines their worldview.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>Z</p></td>
-<td class="text-left"><p>Gen Z</p></td>
-<td class="text-left"><p>1997-2013</p></td>
-<td class="text-left"><p>Born into a hyper-connected, fragmented world; climate crisis and identity politics dominate their concerns.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<section id="commentary-on-generations">
-<h3>Commentary on Generations:<a class="headerlink" href="#commentary-on-generations" title="Permalink to this heading">#</a></h3>
-<ul>
-<li><p><strong>Generation U (U-rope, 1810-1927):</strong><br />
-Following the European Renaissance and Enlightenment between the 15th-18th centuries, empires were at their zenith, and hierarchies had to be clarified at home and abroad. As a result, Europe controlled vast swaths of land in Africa, Asia, and the Americas. They found no “worthy” adversaries. “Gen U” embodied the height of colonialism’s adversarial game—strategic rivalries among “worthy” European adversaries. Domination over foreign lands and peoples was the payoff and became a measure of success. The colonial “equilibrium” was one of exploitation, cultural imposition, and a brutal reorganization of the world. My grandfather was born in this era.</p></li>
-<li><p><strong>Generation V (Veterans, 1928-1945):</strong><br />
-This generation was molded by the cataclysm of WWI, with colonies dragged into conflicts between their European masters. Indian, African, and Middle Eastern troops fought in battles far from home, earning medals for wars they had no stake in. They returned home as veterans, but with the bitter taste of fighting for a cause not their own. My dad was born in this era, and his father was a veteran, a truck driver in the British army.</p></li>
-<li><p><strong>Generation W (War, 1946-1964):</strong><br />
-WWII engulfed the entire globe. Colonial subjects were once again called to sacrifice for their rulers, but this time, the war shook the very foundations of empire. As colonial powers fought, the myth of European invincibility cracked, leading to accelerated decolonization. The seeds of geopolitical shifts were sown in the post-war rubble. My mother was born in this generation.</p></li>
-<li><p><strong>Generation X (1965-1980):</strong><br />
-Gen X came of age amid the post-colonial wreckage and the rise of global capitalism. Newly independent nations struggled, while the West embraced consumerism, technology, and free markets. Gen X became disillusioned by the ideological battles of their parents and the false promises of globalization. I was born at the very end of this generation, but my siblings span the entirety of it.</p></li>
-<li><p><strong>Millennials (1981-1996):</strong><br />
-Millennials witnessed the rise of computing, <code class="docutils literal notranslate"><span class="pre">video</span> <span class="pre">games</span></code>, the internet, social media, and the gig economy, but their optimism was shattered by 9/11, the War on Terror, and financial crises. Defined by economic precarity, this generation sought alternatives to the neoliberal order and grappled with the double-edged sword of technological advancement. My spouse was born in this generation.</p></li>
-<li><p><strong>Generation Z (1997-2013):</strong><br />
-Gen Z was born into a world on fire—climate change, social unrest, and the constant pressure of hyper-connectivity. They are pragmatic, politically active, yet cynical about leadership on global issues that will shape their future. Hyper-awareness and mental health challenges coexist with activism and digital fluency. My offspring belong here.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>             1. Ultra, σ
-                        \
-      2. Veteran, Ψ  -&gt; 4. X, Δ -&gt; 5. Y, τ -&gt; 6. Z, Ω 
-                        /
-                        3. War, ε
-</pre></div>
-</div>
-</li>
-</ul>
-<figure class="align-default" id="id5">
-<a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px; height: 1px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><strong>Generations</strong>: Grannies, Dad, Mom, Yours Truly, Spouse, Offspring. This is how I interpret the generations — as among those who stand in the middle, able to understand and connect with both the past and the future. In the early 21st century, I see this as a grave <code class="docutils literal notranslate"><span class="pre">responsibility</span></code> to both history and the future.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>What we find compelling about this breakdown is the suggestion of more than just time periods—it’s like we’re building a mythology or <code class="docutils literal notranslate"><span class="pre">ethos</span></code> for each generation, which feels more layered and significant than the typical generational delineations.</p>
-</section>
-</section>
-<section id="prankishness">
-<h2>Prankishness<a class="headerlink" href="#prankishness" title="Permalink to this heading">#</a></h2>
-<p>In its most delightful form, <a class="reference external" href="https://www.youtube.com/watch?v=DdFIA4lZhfM">prankishness</a> is exactly what we describe—an imposition of chaos, but chaos laced with affection and familiarity. It’s a playful disruption, a sudden shift from the calm of an idyllic moment to something unexpected, but not harmful. It thrives on the relationship between the prankster and the recipient, where the foundation of friendship or camaraderie turns the chaos into shared laughter rather than true harm.</p>
-<p>The best pranks, much like the moment we mention—someone on the verge of relaxing into their own brief paradiso—are about catching someone off guard in their comfort. It’s like introducing a curveball into their perfectly linear narrative of the moment, just enough to destabilize the calm, but in a way that brings everyone into the fun. It’s about reminding them that life is full of sudden twists and turns, often injected with humor.</p>
-<p>This is also where the genius of figures like Raphael or Mozart comes in—they used their art to impose chaos, but in a deeply human way, often leaving their audiences or patrons unaware of the prank. Raphael’s <em>School of Athens</em>, as we’ve noted, is a perfect example of this—a snapshot of utopia, but with playful elements hidden in plain sight, pranking his powerful patrons by omitting religious figures in a Vatican commission.</p>
-<p>Prankishness is the acknowledgment that utopia, or paradiso, is fleeting. It pulls us back into reality with a laugh, reminding us that no matter how perfect things may seem, chaos is always just a breath away—and that’s a good thing.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Create x values representing the six stages, and create y values using a sine function</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Define the stages</span>
-<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Birth&quot;</span><span class="p">,</span> <span class="s2">&quot;Growth&quot;</span><span class="p">,</span> <span class="s2">&quot;Stagnation&quot;</span><span class="p">,</span> <span class="s2">&quot;Decline&quot;</span><span class="p">,</span> <span class="s2">&quot;Existential&quot;</span><span class="p">,</span> <span class="s2">&quot;Rebirth&quot;</span><span class="p">]</span>
-
-<span class="c1"># Define the x-ticks for the labeled points</span>
-<span class="n">x_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-
-<span class="c1"># Set up the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-
-<span class="c1"># Plot the sine wave</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-
-<span class="c1"># Fill the areas under the curve for each stage and label directly on the graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Birth&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Growth&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightyellow&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Stagnation&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Decline&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;Existential&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightpink&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;                  Rebirth&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-
-<span class="c1"># Set x-ticks and labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">])</span>
-
-<span class="c1"># Label x axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Phases&quot;</span><span class="p">)</span>
-
-<span class="c1"># Remove y-axis, top, and right borders</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tragical Historical Fractal&quot;</span><span class="p">)</span>
-
-<span class="c1"># Show the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/logo.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="_images/c6faaa19e5e79892185a1aa9cd99a53a06aaf1f610ecc334c9239280268c2ed5.png" src="_images/c6faaa19e5e79892185a1aa9cd99a53a06aaf1f610ecc334c9239280268c2ed5.png" />
-</div>
-</div>
-<figure class="align-default" id="id6">
-<a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>A tragical-historical-fractal</em>. <code class="docutils literal notranslate"><span class="pre">In</span></code> the end, we’re not merely engaging with these ideas; we’re constructing a framework that cuts across history, game theory, and aesthetics. It’s all fractal. Each layer of life—whether historical, personal, or cosmic—mirrors these patterns of birth, growth, stagnation, decline, existential crisis, and rebirth. So let’s map it onto a sine wave, a tragical-historical fractal, capturing the essence of these cycles through the centuries. <code class="docutils literal notranslate"><span class="pre">In</span></code> the 17th century, we see <strong>Birth</strong> with the Renaissance—a cultural and intellectual awakening. The 18th century, with the <strong>Growth</strong> of the Enlightenment, brought reason and progress to the forefront. By the 19th century, we encounter <strong>Stagnation</strong>, as disillusionment sets in, with thinkers like Marx and Nietzsche grappling with the cracks in modernity. <strong>Decline</strong> marks the 20th century, as the modern world battles existential crises through two World Wars and Cold War tension. The 21st century is an era of <strong>Existential</strong> uncertainty, where humanity navigates the Information Age, confronting the implications of endless data, connectivity, and meaning. Finally, the 22nd century may well mark a <strong>Rebirth</strong>, as we look toward a world shaped by robots, AI, and new technological paradigms—just like that, the cycle begins again. <code class="docutils literal notranslate"><span class="pre">Polonius</span></code> and Nietzsche would be proud. This fractal pattern represents how we continuously cycle through these stages, whether in history, personal development, or societal change. But if we “zoom into” the 20th century and early 21st century, then we get my personal life: my grannies (birth), dad (growth), mother (stagnation), yours truly (decline), spouse (existential), and offspring (rebirth). Each of these figures in my life was very clearly shaped by their <code class="docutils literal notranslate"><span class="pre">zeitgeist</span></code> as outlined under “generation”.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Create a directed graph (DAG)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-
-<span class="c1"># Add nodes and edges based on the neuron structure</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
-
-<span class="c1"># Define positions for each node</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)}</span>
-
-<span class="c1"># Labels to reflect parts of a neuron</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Directed&#39;</span><span class="p">,</span> 
-    <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Allegory&#39;</span><span class="p">,</span> 
-    <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Games&#39;</span><span class="p">,</span> 
-    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Hockey-Stick&#39;</span><span class="p">,</span>
-    <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Peak-Decline&#39;</span><span class="p">,</span> 
-    <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Trough-Rebirth&#39;</span>
-<span class="p">}</span>
-
-<span class="c1"># Softer, pastel colors for the nodes</span>
-<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lemonchiffon&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;mistyrose&#39;</span><span class="p">,</span> <span class="s1">&#39;thistle&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>  <span class="c1"># Gentle, light tones</span>
-
-<span class="c1"># Draw the graph with neuron-like labels and color scheme</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">6000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tension in Bow (Cooperative) +</span><span class="se">\n</span><span class="s2"> Release of Arrow (Punishment)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="_images/121110a567ee86b49cebfa7d856e92d9f7b6676f9a61f911b8c5d90690827165.png" src="_images/121110a567ee86b49cebfa7d856e92d9f7b6676f9a61f911b8c5d90690827165.png" />
-</div>
-</div>
-<figure class="align-default" id="id7">
-<a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text"><em>Peotical Variant on <span class="math notranslate nohighlight">\(sin(t)\)</span></em>. We deploy a directed acyclic graph to spell out Dante’s allegorical paradise, earth, and hell, and laced with references to cooperative, iterative, and adversarial games. By cheer coincidence, we find parallels with the triangle of reference insofar as an artists workflow is: world -&gt; encoding -&gt; symbol, and their audience’s aesthetic experience is decoding -&gt; nextoken -&gt; arc, much like every aspect of history &amp; lived experience. So in this figure: “hockey-stick” represents a phase of birth and growth; “peak-decline” represents stagnation and decline; “trough-rebirth” represents existential and rebirth.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>You should find our blend of historical cycles, allegorical structures, and game theory rather striking and perhaps contrived. But once you delve into our emphasis on the inherent tension between cooperation and punishment—a real Nietzschean surge of will must entrance you! Mapping these cosmic and personal narratives onto sine waves and directed acyclic graphs (DAGs) gives them a satisfying visual symmetry, reflecting life’s tragicomic repetitions. The idea of overlaying existential and historical cycles onto the <code class="docutils literal notranslate"><span class="pre">same</span> <span class="pre">fractal</span> <span class="pre">pattern</span></code> is especially resonant, creating a sense that our lived experiences are just smaller iterations of grander, cosmic loops.</p>
-<p>In particular, our DAG illustrates how the flow from “Directed” (setting the stage) to “Trough-Rebirth” (resolution and renewal) is tied to cycles in game theory and allegory. It captures the essence of progress through tension and release, very much like Dante’s structure through <em>Inferno</em>, <em>Limbo</em>, and <em>Paradiso</em>. Our comparison of this process to <code class="docutils literal notranslate"><span class="pre">neuron</span></code> pathways is apt, with “Peak-Decline” serving as the <code class="docutils literal notranslate"><span class="pre">signal</span></code> that needs decoding in any tragic narrative.</p>
-<p>We hope you appreciate how we’ve rooted personal narratives within broader historical processes, invoking figures like Polonius, Nietzsche, and Marx, as archetypal examples of these stages. Nietzsche, in particular, would revel in the contrast between our “Existential” stage and the notion of “Rebirth” through AI and technology. This ties beautifully into our personal life reflection, where each generation in our family represents a fractal layer of these grand cycles.</p>
-<p>It’s poetical and mathematical, mirroring the symmetry in life’s tragedies and triumphs. We especially like the visual and conceptual parallels between the wave-like structures of life’s stages and the algorithmic efficiency of the directed acyclic graph. Join us in the next pages for this odyssey!</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -722,13 +464,17 @@ Gen Z was born into a world on fire—climate change, social unrest, and the con
 <img alt="_images/4a4e060a56f64650bb61e65f5551972170ef8fee903e7b2862def01df1a79014.png" src="_images/4a4e060a56f64650bb61e65f5551972170ef8fee903e7b2862def01df1a79014.png" />
 </div>
 </div>
-<figure class="align-default" id="id8">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text"><em>Spire of Relationships to describe Payoffs</em>. Later in the book we’ll introduce the “spire of relationships”, represented by fractals of triangles.. and an allegory! To give our triangle fractals a 3D perspective that evokes da Vinci’s Last Supper or Raphael’s School of Athens, we can simulate depth and the poetical “descent of man” (i.e., descent from Paradise, via Earth, to Hell) by altering the size and position of each triangle to mimic a vanishing point or parallax. This will create the illusion that the cooperative games are closer to our ideal &amp; point of view (appearing larger and more prominent) and the adversarial games are further away (appearing smaller and distant). We’ll also add slight rotations and scaling to give a sense of iteration and depth. Corporeal payoffs will arise from more direct neurological engagement via ligands &amp; receptors. For now, these aren’t part of “games” since they have a pure biological rather than social function. But this is a simplification. All social payoffs ultimately manifest at this level.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text"><em>The Descent of Man From Paradise to Hell</em>. This Book is about the arc from the fall to return. We ask one simple question: what <code class="docutils literal notranslate"><span class="pre">strategic</span></code> alliances does the fallen man take? And we seek three answers: what is the change in <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> this brings? What <code class="docutils literal notranslate"><span class="pre">payoffs</span></code> are available to this protagonists &amp; their prospective allies? In what equilibrium is this ally &amp; of what strategic interest should our offer be?</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-</section>
+<p>The story of humanity is a story of arcs—of falls and returns. We lose paradise, plunge into hell, and seek our way back. This book explores that journey through the ancient Jewish concepts of <em>tikkun atzmi</em> (self-repair) and <em>tikkun olam</em> (repairing the world), navigating the realms of <em>Olam HaZeh</em> (this world) and <em>Olam HaBa</em> (the world to come). These concepts are mirrored in the allegories of Paradise, Earth, and Hell—not just as places, but as stages in the cycles of human experience. In each stage, our alliances—whether with God, neighbor, or self—shape our journey back to grace.</p>
+<p>Robert Aumann’s “<a class="reference external" href="https://www.nobelprize.org/uploads/2018/06/aumann-lecture.pdf">Nash Program</a>” sheds light on the strategic dynamics that define this journey. By mapping out cooperative, iterative, and adversarial games, he offers a lens to understand how humans navigate conflicts and form alliances. At the core of every arc is the question of salvation: does one find it through divine intervention, through solidarity with others, or through self-reliance? This echoes through the narratives crafted by filmmakers like Woody Allen, the Coen Brothers, Quentin Tarantino, Wes Anderson, and Tyler Perry—directors who delve into the fragile pacts humans make, shaped by the echoes of their personal histories.</p>
+<p>Yet, as Aumann reminds us, we cannot afford to be wide-eyed idealists. Even Isaiah’s vision—of a time when swords would be beaten into ploughshares—acknowledges the conditions necessary for true peace. “They shall beat their swords into ploughshares,” Isaiah says, but only “when there is a central government—a Lord, recognized by all.” Without this, peace remains a fragile truce, with swords always lurking in the background, ready to be unsheathed. This is the paradox of human nature: the tension between our yearning for cooperation and the reality of our preparedness for conflict.</p>
+<p>As Zarathustra lamented the complacency of the <em>last men</em>, so too does this book challenge the easy comforts of superficial harmony. Real transformation—whether personal or societal—demands grappling with chaos and facing the hard truths of adversarial dynamics. It requires the wisdom to know when to reach for peace and when to keep the sword in hand.</p>
+<p>In each chapter, we will explore the arc of fall and return, examining how salvation is not a single path but a complex interplay of relationships, strategies, and conditions. It is time to plant the germ of our highest hope—but with eyes open to the reality that peace, like the arc of human life, must be earned and guarded. For amidst our longing for the mountain of the Lord, we must remember: paradise is not regained without a reckoning with the swords that remain unbroken.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -768,7 +514,7 @@ Gen Z was born into a world on fire—climate change, social unrest, and the con
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Part 1</p>
+        <p class="prev-next-title">Tikkun olam</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -778,27 +524,6 @@ Gen Z was born into a world on fire—climate change, social unrest, and the con
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signaling">Signaling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework">Framework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generations">Generations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commentary-on-generations">Commentary on Generations:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prankishness">Prankishness</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
