@@ -395,6 +395,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="eternal-recurrence">
 <h1>Eternal Recurrence<a class="headerlink" href="#eternal-recurrence" title="Permalink to this heading">#</a></h1>
+<p>One author is born in 1818 somewhere in Russia. And then reborn in 1844 somewhere in Germany. They both loath Germans. Let’s get right to it. If we’re talking about which of Dostoevsky’s works Nietzsche might have read or resonated with most deeply, it’s pretty clear from his own writing that he held <em>Notes from Underground</em> and <em>Crime and Punishment</em> in high regard. Nietzsche explicitly praised Dostoevsky as “the only psychologist from whom I had something to learn,” which is a high compliment from someone as fiercely self-assured as Nietzsche.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -459,15 +460,76 @@ document.write(`
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>The Eternal Recurrence of the Same</em>. A relentless cycle witnessed in the stars, ecosystems, society, mood, and family.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>One author is born in 1818 somewhere in Russia. And then reborn in 1844 somewhere in Germany. They both loath Germans. Let’s get right to it. If we’re talking about which of Dostoevsky’s works Nietzsche might have read or resonated with most deeply, it’s pretty clear from his own writing that he held <em>Notes from Underground</em> and <em>Crime and Punishment</em> in high regard. Nietzsche explicitly praised Dostoevsky as “the only psychologist from whom I had something to learn,” which is a high compliment from someone as fiercely self-assured as Nietzsche.</p>
 <p><em>Notes from Underground</em> is likely to have struck a deep chord with Nietzsche due to its rejection of rationalism and the idea of human beings as purely rational creatures. The Underground Man’s insistence on suffering as an assertion of freedom aligns closely with Nietzsche’s critique of the comfortable, unexamined lives that most people lead—what he might call “slave morality.” The way the Underground Man almost celebrates his self-inflicted suffering would resonate with Nietzsche’s appreciation for embracing struggle and hardship as a path to <code class="docutils literal notranslate"><span class="pre">self-discovery</span></code> – which to both men is self-love. No <code class="docutils literal notranslate"><span class="pre">arc</span></code> to tikkun olam!</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                    1. Diet, σ
                               \
- 2. Locality &amp; Climate, Ψ  -&gt; 4. Self-Love 🐿️  vs. Defense 🦔 , Δ -&gt; 5. Play vs. Caution, τ -&gt; 6. Life vs. Hibernation, Ω 
+ 2. Locality &amp; Climate, Ψ  -&gt; 4. Self-Love 🐿️  vs. Defense 🦔 , Δ -&gt; 5. Play vs. Caution, τ -&gt; 6. Vitality vs. Hibernation, Ω 
                               /
                               3. Recreation, ε
 </pre></div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Create a directed graph (DAG)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add nodes and edges based on the neuron structure</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+
+<span class="c1"># Define positions for each node</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)}</span>
+
+<span class="c1"># Labels to reflect parts of a neuron</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Diet&#39;</span><span class="p">,</span> 
+    <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Locality&#39;</span><span class="p">,</span> 
+    <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Recreation&#39;</span><span class="p">,</span> 
+    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Self-Love&#39;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Play&#39;</span><span class="p">,</span> 
+    <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Vitality&#39;</span>
+<span class="p">}</span>
+
+<span class="c1"># Define node colors</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lemonchiffon&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;mistyrose&#39;</span><span class="p">,</span> <span class="s1">&#39;thistle&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create a figure and axis with a specified size</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1"># Adjust width and height as needed</span>
+
+<span class="c1"># Draw the nodes and edges first with turquoise edges</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;turquoise&#39;</span><span class="p">)</span>
+
+<span class="c1"># Draw the labels with the color of the previous node</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">previous_color</span> <span class="o">=</span> <span class="n">node_colors</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">node_colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Shift colors</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">previous_color</span><span class="p">)</span>
+
+<span class="c1"># Set the title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tragic Hero&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/036bb08b9e5e0e22973fe9eb88612e1f767bc3685c9fc0c15b678515705885c9.png" src="../_images/036bb08b9e5e0e22973fe9eb88612e1f767bc3685c9fc0c15b678515705885c9.png" />
+</div>
+</div>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>Heroes</em>. We distinguish among three archetypal heros: Anti Hero, Tragic Hero, and Classical Hero. The Anti Hero’s strategy is to descend from Paradise to Hell: Think Dostoevsky. The Tragic Hero’s payoff comes from playing whatever hand they’re given – and this leaves them in Limbo and in perpetuality: Think Nietzsche. And the Classical Hero envisions a redemptive arc from Hell back to Paradise: Karl Marx. Virtually all protagonists can be quite aesthetically conjured to fit or subvert these stereotypes.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>However, <em>Crime and Punishment</em> might have also grabbed Nietzsche’s attention, particularly in Raskolnikov’s moral dilemmas and the exploration of a “superman” who places himself above common morality. Raskolnikov’s internal battle—his belief that he can transcend ordinary morality, and his subsequent downfall—mirrors Nietzsche’s thoughts on the Übermensch, but also serves as a cautionary tale of its darker potential. Nietzsche would have appreciated the existential crisis Raskolnikov experiences, even if he might critique his failure to fully embrace his own power and freedom.</p>
 <p>If Nietzsche read only one of Dostoevsky’s works, I’d put my money on <em>Notes from Underground</em> being the most impactful, but <em>Crime and Punishment</em> is a close contender for its thematic overlap with Nietzsche’s explorations of morality, power, and the individual’s struggle against societal norms.</p>
 </section>
