@@ -416,15 +416,15 @@ document.write(`
 <span class="p">}</span>
 <span class="n">olympians_myth</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Overthrow Parents&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Cosmic Order&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Establish New Rule&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;   Cosmic Order&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;   Establish New Rule&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;Mythological Legacy&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Generational Conflict&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Abuse by Cronus&#39;</span>
+    <span class="s1">&#39;   Generational Conflict&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;   Abuse by Cronus&#39;</span>
 <span class="p">}</span>
 
 <span class="c1"># Create the Venn diagram comparing the two groups</span>
-<span class="n">venn</span> <span class="o">=</span> <span class="n">venn2</span><span class="p">([</span><span class="n">menendez_brothers</span><span class="p">,</span> <span class="n">olympians_myth</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;Menendez Brothers&#39;</span><span class="p">,</span> <span class="s1">&#39;Olympians (Myth)&#39;</span><span class="p">))</span>
+<span class="n">venn</span> <span class="o">=</span> <span class="n">venn2</span><span class="p">([</span><span class="n">menendez_brothers</span><span class="p">,</span> <span class="n">olympians_myth</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;Menendez Brothers&#39;</span><span class="p">,</span> <span class="s1">&#39;Olympian Brothers&#39;</span><span class="p">))</span>
 
 <span class="c1"># Customize the labels to highlight unique and shared elements</span>
 <span class="n">venn</span><span class="o">.</span><span class="n">get_label_by_id</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">menendez_brothers</span> <span class="o">-</span> <span class="n">olympians_myth</span><span class="p">))</span>
@@ -432,7 +432,7 @@ document.write(`
 <span class="n">venn</span><span class="o">.</span><span class="n">get_label_by_id</span><span class="p">(</span><span class="s1">&#39;11&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;Overthrow Parents</span><span class="se">\n</span><span class="s1">Parental Abuse&#39;</span><span class="p">)</span>
 
 <span class="c1"># Add a title for context</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparison: Menendez Brothers vs. Olympians (Myth)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 
 <span class="c1"># Display the Venn diagram</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -441,13 +441,85 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bbf8a479693a632f7b9d8f67d33285f46965d177e4bf6435ff78384422c402a8.png" src="../_images/bbf8a479693a632f7b9d8f67d33285f46965d177e4bf6435ff78384422c402a8.png" />
+<img alt="../_images/28c7d53a3ca190974b955e86a8df3efbd37a7cf9114e4e4a86868dc5b8adea4a.png" src="../_images/28c7d53a3ca190974b955e86a8df3efbd37a7cf9114e4e4a86868dc5b8adea4a.png" />
 </div>
 </div>
-<p>In Greek mythology, the Olympian gods, led by Zeus, did overthrow their parents, the Titans, in a brutal battle known as the Titanomachy. This war represents a generational shift, where the younger gods rise up against the old order to establish a new world.</p>
-<p>The above perspective paints a vivid and complex picture—aligning the Menendez brothers’ actions with a mythological narrative of being cast out of a metaphorical paradise (their privileged life) into a sort of hell (the aftermath of their crime and the ensuing legal battles). In this framing, their <code class="docutils literal notranslate"><span class="pre">alliance</span></code> against their father could be seen as an attempt to reclaim a state of balance or “limbo”—a space where they might have found some semblance of equilibrium or justification for their actions.</p>
-<p>Similarly, the Olympians, after being swallowed and then later freed, formed an alliance against their father Cronus. They fought not just to overthrow him but to establish a new order, moving from a <code class="docutils literal notranslate"><span class="pre">chaotic</span></code> state to one of <code class="docutils literal notranslate"><span class="pre">structured</span></code> rule. It’s almost as if both stories feature a struggle to escape a state of oppression or darkness and reach a more stable existence—though the Olympians reached Olympus, a place of divinity, while the Menendez brothers were met with societal condemnation and life sentences.</p>
-<p>The narrative we suggest draws out the idea of a shared “hero’s journey,” albeit a dark one. Both are tales of revolt against tyrannical figures, yet with drastically different outcomes. It’s fascinating to consider the Menendez brothers in this mythological light, as it adds a layer of tragic grandeur to their story, aligning them with ancient themes of rebellion and the quest for autonomy.</p>
+<p>Our framing of the Menendez brothers’ actions through the lens of Greek mythology and the Olympians’ rebellion against Cronus is both chilling and profound. We’re elevating their story from one of crime and media frenzy to a tragic mythological archetype of overthrowing tyrannical parents to seek a new equilibrium. The abuse endured by both groups—whether the literal swallowing of the Olympians by Cronus or the alleged abuse faced by the Menendez brothers—adds a harrowing layer of justification for the overthrow, which mirrors mythic cycles of rebellion and renewal.</p>
+<p>What stands out in this comparison is how both stories involve a profound inversion of the parent-child relationship (<code class="docutils literal notranslate"><span class="pre">paradiso</span></code> to <code class="docutils literal notranslate"><span class="pre">inferno</span></code>). In myth, Cronus’ abuse was rooted in cosmic order and fear of being overthrown, whereas with the Menendez brothers, their act was rooted in a more visceral, human struggle for <code class="docutils literal notranslate"><span class="pre">survival</span></code> and will-to-<code class="docutils literal notranslate"><span class="pre">power</span></code> after the most divine <code class="docutils literal notranslate"><span class="pre">betrayal</span></code>. Both rebellions involve formation of strategic alliances with their fellow abused siblings, leading to vastly different realms of “<code class="docutils literal notranslate"><span class="pre">limbo</span></code>”—the Olympians ascended to divine rule, whereas the Menendez brothers fell into eternal condemnation.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">draw_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draws a triangle given vertices and labels for each vertex with matching color.&quot;&quot;&quot;</span>
+    <span class="n">triangle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vertices</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># Set label color</span>
+
+<span class="k">def</span> <span class="nf">get_triangle_vertices_3d</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">perspective_scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the vertices of a tilted equilateral triangle for a 3D effect.</span>
+<span class="sd">    `perspective_scale` shrinks the triangle to simulate depth.</span>
+<span class="sd">    `tilt` applies a slight rotation for perspective effect.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>  <span class="c1"># angles for vertices of an equilateral triangle</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">perspective_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">),</span>
+                                <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">perspective_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">vertices</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the layers of the fractal with vertices and labels</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">triads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Betrayal&#39;</span><span class="p">,</span> <span class="s1">&#39;Power       &#39;</span><span class="p">,</span> <span class="s1">&#39;      Survival&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Loyalty&#39;</span><span class="p">,</span> <span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Faith&#39;</span><span class="p">,</span> <span class="s1">&#39;Love&#39;</span><span class="p">,</span> <span class="s1">&#39;Hope&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="c1"># Set the color scheme: blood red, green, sky blue</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">]</span>
+
+<span class="c1"># 3D perspective parameters: smaller scale as the fractal moves inward (simulating depth)</span>
+<span class="n">scales</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># simulate depth</span>
+<span class="n">tilts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">12</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># slight rotation for perspective</span>
+
+<span class="c1"># Draw the triangles with increasing radius and perspective scaling</span>
+<span class="k">for</span> <span class="n">radius</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">radii</span><span class="p">,</span> <span class="n">triads</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">tilts</span><span class="p">):</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">get_triangle_vertices_3d</span><span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">radius</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">)</span>
+    <span class="n">draw_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="c1"># Set limits and hide axes to fit the frame</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the plot as &#39;logo.png&#39;</span>
+<span class="c1"># plt.savefig(&#39;figures/logo.png&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4a4e060a56f64650bb61e65f5551972170ef8fee903e7b2862def01df1a79014.png" src="../_images/4a4e060a56f64650bb61e65f5551972170ef8fee903e7b2862def01df1a79014.png" />
+</div>
+</div>
+<p>The shared narrative of revolt against abusive parents carries a tragic grandeur that resonates deeply with humanity’s fascination with cycles of oppression and the quest for freedom. The Menendez brothers, in this mythological light, appear as tragic anti-heroes—caught in a liminal space where the social and personal justifications for their rebellion are obscured by the horror of their actions, much like figures in Greek tragedy.</p>
+<p>Your Venn diagram not only highlights the overlap in themes of “overthrowing parents” and “abuse” but also underscores the divergent paths taken—divine elevation versus societal downfall. Both stories, despite their wildly different contexts, revolve around the same primal conflict of generational rebellion and the complex legacies left behind.</p>
+<p>It’s a fascinating lens, one that makes the Menendez case both more tragic and universally resonant.</p>
 </section>
 
     <script type="text/x-thebe-config">
