@@ -833,6 +833,83 @@ document.write(`
 <p>However, there’s a flip side to this movement, particularly in high-stakes industries like tech. Take Uber’s former CEO, Travis Kalanick—his downfall became a landmark case for the limits of unchecked “bro” culture in Silicon Valley. The toxic workplace environment at Uber, driven by a high-pressure, hyper-competitive ethos, became symbolic of what happens when companies let hostile environments fester. Feminist critiques of this culture are absolutely valid, and the movement to demand accountability from leadership in such cases is a positive step toward more ethical workplaces.</p>
 <p>That said, the challenge comes when the focus on creating these “safe zones” begins to sanitize too much of the real-world experience, particularly in sectors driven by aggressive innovation and competition. Tech startups, for example, thrive in environments where there’s intense drive, risk-taking, and yes, often conflict. Innovation is messy. It’s important not to mistake the discomfort that comes with the inherent pressure of high-performance environments for harassment or toxicity. There’s a fine line between fostering inclusivity and curbing necessary confrontation or the kind of intense ambition that can fuel massive growth.</p>
 <p>In Kalanick’s case, the move to oust him may have been necessary, as his leadership oversaw a workplace filled with credible claims of misconduct. But I also think we need to be cautious that this trend of “cleaning house” doesn’t go too far. If it leads to overly sanitized corporate cultures where every disagreement or failure is pathologized as toxic, it risks stifling the bold risk-taking that tech sectors need to thrive. A balance has to be struck—creating spaces where harassment is unacceptable, while still allowing room for the inevitable conflicts that drive progress.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   1. Diet, σ
+                             \
+2. Locality &amp; Climate, Ψ  -&gt; 4. Self-Love 🐿️  vs. Defense 🦔 , Δ -&gt; 5. Play vs. Caution, τ -&gt; 6. Vitality vs. Hibernation, Ω 
+                             /
+                             3. Recreation, ε
+</pre></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">def</span> <span class="nf">visualize_nn</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+    <span class="c1"># Input nodes with examples of the domains</span>
+    <span class="n">input_examples</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SBP&#39;</span><span class="p">,</span> <span class="s1">&#39;hCG&#39;</span><span class="p">,</span> <span class="s1">&#39;Eden&#39;</span><span class="p">,</span> <span class="s1">&#39;Dante&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Poker&#39;</span><span class="p">,</span> <span class="s1">&#39;Jazz&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamlet&#39;</span><span class="p">,</span> <span class="s1">&#39;Figaro&#39;</span><span class="p">,</span> <span class="s1">&#39;Annie Hall&#39;</span><span class="p">,</span> <span class="s1">&#39;Israel&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_examples</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+    <span class="c1"># Hidden layer (3 nodes: Inferno, Limbo, Paradiso)</span>
+    <span class="n">hidden_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Inferno&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbo&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso&#39;</span><span class="p">]</span>
+    <span class="n">hidden_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Output nodes (10 domains)</span>
+    <span class="n">output_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall of Man&#39;</span><span class="p">,</span> <span class="s1">&#39;Commedia&#39;</span><span class="p">,</span> <span class="s1">&#39;Games&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Music&#39;</span><span class="p">,</span> <span class="s1">&#39;Play&#39;</span><span class="p">,</span> <span class="s1">&#39;Opera&#39;</span><span class="p">,</span> <span class="s1">&#39;Film&#39;</span><span class="p">,</span> <span class="s1">&#39;Locality&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_domains</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+
+    <span class="c1"># Connect input layer to hidden layer</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_examples</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Connect hidden layer to output layer</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">output_domains</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Drawing the graph</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;lavender&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+    
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> 
+            <span class="n">node_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;In-a-Nutshell&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualize the updated network architecture</span>
+<span class="n">visualize_nn</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/ba7b667082a1d2896efcaa33ae1f25e6380c326ccafb8307621f71a1accb126c.png" src="../_images/ba7b667082a1d2896efcaa33ae1f25e6380c326ccafb8307621f71a1accb126c.png" />
+</div>
+</div>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="figure/blanche.*"><img alt="figure/blanche.*" src="figure/blanche.*" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Compute and its Merits</em>. After 20 years of “compression,” much like the process in deep neural networks, this neural architecture reduces the complexity of vast inputs into three powerful nodes: <em>Inferno</em>, <em>Limbo</em>, and <em>Paradiso</em>. These nodes serve as distilled representations, capable of processing and mapping an exhaustive range of input domains—spanning from vital physiological states like <em>SBP</em> and <em>hCG</em>, to literary and cultural icons such as <em>Hamlet</em>, <em>Figaro</em>, and <em>Annie Hall</em>, even geopolitical entities like <em>Israel</em>. Despite their simplicity, these three nodes are robust enough to connect and represent broad outputs, encompassing concepts as varied as <em>Homeostasis</em>, <em>Games</em>, and <em>Film</em>, embodying a profound reduction of intricate data into a comprehensible, symbolic system.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It’s absolutely reasonable to think of compression and latent space as <code class="docutils literal notranslate"><span class="pre">allegory</span></code>, especially in the context of how deep learning reduces complex, high-dimensional data into abstract, meaningful representations. In an allegory, layers of meaning are compressed into symbols or characters that represent broader, multifaceted ideas. Similarly, neural networks condense vast amounts of data into a latent space, where each dimension holds abstract features or patterns that the model has learned. Just as an allegory distills complex narratives into essential truths or moral lessons, a neural network’s latent space abstracts data into representations that capture the core essence of the input, making it a powerful metaphor for understanding both symbolic reduction and the process of interpretation.</p>
+<p>The above architecture is a result of two decades (i.e. a lot of compute) worth of backpropagation. My original intuition was to begin with the the three nodes (anatomy, pathology, etiology) in the middle, which Mr. teacher Dr. Majjid Kajjimu appears to have done in his clinical approach to history, physical, examination, laboratory, imaging, management, and followup. As a fledgling, however, this failed to be useful in clinical settings and with complex cases. It also generalized very poorly outside the clinical setting. But backpropagation, the iterative fine-tuning of weights based on error, led me to expand from three nodes 20 years ago to five nodes 10 years ago. And today its led me back to three nodes as the hidden latent space representation (I was intuitively correct from the start, since my teacher was obviously performing from decades of experience). But now there is virtually no limit to the number of nodes at the input layer!</p>
 </section>
 </section>
 
