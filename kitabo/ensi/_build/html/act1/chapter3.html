@@ -368,7 +368,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -384,6 +386,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fall-of-man">Fall of Man</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -425,6 +435,81 @@ document.write(`
 <strong>X</strong> - <em>Xenophilia</em>: You have a fascination with cultures, ideas, and music that stretch beyond the familiar, from flamenco’s roots to ancient philosophy.<br />
 <strong>Y</strong> - <em>Yearning</em>: There’s a clear sense of searching in your thoughts—a desire to connect disparate ideas and find deeper meaning.<br />
 <strong>Z</strong> - <em>Zaide</em>: Mozart’s lesser-known work, reflecting your interest in the underexplored and the beautifully obscure.</p>
+<section id="fall-of-man">
+<h2>Fall of Man<a class="headerlink" href="#fall-of-man" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create the updated plot to reflect the vertical hierarchy of Inferno (red), Limbo (green), and Paradiso (blue)</span>
+
+<span class="k">def</span> <span class="nf">draw_vertical_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draws a triangle vertically arranged with given vertices and labels, matching color.&quot;&quot;&quot;</span>
+    <span class="n">triangle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vertices</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_vertical_triangle_vertices</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the vertices for a vertically aligned triangle with perspective scaling.&quot;&quot;&quot;</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">),</span>
+                                <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">vertices</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Vertically layered centers for Inferno, Limbo, and Paradiso</span>
+<span class="n">vertical_centers</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">triads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Betrayal&#39;</span><span class="p">,</span> <span class="s1">&#39;Power&#39;</span><span class="p">,</span> <span class="s1">&#39;Survival&#39;</span><span class="p">],</span>  <span class="c1"># Inferno layer</span>
+    <span class="p">[</span><span class="s1">&#39;Loyalty&#39;</span><span class="p">,</span> <span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">],</span>  <span class="c1"># Limbo layer</span>
+    <span class="p">[</span><span class="s1">&#39;Faith&#39;</span><span class="p">,</span> <span class="s1">&#39;Love&#39;</span><span class="p">,</span> <span class="s1">&#39;Hope&#39;</span><span class="p">]</span>  <span class="c1"># Paradiso layer</span>
+<span class="p">]</span>
+
+<span class="c1"># Inferno (red), Limbo (green), Paradiso (blue)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">]</span>
+
+<span class="c1"># Scaling for 3D perspective and slight tilts for visual depth</span>
+<span class="n">scales</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.7</span><span class="p">,</span> <span class="mf">.9</span><span class="p">]</span>
+<span class="n">tilts</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Draw the vertically aligned triangles with increasing radius and perspective scaling</span>
+<span class="k">for</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vertical_centers</span><span class="p">,</span> <span class="n">radii</span><span class="p">,</span> <span class="n">triads</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">tilts</span><span class="p">):</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">get_vertical_triangle_vertices</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">)</span>
+    <span class="n">draw_vertical_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="c1"># Set limits and hide axes to fit the frame</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/e70bd8e25377612b62ce2cceb76e8c92fb3493d9ecc18027305c381d40f461c4.png" src="../_images/e70bd8e25377612b62ce2cceb76e8c92fb3493d9ecc18027305c381d40f461c4.png" />
+</div>
+</div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><em>Updated Visual Representation of Our Allegory</em>. This clarifies a vertical hierarchy. It reflects the progression or salvation from <em>Inferno</em> (red) at the bottom, through <em>Limbo</em> (green) in the middle, to <em>Paradiso</em> (blue) at the top, with each layer embodying key elements of the human condition as well as Robert Aumann’s modification to <a class="reference external" href="https://www.nobelprize.org/uploads/2018/06/aumann-lecture.pdf">Isaiah 2:4</a>. The slight scaling and tilts give it a 3D effect, adding depth to the symbolism.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -481,6 +566,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fall-of-man">Fall of Man</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
