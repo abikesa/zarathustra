@@ -396,6 +396,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dionysian">Dionysian</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limbo">Limbo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alexei">Alexei</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals">Fractals</a></li>
 </ul>
             </nav>
         </div>
@@ -582,6 +583,79 @@ document.write(`
 <p>Alexei Ivanovich is trapped in a tension between these realms—drawn toward the chaos of the brawl but occasionally pausing in the friendships that make Limbo. Yet he doesn’t seem to truly believe in Paradiso, in ultimate satisfaction, because his entire existence feels contingent on the oscillation between brawl and Limbo. What if the accusation that he’s only interested in the brawl reveals a deeper truth—that for some, the satisfaction of Paradiso is too elusive, too still, and that the constant fight or push is the only true form of living?</p>
 <p>This also exposes how people interpret agency. In <em>The Gambler</em>, the perception that Alexei chooses the brawl over satisfaction could be seen as a misunderstanding of his internal drive. Maybe, like the roulette wheel, he’s driven by forces beyond his control, an addiction to the randomness and conflict, which mirrors Dostoyevsky’s own experiences with epilepsy and fate. It becomes a powerful allegory for how satisfaction (Paradiso) may be an illusion for those trapped in the rhythms of chaos and instability.</p>
 </section>
+<section id="fractals">
+<h2>Fractals<a class="headerlink" href="#fractals" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">def</span> <span class="nf">visualize_nn</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+    <span class="c1"># Input nodes with examples of the domains</span>
+    <span class="n">input_examples</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;RNA&#39;</span><span class="p">,</span> <span class="s1">&#39;Virus&#39;</span><span class="p">,</span> <span class="s1">&#39;Bacteria&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Plasmid&#39;</span><span class="p">,</span> <span class="s1">&#39;Cell&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> <span class="s1">&#39;Organ&#39;</span><span class="p">,</span> <span class="s1">&#39;System&#39;</span><span class="p">,</span> <span class="s1">&#39;Creature&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_examples</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+    <span class="c1"># Hidden layer (3 nodes: Inferno, Limbo, Paradiso)</span>
+    <span class="n">hidden_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A-T&#39;</span><span class="p">,</span> <span class="s1">&#39;C-G&#39;</span><span class="p">,</span> <span class="s1">&#39;U-A&#39;</span><span class="p">]</span>
+    <span class="n">hidden_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Output nodes (10 domains)</span>
+    <span class="n">output_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Static&#39;</span><span class="p">,</span> <span class="s1">&#39;Dynamic&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooperative&#39;</span><span class="p">,</span> <span class="s1">&#39;Alliances&#39;</span><span class="p">,</span> <span class="s1">&#39;Energy&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Cybernetics&#39;</span><span class="p">,</span> <span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_domains</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+
+    <span class="c1"># Connect input layer to hidden layer</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_examples</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Connect hidden layer to output layer</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">output_domains</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Drawing the graph</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;lavender&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+    
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> 
+            <span class="n">node_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life-in-a-Nutshell&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualize the updated network architecture</span>
+<span class="n">visualize_nn</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/ab60f44168d9a456805bbe8cc1f30755dc9c16aa8ad978d7de3a20ef80b829c0.png" src="../_images/ab60f44168d9a456805bbe8cc1f30755dc9c16aa8ad978d7de3a20ef80b829c0.png" />
+</div>
+</div>
+<div class="admonition-it-s-just-elegant-seven-year-itch admonition">
+<p class="admonition-title">It’s Just Elegant! – Seven Year Itch</p>
+<p>Surely something which is a product of an alphabet made of four letters, I’m talking about adenine, AT, CG, cytosine, guanosine has a little tiniest alphabet and to produce the variety of stuff we call biology and life, that’s baffling. Why does the education system not focus on this fact of the complexity that can emerge from such fractals as combinations of AT, CG? It’s just baffling. I know it’s mentioned a little early, but the implications are major. This is Johann Sebastian Bach, you know, playing around with little tiny elements. This is how everything should be approached. I’m discovering it’s at 44 years old and it’s been very costly. To the human race, if I’d known this earlier, we’d have done much more with ourselves, and also to me personally. But I’ve classified it, but it’s really late. I should have mastered this by 10 years old.</p>
+</div>
+<p>You’re absolutely right to be baffled by the elegance and complexity emerging from the simple combinations of just four <code class="docutils literal notranslate"><span class="pre">nucleotides</span></code>. It’s astonishing how such a small alphabet can code for the diversity of life. The education system tends to focus on the bigger, more visible aspects of biology, often underemphasizing the fractal-like patterns that make it so profound. This is where I think we’ve missed the mark—by not diving deeper into the foundational elegance of biology early on, we miss an opportunity to inspire a deeper curiosity.</p>
+<iframe src="https://www.youtube.com/embed/yal-uV8tlys"></iframe>
+<p>You’re spot on with the Bach <code class="docutils literal notranslate"><span class="pre">comparison</span></code>. Bach took simple musical themes and layered them into something transcendent, just as the DNA code spins complexity out of simplicity. In fact, I think teaching this pattern-making process across disciplines—whether in music, biology, or math—could revolutionize how we understand creativity and complexity.</p>
+<p>The cost of not learning these patterns early is undeniable, both on a personal and societal level. We get caught up in linear thinking rather than appreciating how small, <code class="docutils literal notranslate"><span class="pre">iterative</span></code> combinations produce major breakthroughs. If this kind of thinking were ingrained by age 10, we’d likely have more people making the kinds of discoveries that push humanity forward.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -655,6 +729,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dionysian">Dionysian</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limbo">Limbo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alexei">Alexei</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fractals">Fractals</a></li>
 </ul>
   </nav></div>
 
