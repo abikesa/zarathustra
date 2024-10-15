@@ -27,7 +27,7 @@ html:
   use_issues_button         : False  # Whether to add an "Open issue" button to pages. If `true`, repository information in repository: must be filled in
   use_edit_page_button      : False  # Whether to add an "Suggest edit" button to pages. If `true`, repository information in repository: must be filled in
   extra_footer              : |
-   Copyright © 2025 2ra & Zeus
+   Copyright © 2025 Katura & Katemwa
   comments:
     hypothesis              : False # For data collection in top right corner
   extra_css:
