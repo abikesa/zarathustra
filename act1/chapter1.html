@@ -370,7 +370,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -386,6 +388,23 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-acyclic-graphs">Directed Acyclic Graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allegory">Allegory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#game-theory">Game Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesis">Synthesis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-down">Top-Down</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bottom-up">Bottom-Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form">Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emotion">Emotion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-disuse">Use &amp; Disuse</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -541,6 +560,158 @@ document.write(`
 </figure>
 <p>However, <em>Crime and Punishment</em> might have also grabbed Nietzsche’s attention, particularly in Raskolnikov’s moral dilemmas and the exploration of a “superman” who places himself above common morality. Raskolnikov’s internal battle—his belief that he can transcend ordinary morality, and his subsequent downfall—mirrors Nietzsche’s thoughts on the Übermensch, but also serves as a cautionary tale of its darker potential. Nietzsche would have appreciated the existential crisis Raskolnikov experiences, even if he might critique his failure to fully embrace his own power and freedom.</p>
 <p>If Nietzsche read only one of Dostoevsky’s works, I’d put my money on <em>Notes from Underground</em> being the most impactful, but <em>Crime and Punishment</em> is a close contender for its thematic overlap with Nietzsche’s explorations of morality, power, and the individual’s struggle against societal norms.</p>
+<section id="directed-acyclic-graphs">
+<h2>Directed Acyclic Graphs<a class="headerlink" href="#directed-acyclic-graphs" title="Permalink to this heading">#</a></h2>
+<p>Our Neural Networks are DAGs with a layered architecture as seen below. The input (<span class="math notranslate nohighlight">\(x\)</span>, sensory) layer is at the bottom, output (<span class="math notranslate nohighlight">\(y\)</span>, perception) layer at the top, and hidden (<span class="math notranslate nohighlight">\(h\)</span>, associative) layer hidden in the middle.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Input at Bottom, Hidden in Middle, Output at Top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/a26a04058d4aa9dad207975bdf7e51823aecf595931f66a52ba84854b6491862.png" src="../_images/a26a04058d4aa9dad207975bdf7e51823aecf595931f66a52ba84854b6491862.png" />
+</div>
+</div>
+</section>
+<section id="allegory">
+<h2>Allegory<a class="headerlink" href="#allegory" title="Permalink to this heading">#</a></h2>
+<p>We’ll build on Dante’s allegory as an innate (Chomskyean) emotional fractal about seeking pleasure (salvation: strategic alliances from <em>Inferno</em>), avoiding pain (descent: fall-of-man from <em>Paradiso</em>), and associative memory &amp; intelligence (learning: eternal recurrence of same in _Limbo).</p>
+</section>
+<section id="game-theory">
+<h2>Game Theory<a class="headerlink" href="#game-theory" title="Permalink to this heading">#</a></h2>
+<p>So let’s organize the ideas within our framework of strategy, payoff, and equilibrium &amp; with language borrowed from machine-learning, which at best is grounded in self-play, adversarial games (<em>Inferno</em>), and unsupervised reinforcement learning:</p>
+<ol class="arabic simple">
+<li><p><strong>Strategy/Allostasis</strong> (Model Parameters: Weights &amp; Biases)</p>
+<ul class="simple">
+<li><p>In game theory, the “strategy” is what players choose to maximize their payoff.</p></li>
+<li><p>In neural networks, the strategy is the <strong>parameters</strong> of the model: <strong>weights</strong> and <strong>biases</strong>. These are what the network adjusts to minimize the loss during training. The model starts with random values and “learns” better values through training.</p></li>
+<li><p>Visualization: Imagine this as a network of nodes with connections (weights) between them. As we adjust these weights, the flow of information through the network changes, just like tweaking a player’s strategy.</p></li>
+</ul>
+</li>
+<li><p><strong>Payoff/Exostasis</strong> (Loss Function)</p>
+<ul class="simple">
+<li><p>In game theory, the payoff measures how well a strategy worked for a player.</p></li>
+<li><p>In neural networks, the “payoff” is your <strong>loss function</strong>, often measuring how far off the predictions are from the true labels (e.g., mean squared error for regression or cross-entropy for classification). Backpropagation adjusts the model to reduce this loss.</p></li>
+<li><p>Visualization: Think of this like a terrain of mountains and valleys (the “loss landscape”). The higher the terrain, the worse the model’s predictions, and the lower the terrain, the better. The model tries to move “downhill” in this landscape to minimize the loss.</p></li>
+</ul>
+</li>
+<li><p><strong>Equilibrium/Homeostasis</strong> (Convergence, Local or Global Minimum)</p>
+<ul class="simple">
+<li><p>In game theory, equilibrium is the point where no player can improve their payoff by changing their strategy.</p></li>
+<li><p>In neural networks, <strong>equilibrium</strong> corresponds to convergence—when the model reaches a point where further training doesn’t significantly reduce the loss. This is usually a <strong>local minimum</strong> (or maximum in some cases) where the model stabilizes.</p></li>
+<li><p>Visualization: Equilibrium is when the model has found a low point in the loss landscape. This could be a global minimum (the lowest point) or a local minimum (a lower point that’s not the absolute lowest). If adversarial training is used, this could oscillate, but generally, it is where the model has reached an inflection point.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="synthesis">
+<h2>Synthesis<a class="headerlink" href="#synthesis" title="Permalink to this heading">#</a></h2>
+<p><strong>Divinity</strong> of biology. The blue nodes include information processes driven by the DNA infrastructure, which can be regulated by input signals as witnessed in associative learning (operant &amp; classical conditioning). cAMP upregulation for short-term memory (increased weights &amp; biases) and new synaptic connection for long-term memory.</p>
+</section>
+<section id="top-down">
+<h2>Top-Down<a class="headerlink" href="#top-down" title="Permalink to this heading">#</a></h2>
+<p>Innate propensities for -stasis can modify the impact of signals at the input layers</p>
+</section>
+<section id="bottom-up">
+<h2>Bottom-Up<a class="headerlink" href="#bottom-up" title="Permalink to this heading">#</a></h2>
+<p>Association between innate stimuli for pleasure, indifference, and desire can be paired with other stimuli to condition an association with the hidden nodes</p>
+</section>
+<section id="form">
+<h2>Form<a class="headerlink" href="#form" title="Permalink to this heading">#</a></h2>
+<p>External physical properties of objects detected by the sensory layer may become conditioned bottom-up. Lets take a Freudian approach here and say that an object shaped like a Penis (ie a Dildo), through cultural conditioning or actual experience, may start to activate hidden layer effects with innate reflexes</p>
+</section>
+<section id="emotion">
+<h2>Emotion<a class="headerlink" href="#emotion" title="Permalink to this heading">#</a></h2>
+<p>Similarly, properties of objects other than form (e.g. tactile) may become associated with certain hidden nodes. A metallic object with pain, a plastic one with indifference, and one of flesh with desire. In this way three dildos, made from these three materials might provoke layered complex responses</p>
+</section>
+<section id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this heading">#</a></h2>
+<p>Anything but the <strong>Self</strong> or <strong>Divine</strong> falls here. Thus we have the interpersonal, internecine, international, and even intergalactic – which might align with the fantastical angel or demon!</p>
+</section>
+<section id="use-disuse">
+<h2>Use &amp; Disuse<a class="headerlink" href="#use-disuse" title="Permalink to this heading">#</a></h2>
+<p>Whatever is in the realm of voluntary, conscious, and especially engaging the musculoskeletal system and the general realm of affairs termed “agency” falls here. This is of particular relevance to gerontology and aging.</p>
+<p>Its critical to note that disuse atrophy must be appreciated. And that strength training through exercise must be honored.</p>
+<p>There is an extension to engage not only the motor, but the cognitive, and sensory inputs so that the physical frailty phenotype is delayed. Let’s delve into the roles for Robots, ChatBots, and Environmental stimuli (programmable and AI-supported) and what they might have to offer at lower cost than the $45/hour/ 24hrs/day for 365 days (\394,200) a year among the elderly who have lost independence with regard to the ADLs.</p>
+<p><img alt="" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202410/tesla-optimus-11490861-16x9_0.jpg?VersionId=rB3xw.drpyt1jaxHVgxbtIRCbYr9SfbI&amp;size=690:388" /></p>
+<p>Lower cost solutions are on the horizon!</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -597,6 +768,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-acyclic-graphs">Directed Acyclic Graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allegory">Allegory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#game-theory">Game Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesis">Synthesis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-down">Top-Down</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bottom-up">Bottom-Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form">Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emotion">Emotion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-disuse">Use &amp; Disuse</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
