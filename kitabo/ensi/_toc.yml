@@ -5,7 +5,7 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Mortality
+      - title: Recurrence
         file: act1/chapter1
       - title: ESRD
         file: act1/chapter2
