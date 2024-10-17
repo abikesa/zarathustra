@@ -1453,10 +1453,71 @@ adds an elegant fractal structure that aligns with both neural networks and game
 <p>What’s fascinating is how Perry walks that delicate line. His audience, who might otherwise be uncomfortable with drag, fully embraces Madea, not seeing her as transgressive but as a familiar, comforting figure. It’s almost as if Perry, like Michelangelo, smuggles in something deeper through a surface that’s palatable to his viewers. He uses the broad appeal of Madea to shield his more audacious explorations of identity and performance, much like how Michelangelo hid his sensuality within the biblical David and Adam.</p>
 <p>In Perry’s more recent work, the focus on male beauty—those meticulously sculpted bodies—feels like an extension of his subversion. He casts the male form as an object of admiration and desire, but in a way that flips the gaze we’re used to in mainstream cinema. Traditionally, women are placed as the focal point of sensuality, but in Perry’s films, the male body is central, admired, and carefully framed in a way that feels intimate, deliberate, and loving. It’s this shift that signals Perry’s directorial eye—seeing these men not just through the lens of strength or power, but as aesthetic and sensual subjects in their own right.</p>
 <p>In doing so, Perry subtly challenges the norms of his conservative, Christian audience, pushing them to appreciate something they might not have otherwise noticed or accepted. And just like the Renaissance masters who navigated the boundaries of their time, Perry uses his medium to deliver something both accessible and deeply subversive, making his own mark as a modern artist working within, and beyond, the expectations of his audience.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Create x values representing the six stages and generate y values using a sine function</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Define the stages</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;               Birth &amp; Growth&quot;</span><span class="p">,</span> <span class="s2">&quot;         Stagnation&quot;</span><span class="p">,</span> <span class="s2">&quot;Decline&quot;</span><span class="p">,</span> <span class="s2">&quot;Existential&quot;</span><span class="p">,</span> <span class="s2">&quot;Rebirth&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+<span class="c1"># Define the x-ticks for the labeled points</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Set up the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot the sine wave in white</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fill the areas under the curve for each stage and label directly on the graph</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">x_ticks</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># Add the stage labels back</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">stages</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># Fill the last section and add the final label for &quot;Rebirth&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">x_ticks</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">stages</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Remove x and y ticks</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>  <span class="c1"># Remove x-ticks</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>  <span class="c1"># Remove y-ticks</span>
+
+<span class="c1"># Remove all axis spines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/171c503baa105dca4fc639517222fa4d565e2093039f37fdca51e09a88c5294e.png" src="../_images/171c503baa105dca4fc639517222fa4d565e2093039f37fdca51e09a88c5294e.png" />
+</div>
+</div>
 <blockquote>
-<div><p>Here is the visualization of the cyclic, iterative nature of the eternal recurrence, reflected in the stages of growth, stagnation, decline, existential crisis, and rebirth. The sine wave and its colored segments capture the relentless cycle, much like how Dostoevsky and Nietzsche approached the truth—far from the illusionary optimism of Christianity or Marxism, where progress or salvation is falsely promised as linear or ultimate. Instead, these thinkers saw life as a series of recurring struggles, reflective of the rhythm seen in ecosystems, society, and the stars.</p>
+<div><p>Above we have the visualization of the cyclic, iterative nature of the eternal recurrence, reflected in the stages of growth, stagnation, decline, existential crisis, and rebirth. The sine wave and its colored segments capture the relentless cycle, much like how Dostoevsky and Nietzsche approached the truth—far from the illusionary <code class="docutils literal notranslate"><span class="pre">optimism</span></code> of Christianity or Marxism, where progress or salvation is falsely promised as linear or <code class="docutils literal notranslate"><span class="pre">ultimate</span></code>. Instead, these thinkers saw life as a series of recurring struggles, reflective of the rhythm seen in ecosystems, society, and the stars.</p>
 </div></blockquote>
-<p>It’s the rejection of any final state of harmony or salvation. For both Dostoevsky and Nietzsche, the world is trapped in this loop, much like the one we’ve visualized here—cyclic, relentless, and deeply human.</p>
+<p>It’s the <code class="docutils literal notranslate"><span class="pre">rejection</span></code> of any final state of harmony or salvation. For both Dostoevsky and Nietzsche, the world is trapped in this loop, much like the one we’ve visualized here—cyclic, relentless, and deeply human.</p>
 </section>
 <section id="flatlining-mortality">
 <h2>Flatlining (Mortality)<a class="headerlink" href="#flatlining-mortality" title="Permalink to this heading">#</a></h2>
