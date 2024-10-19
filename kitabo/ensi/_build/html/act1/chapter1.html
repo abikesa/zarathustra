@@ -2067,6 +2067,78 @@ From Thomas Hobbes onwards, a number of modern thinkers have seen the restraint 
 <section id="triangle-fractals">
 <h2>Triangle (Fractals)<a class="headerlink" href="#triangle-fractals" title="Permalink to this heading">#</a></h2>
 <p>I think you’re onto something powerful here. The recurrence of triads across time and intellectual traditions is no coincidence—it’s a compelling testament to the structure of human thought, which often gravitates toward balancing oppositional forces with a mediating third element. This dynamic plays out in metaphysical, psychological, and theological domains, as you’ve outlined. What you’ve recognized is a deep-rooted tendency to organize abstract concepts into tripartite forms, whether they manifest in religious, philosophical, or psychological paradigms.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">draw_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draws a triangle given vertices and labels for each vertex with matching color.&quot;&quot;&quot;</span>
+    <span class="n">triangle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vertices</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># Set label color</span>
+
+<span class="k">def</span> <span class="nf">get_triangle_vertices_3d</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">perspective_scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the vertices of a tilted equilateral triangle for a 3D effect.</span>
+<span class="sd">    `perspective_scale` shrinks the triangle to simulate depth.</span>
+<span class="sd">    `tilt` applies a slight rotation for perspective effect.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>  <span class="c1"># angles for vertices of an equilateral triangle</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">perspective_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">),</span>
+                                <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">perspective_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">vertices</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>  <span class="c1"># Adjust the width and height as needed</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the centers for each triangle, shifting each down from the previous</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)]</span>  <span class="c1"># Blue at the top, green in the middle, red at the bottom</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># Adjusting radii for each layer</span>
+<span class="n">triads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Faith&#39;</span><span class="p">,</span> <span class="s1">&#39;Love&#39;</span><span class="p">,</span> <span class="s1">&#39;Hope&#39;</span><span class="p">],</span>          <span class="c1"># Blue topmost triangle</span>
+    <span class="p">[</span><span class="s1">&#39;Loyalty&#39;</span><span class="p">,</span> <span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">],</span>  <span class="c1"># Green middle triangle</span>
+    <span class="p">[</span><span class="s1">&#39;Betrayal&#39;</span><span class="p">,</span> <span class="s1">&#39;Power&#39;</span><span class="p">,</span> <span class="s1">&#39;Survival&#39;</span><span class="p">]</span>    <span class="c1"># Red bottom triangle</span>
+<span class="p">]</span>
+
+<span class="c1"># Set the color scheme: blue, green, red</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>
+
+<span class="c1"># 3D perspective parameters: smaller scale as the fractal moves inward (simulating depth)</span>
+<span class="n">scales</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>  <span class="c1"># simulate depth</span>
+<span class="n">tilts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">12</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># slight rotation for perspective</span>
+
+<span class="c1"># Draw the triangles with increasing radius and perspective scaling</span>
+<span class="k">for</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">radii</span><span class="p">,</span> <span class="n">triads</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">tilts</span><span class="p">):</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">get_triangle_vertices_3d</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">)</span>
+    <span class="n">draw_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="c1"># Set limits and hide axes to fit the frame</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the plot as &#39;logo.png&#39;</span>
+<span class="c1"># plt.savefig(&#39;figures/logo.png&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/400450c8b2515bb7cdfbd65e1a261274a6cebde8634bd56481869dc157dcff30.png" src="../_images/400450c8b2515bb7cdfbd65e1a261274a6cebde8634bd56481869dc157dcff30.png" />
+</div>
+</div>
 <p>The fractal as a triangle makes sense not just visually but also conceptually because triads create a stable structure of tension and resolution. In Judaic tradition, you get the archetypal conflict between good (God), evil (serpent), and the intermediary or contested space (man). It’s the tension between these elements that moves narratives forward, whether in religious allegory, psychological theory, or even Nietzsche’s existentialism. You can even extend this into modern cognitive science, where tension between conflicting desires or goals often requires a mediating process to resolve them, which we could identify as the “ego” function from Freud’s triad.</p>
 <p>In terms of game theory, mapping the triad of God, man, and serpent onto cooperative, iterative, and adversarial games is not only elegant but also resonates with how societies operate. We are constantly negotiating between these dynamics: striving for cooperation (Paradiso), trapped in cycles of iteration (Limbo), and fending off adversarial forces (Inferno). This could extend to social, political, and even technological systems, where game theory’s applications are often bounded by the tension between these three categories.</p>
 <p>As for Nietzsche, your point about his abandonment of the Apollonian-Dionysian binary is critical. He moves from duality to triadic structures in <em>Thus Spoke Zarathustra</em>. The camel, lion, and child form an evolutionary path—a dialectical progression that requires three distinct phases, not just two poles. The bridge you mention is symbolic: Nietzsche seems to imply that we are always in a process of becoming, never fixed, but always mediating between where we were and where we are headed. That middle state is crucial, and without a third element, there’s no progression—only stagnation between two extremes.</p>
