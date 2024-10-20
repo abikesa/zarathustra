@@ -476,6 +476,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-llewyn">Name (Llewyn)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vocabulary-intelligence">Vocabulary (Intelligence)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategic-complexity">Strategic (Complexity)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stasis-hypnos">Stasis (Hypnos)</a></li>
 </ul>
             </nav>
         </div>
@@ -2377,7 +2378,7 @@ By Aaliyah</p>
     <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
 <span class="p">]</span>
 
-<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">]</span>
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Eros&#39;</span><span class="p">,</span> <span class="s1">&#39;Hypnos&#39;</span><span class="p">,</span> <span class="s1">&#39;Thanatos&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -2419,11 +2420,11 @@ By Aaliyah</p>
 <span class="c1"># Draw the graph with different colors for specific nodes</span>
 <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eros&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Hypnos&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Thanatos&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
@@ -2439,7 +2440,7 @@ By Aaliyah</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/adefd11b54b941a4de47905bda99d9c9b09405ee1bbf1a4faa5ae7c1a9f5fb26.png" src="../_images/adefd11b54b941a4de47905bda99d9c9b09405ee1bbf1a4faa5ae7c1a9f5fb26.png" />
+<img alt="../_images/8d5d46b1a647647ad068bd0e3eeb618c8daf04cdb8a62e42a0344acc7b5ae895.png" src="../_images/8d5d46b1a647647ad068bd0e3eeb618c8daf04cdb8a62e42a0344acc7b5ae895.png" />
 </div>
 </div>
 <figure class="align-default" id="id13">
@@ -2459,6 +2460,24 @@ By Aaliyah</p>
 </ol>
 <p><strong>Equilibrium in Practice</strong>: Think about your situation with the EPA and FDA teams. In this context, your potential to shift the game into something more cooperative depends on accurately reading the payoffs and power dynamics. They may not see you as a natural ally but as a competitor or even a threat, especially if your FDA data provides insights they don’t have. If you approach this as a cooperative game too early—without securing your strategic position—you might give away your advantage. The iterative nature of this game means you need to continuously reassess where the equilibrium lies, ensuring your moves don’t weaken your standing.</p>
 <p>In short, when you account for <em>strategic complexity</em>, you navigate layers of hidden motives and long-term consequences. When you respect <em>transactional payoffs</em>, you ensure every move improves your standing. And by understanding <em>power dynamics</em>, you maintain equilibrium by leveraging authority and deterring exploitation.</p>
+</section>
+<section id="stasis-hypnos">
+<h2>Stasis (Hypnos)<a class="headerlink" href="#stasis-hypnos" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>If we have Thanatos representing Inferno and Eros representing Paradiso, what would represent Limbo?</p>
+</div></blockquote>
+<p>If we think of Limbo as a state that exists between the forces of Thanatos (destruction, death) and Eros (creation, life), then Limbo would represent something like <strong>Apatheia</strong> or <strong>Stasis</strong>—a condition of emotional neutrality or suspension. It’s a place where one is neither drawn to annihilation nor to passionate creation. Instead, Limbo could symbolize <strong>Indifference</strong> or <strong>Stagnation</strong>, where desire is muted, and neither the drive toward destruction nor renewal is fully activated.</p>
+<p>In Dante’s “Divine Comedy,” Limbo is a realm of unfulfilled potential, lacking both the torment of Hell and the joy of Heaven, so it would be fitting for something like <strong>Equilibrium without progress</strong> to characterize it. It’s not a true balance but more a void of movement—neither advancing toward Paradiso nor regressing into Inferno.</p>
+<blockquote>
+<div><p>Basically like in the Cold War.</p>
+</div></blockquote>
+<p>Exactly, like the Cold War—a tense, suspended state where neither side fully engages in open conflict (Inferno) nor resolves into cooperation or renewal (Paradiso). The Cold War was marked by <strong>stalemate</strong> and <strong>containment</strong>, where both powers maintained an uneasy balance through deterrence rather than destruction, while not moving toward meaningful connection or unity.</p>
+<p>Limbo in this context parallels the Cold War’s <strong>deadlock</strong>—a period of restrained tension, where nothing is allowed to tip too far in either direction. It’s the space of strategic maneuvering, where both sides were locked in mutual suspicion, avoiding both extremes but also avoiding real resolution or creative evolution. There’s no true progress, just the maintenance of the status quo.</p>
+<blockquote>
+<div><p>I’ll ride with stasis, although I’d hope for a figure in the Pantheon or in the realm of Thanatos and Eros.</p>
+</div></blockquote>
+<p>For a figure representing <strong>Stasis</strong> within the realm of Thanatos and Eros, you could look to <strong>Hypnos</strong>, the god of sleep in Greek mythology. Hypnos is often associated with inactivity, a kind of suspended existence between life and death, which makes him a fitting embodiment of Limbo. Sleep, after all, is a state where one is neither fully alive nor dead—paused in time, much like the Cold War stalemate or Dante’s Limbo.</p>
+<p>Hypnos doesn’t provoke the finality of death (Thanatos) or the generative force of life (Eros), but instead offers a <strong>neutral intermission</strong>—a moment of <strong>unconscious rest</strong> and inertia. His role is less about choosing sides and more about sustaining a world where movement, passion, or finality is absent. He could sit comfortably in the Pantheon as the embodiment of Limbo, the god of suspended motion and emotional stasis.</p>
 </section>
 </section>
 
@@ -2609,6 +2628,7 @@ By Aaliyah</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-llewyn">Name (Llewyn)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vocabulary-intelligence">Vocabulary (Intelligence)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategic-complexity">Strategic (Complexity)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stasis-hypnos">Stasis (Hypnos)</a></li>
 </ul>
   </nav></div>
 
