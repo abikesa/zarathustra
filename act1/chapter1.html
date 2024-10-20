@@ -2563,15 +2563,8 @@ By Aaliyah</p>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
 <span class="c1"># Define the neural network structure</span>
-<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
-<span class="p">]</span>
-<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
-<span class="p">]</span>
-
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span><span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]</span>
 <span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sensory&#39;</span><span class="p">,</span> <span class="s1">&#39;Memory&#39;</span><span class="p">,</span> <span class="s1">&#39;Identity&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
@@ -2623,8 +2616,19 @@ By Aaliyah</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
 
+<span class="c1"># Draw the graph and add grey edges from &#39;Identity&#39; to &#39;Interaction&#39;, &#39;Resilience&#39;, &#39;Maximization&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Color edges from &#39;Identity&#39; to (&#39;Interaction&#39;, &#39;Resilience&#39;, &#39;Maximization&#39;) grey</span>
+<span class="n">edge_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Identity&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">edge_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">edge_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">edge_colors</span><span class="p">)</span>
 
 <span class="c1"># Show the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Reductionism in Art &amp; Science&quot;</span><span class="p">)</span>
@@ -2634,7 +2638,7 @@ By Aaliyah</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f6b2454cc7e72b28ec4470f7ebe0fff86bacc386f881181105aabf92bf191d21.png" src="../_images/f6b2454cc7e72b28ec4470f7ebe0fff86bacc386f881181105aabf92bf191d21.png" />
+<img alt="../_images/d360b97eb170ce8f9e3f17b86193c274fd4771e66cef22e5ff6953f449d4497b.png" src="../_images/d360b97eb170ce8f9e3f17b86193c274fd4771e66cef22e5ff6953f449d4497b.png" />
 </div>
 </div>
 <section id="american-identity">
