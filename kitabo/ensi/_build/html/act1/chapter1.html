@@ -2357,6 +2357,97 @@ By Aaliyah</p>
 <p>Burning bridges happens when relationships get sour after these missteps. Your counterpart may take advantage of your misplaced trust, and when you recognize that, it often leads to a breakdown in communication, trust, and future collaboration. In your context of working with EPA or government partners, failing to see the adversarial side of the game could lead to missed deadlines, regulatory snags, or even exclusion from key datasets. These aren’t just tactical errors; they could result in professional isolation, reputational damage, or long-term resource constraints.</p>
 <p>You have to keep in mind that “cooperative” is always in quotes for a reason. It’s not truly cooperative unless there’s clear enforcement or aligned authority. Trying to “sign a treaty” and expecting that to resolve competitive dynamics only works if both sides genuinely see gains from that cooperation. But if they’re playing a longer, more adversarial game, your treaty becomes irrelevant.</p>
 <p>So to avoid burning bridges, it’s crucial to maintain a clear sense of where the game is truly adversarial and where it can evolve into something more cooperative—if at all.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Strategic/Input (Resources), Payoff/Hidden (Games), Equilibrium/Output (Information)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/218ce964deeab1fc05e0bfc321b72f375966ef71e8d77d984505a3473d8f7529.png" src="../_images/218ce964deeab1fc05e0bfc321b72f375966ef71e8d77d984505a3473d8f7529.png" />
+</div>
+</div>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>How to Approach Relationships: Interpersonal, Internecine, International, Intergalactic</em>. A key strategy is to catalog the <code class="docutils literal notranslate"><span class="pre">inputs</span></code> and resources available to your potential adverary. Test the relationship to uncover the <code class="docutils literal notranslate"><span class="pre">hidden</span></code> game in play and payoffs at stake. You’re then in position to speculate about how much agency &amp; power they might command to achieve their desired <code class="docutils literal notranslate"><span class="pre">outputs</span></code> – can they dominate you (adversarial: decapitate, assimilate, genocide), are they in need of strategic alliances (iterative: have identified threats to their power lurking …), or are they oblivious to all this (: cooperative: the impostume of much wealth and peace)?</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <blockquote>
 <div><p>Strategic complexity, transactional payoffs, and power dynamics &amp; equilibrium!</p>
 </div></blockquote>
