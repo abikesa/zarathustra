@@ -482,6 +482,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mezcal-tequila">Mezcal (Tequila)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artisanal-capitalist">Artisanal (Capitalist)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uganda-critical">Uganda (Critical)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-sensory">Learning (Sensory)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#american-identity">American (Identity)</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -2546,6 +2550,101 @@ By Aaliyah</p>
 <p>The rise of “artisanal” products is, in some ways, a reaction against the industrialization and standardization that capitalism encourages. People often seek out artisanal goods as an alternative to mass-produced items, wanting something that feels personal, local, and rooted in tradition. Ironically, capitalism itself fuels this demand, as producers recognize the profit potential in catering to a growing consumer base that desires authenticity and uniqueness.</p>
 <p>In some cases, capitalism even commodifies “artisanal” as a brand, where the term is used loosely to attract consumers, sometimes without truly reflecting the traditional craftsmanship or quality it once implied. This tension between authenticity and commodification is one of the many ways capitalism interacts with the concept of artisanal production.</p>
 </section>
+<section id="learning-sensory">
+<h2>Learning (Sensory)<a class="headerlink" href="#learning-sensory" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sensory&#39;</span><span class="p">,</span> <span class="s1">&#39;Memory&#39;</span><span class="p">,</span> <span class="s1">&#39;Identity&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Sensory&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Memory&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Identity&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Reductionism in Art &amp; Science&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/f6b2454cc7e72b28ec4470f7ebe0fff86bacc386f881181105aabf92bf191d21.png" src="../_images/f6b2454cc7e72b28ec4470f7ebe0fff86bacc386f881181105aabf92bf191d21.png" />
+</div>
+</div>
+<section id="american-identity">
+<h3>American (Identity)<a class="headerlink" href="#american-identity" title="Permalink to this heading">#</a></h3>
+<p>In the mid-20th century this manifested itself in New York abstract art movements, which at bottom were freeing American identity from the memory, associations, and legend tied to figurative European art.</p>
+<p>From the perspective neural networks, this was tantamount to reducing the weights &amp; biases of the edges linking the green nodes above.</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg" /></p>
+<p>Learned associations between <code class="docutils literal notranslate"><span class="pre">external</span></code> symbols, natural objects, and an entire culture with its memories and legends (green) became classically conditioned to represent biological desire (harp), neutrality (study), and pain (spear) as might surmise from the School of Athens.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2701,6 +2800,10 @@ By Aaliyah</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mezcal-tequila">Mezcal (Tequila)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artisanal-capitalist">Artisanal (Capitalist)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uganda-critical">Uganda (Critical)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-sensory">Learning (Sensory)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#american-identity">American (Identity)</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
