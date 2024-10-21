@@ -3129,6 +3129,10 @@ By Aaliyah</p>
 </section>
 <section id="faith-nihilism">
 <h2>Faith (Nihilism)<a class="headerlink" href="#faith-nihilism" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p><em>What is great in man is that he is a bridge and not a goal: what is lovable in man is that he is an OVER-GOING and a DOWN-GOING.</em><br />
+– Zarathustra’s <a class="reference external" href="https://www.gutenberg.org/files/1998/1998-h/1998-h.htm">Prologue</a></p>
+</div></blockquote>
  <iframe width="800" height="200" src="https://www.youtube.com/embed/krBjIX4UBI8" 
             title="YouTube video player" 
             frameborder="0" 
@@ -3181,6 +3185,14 @@ By Aaliyah</p>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
         <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 
+<span class="c1"># Modify specific connections to have thicker edges (will to resilience, selfplay to will, and will to interaction)</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Selfplay&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span><span class="p">):</span>
+        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>  <span class="c1"># Thicker edges for selected connections</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
 <span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
@@ -3206,7 +3218,7 @@ By Aaliyah</p>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
 
 <span class="c1"># Show the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resources, Games, &amp; Information&quot;</span><span class="p">)</span>
@@ -3216,13 +3228,13 @@ By Aaliyah</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/edb40e709dc2faf08c66ed1268f0d92a935947c2a6d5bdd7ccaa39a9351b9572.png" src="../_images/edb40e709dc2faf08c66ed1268f0d92a935947c2a6d5bdd7ccaa39a9351b9572.png" />
+<img alt="../_images/dd59991983edab79fb60af02fabfe06a215aa107962a87747a5a8a71ed8645b1.png" src="../_images/dd59991983edab79fb60af02fabfe06a215aa107962a87747a5a8a71ed8645b1.png" />
 </div>
 </div>
 <figure class="align-default" id="id16">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>A Philosophy That Placed The Individual vs. Culture at Center</em>. Pursuing personal greatness, not power over others, but power over oneself. Self-overcoming: relentless pursuit of self-improvment. Creation is at the heart of all these efforts.</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>A Philosophy That Placed The Individual vs. Culture at Center</em>. Pursuing personal greatness, not power over others, but power over oneself. Self-overcoming: relentless pursuit of self-improvment. Creation is at the heart of all these efforts. But as we can see from our neural network, these are very “unnatural” weights. And Nietzsche understood this very well by Calling the “Will” or man a bridge between animal and übermensch</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Nietzsche, like his dad, suffered from <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/23586545/">CADASIL</a></p>
