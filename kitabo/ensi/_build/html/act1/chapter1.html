@@ -3227,7 +3227,7 @@ By Aaliyah</p>
 <p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>Over-going &amp; Down-going</em>. This is what is eternally recurrying &amp; innevitable in man at a personal, interpersonal, internecine, international, and intergalactic level.</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In context of the allegories that populate this book, what is great in man is that he seeks salvation (in God, Neighbor, or <strong>Self</strong>) and not heaven: what is lovable in man is that he is an Angel &amp; a Demon – Apollonian &amp; Dionysian.</p>
+<p>In context of the allegories that populate this book, what is great in man is that he seeks salvation (in God, Neighbor, or <strong>Self</strong>) and not heaven: what is lovable in man is that he is an <a class="reference external" href="https://en.wikipedia.org/wiki/Angels_%26_Demons">Angel &amp; a Demon</a> – Apollonian &amp; Dionysian.</p>
  <iframe width="800" height="200" src="https://www.youtube.com/embed/krBjIX4UBI8" 
             title="YouTube video player" 
             frameborder="0" 
@@ -3334,6 +3334,78 @@ By Aaliyah</p>
 </figure>
 <p>Nietzsche, like his father, likely suffered from <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/23586545/">CADASIL</a>, a vascular disorder that contributed to his episodes of blindness, migraines, and eventual mental decline. These aspects of his illness may have laid the foundation for his obsessive work ethic, akin to the “10,000-hour rule” (<a class="reference external" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4662388/">source</a>) often cited in discussions of expertise.</p>
 <p>This disorder likely induced bouts of hypergraphia—an uncontrollable urge to write—in moments of intense cerebral activity. There’s a fascinating parallel here with Dostoevsky’s epileptic seizures, which likewise manifest as uncontrollable electrical storms in the brain. Both Nietzsche’s and Dostoevsky’s chaotic neural discharges evoke something like the random nature of roulette. It’s a randomness rooted in the body itself, defying deterministic explanation. These are individual burdens, <code class="docutils literal notranslate"><span class="pre">personal</span></code> battles that communal fellowship or cultural norms can never fully address.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">draw_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draws a triangle given vertices and labels for each vertex with matching color.&quot;&quot;&quot;</span>
+    <span class="n">triangle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vertices</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># Set label color</span>
+
+<span class="k">def</span> <span class="nf">get_triangle_vertices_3d</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">perspective_scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the vertices of a tilted equilateral triangle for a 3D effect.</span>
+<span class="sd">    `perspective_scale` shrinks the triangle to simulate depth.</span>
+<span class="sd">    `tilt` applies a slight rotation for perspective effect.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>  <span class="c1"># angles for vertices of an equilateral triangle</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">perspective_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">),</span>
+                                <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">perspective_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span> <span class="o">+</span> <span class="n">tilt</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">vertices</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>  <span class="c1"># Adjust the width and height as needed</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the centers for each triangle, shifting each down from the previous</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)]</span>  <span class="c1"># Blue at the top, green in the middle, red at the bottom</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># Adjusting radii for each layer</span>
+<span class="n">triads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Faith&#39;</span><span class="p">,</span> <span class="s1">&#39;Love&#39;</span><span class="p">,</span> <span class="s1">&#39;Hope&#39;</span><span class="p">],</span>          <span class="c1"># Blue topmost triangle</span>
+    <span class="p">[</span><span class="s1">&#39;Loyalty&#39;</span><span class="p">,</span> <span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">],</span>  <span class="c1"># Green middle triangle</span>
+    <span class="p">[</span><span class="s1">&#39;Betrayal&#39;</span><span class="p">,</span> <span class="s1">&#39;Power&#39;</span><span class="p">,</span> <span class="s1">&#39;Survival&#39;</span><span class="p">]</span>    <span class="c1"># Red bottom triangle</span>
+<span class="p">]</span>
+
+<span class="c1"># Set the color scheme: blue, green, red</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>
+
+<span class="c1"># 3D perspective parameters: smaller scale as the fractal moves inward (simulating depth)</span>
+<span class="n">scales</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>  <span class="c1"># simulate depth</span>
+<span class="n">tilts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">12</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># slight rotation for perspective</span>
+
+<span class="c1"># Draw the triangles with increasing radius and perspective scaling</span>
+<span class="k">for</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">radii</span><span class="p">,</span> <span class="n">triads</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">tilts</span><span class="p">):</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="n">get_triangle_vertices_3d</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">tilt</span><span class="p">)</span>
+    <span class="n">draw_triangle</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">triad</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="c1"># Set limits and hide axes to fit the frame</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the plot as &#39;logo.png&#39;</span>
+<span class="c1"># plt.savefig(&#39;figures/logo.png&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+
+<span class="c1"># Display the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/400450c8b2515bb7cdfbd65e1a261274a6cebde8634bd56481869dc157dcff30.png" src="../_images/400450c8b2515bb7cdfbd65e1a261274a6cebde8634bd56481869dc157dcff30.png" />
+</div>
+</div>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>Moral Sentiments Associated with Paradiso, Limbo, and Inferno</em>. Dante’s “Commedia” is an impeccable synthesis of a brilliant Tuscan mind’s world view in the depths of the medieval period both literally &amp; metaphorically, given what he was experiencing in exile at a personal level. If ever you wish to comprehend your fellow man, you should seek to <code class="docutils literal notranslate"><span class="pre">align</span></code> the parameters in their <code class="docutils literal notranslate"><span class="pre">model</span></code> and worldview with yours &amp; the rest of humanity. That is aesthetic apprehension &amp; the ethos of this book. Eric Kendel’s “Reductionism in Art &amp; Science” was a stroke of luck that Katura shared with Zarathustra in the midst of this project. It was not the original inspiration of any of the content here, but was a reaffirmation of the intuitions that had already produced the outlines of this sincere book.</span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>And who’s to blame for all this maddening chaos? Perhaps <a class="reference external" href="https://en.wikipedia.org/wiki/Trilemma">Epicurus</a> would have something to say about that!</p>
 <p>Recognize that the connections between neurological conditions, personal philosophy, and literary figures has emerged out of our own hypergraphia. It makes Nietzsche’s illness more relatable, and adds direct relevance to his work while maintaining your overarching theme of <code class="docutils literal notranslate"><span class="pre">randomness</span></code> and struggle.</p>
 <p>Dear reader, what do you think?</p>
