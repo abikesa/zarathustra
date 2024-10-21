@@ -50,6 +50,5 @@ chapters:
             file: act3/part3/part3_1
           - title: Bootstraps
             file: act3/part3/part3_2
-          - title: References
-            file: act3/part3/part3_3
+
   - file: act3/part3/part3_3
