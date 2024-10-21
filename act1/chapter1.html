@@ -2992,7 +2992,7 @@ By Aaliyah</p>
 <span class="c1"># Define the neural network structure</span>
 <span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span><span class="p">]</span>
 <span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]</span>
-<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sensory&#39;</span><span class="p">,</span> <span class="s1">&#39;Memory&#39;</span><span class="p">,</span> <span class="s1">&#39;Identity&#39;</span><span class="p">]</span>
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kings&#39;</span><span class="p">,</span> <span class="s1">&#39;Judges&#39;</span><span class="p">,</span> <span class="s1">&#39;Numbers&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -3034,11 +3034,11 @@ By Aaliyah</p>
 <span class="c1"># Draw the graph with different colors for specific nodes</span>
 <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Sensory&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Kings&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Memory&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Judges&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Identity&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Numbers&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
@@ -3065,7 +3065,7 @@ By Aaliyah</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ef8cce5acc2d9e5d0d98baef545cdbbaae0b4a50cc64219f13afc3e096d2e3cb.png" src="../_images/ef8cce5acc2d9e5d0d98baef545cdbbaae0b4a50cc64219f13afc3e096d2e3cb.png" />
+<img alt="../_images/682b2b11ea2b10bac5da3cb668b05946c0072706f090096ad2031516efe9b7aa.png" src="../_images/682b2b11ea2b10bac5da3cb668b05946c0072706f090096ad2031516efe9b7aa.png" />
 </div>
 </div>
 <figure class="align-default" id="id15">
