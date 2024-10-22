@@ -3631,12 +3631,12 @@ By Aaliyah</p>
 <ul class="simple">
 <li><p>Pre-enlightenment</p>
 <ul>
-<li><p>Aesthetics</p></li>
+<li><p>Aesthetics (Sensory)</p></li>
 <li><p>Religion</p></li>
 <li><p>Theology</p></li>
 </ul>
 </li>
-<li><p>Enlightenment</p>
+<li><p>Enlightenment (Memory)</p>
 <ul>
 <li><p>Science</p></li>
 <li><p>Technology</p></li>
@@ -3644,7 +3644,7 @@ By Aaliyah</p>
 <li><p>Math</p></li>
 </ul>
 </li>
-<li><p>Modernity</p>
+<li><p>Modernity (Identity)</p>
 <ul>
 <li><p>Alienation</p></li>
 <li><p>Dispair</p></li>
@@ -3658,6 +3658,99 @@ By Aaliyah</p>
 </ul>
 </li>
 </ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ART&#39;</span><span class="p">,</span> <span class="s1">&#39;STEM&#39;</span><span class="p">,</span> <span class="s1">&#39;FAD&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Modify specific connections to have thicker edges (will to resilience, selfplay to will, and will to interaction)</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Selfplay&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span><span class="p">):</span>
+        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>  <span class="c1"># Thicker edges for selected connections</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;ART&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;STEM&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;FAD&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zeitgeist&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/3f8e434a9e30535c4241ad12ea37764c805c12cf170b308756ef0468d8ca422a.png" src="../_images/3f8e434a9e30535c4241ad12ea37764c805c12cf170b308756ef0468d8ca422a.png" />
+</div>
+</div>
 <p>Alienation in the post-Enlightenment world is deeply tied to the mechanization of processes, both in terms of labor and social interactions. This alienation takes several forms:</p>
 <ol class="arabic simple">
 <li><p>Labor and Industrialization: Marx focused heavily on how industrialization alienated workers from their labor. In pre-industrial societies, there was a direct connection between a worker and what they produced—think of artisans or craftsmen. With the rise of factory work, labor became mechanized and repetitive, stripping people of a sense of ownership and purpose in their work. People became cogs in a larger machine, disconnected from the final product and from each other.</p></li>
