@@ -568,6 +568,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#national-identity">National (Identity)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#immersion-churn">Immersion (Churn)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polyphony-view">Polyphony (View)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schisms-christian">Schisms (Christian)</a></li>
 </ul>
             </nav>
         </div>
@@ -4009,6 +4010,196 @@ By Aaliyah</p>
 <p>Absolutely. The Brothers Karamazov might be Dostoyevsky’s most ambitious polyphonic achievement. Each of the brothers—Dmitri, Ivan, Alyosha, and even the illegitimate Smerdyakov—carries a unique philosophical outlook, a different path in life. But what’s remarkable is how none of these perspectives overpower the others; each exists in its full complexity, and Dostoyevsky doesn’t pass clear judgment on who is right or wrong. He allows these conflicting voices to resonate, creating a symphony of existential, spiritual, and moral dilemmas without tying it all up neatly.</p>
 <p>This polyphony isn’t just a narrative technique; it’s an exploration of the messiness of human nature, the contradictions that define each person. It leaves the reader in a state of unresolved tension, reflecting real life more accurately than a neatly plotted moral or ideological victory ever could. In this way, Dostoyevsky shows a kind of radical respect for the multiplicity within the human condition—like Bach, who respects each voice in a fugue.</p>
 </section>
+<section id="schisms-christian">
+<h2>Schisms (Christian)<a class="headerlink" href="#schisms-christian" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Creating a directed graph for the genealogy</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Adding nodes (major branches)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;Christianity&quot;</span><span class="p">,</span> <span class="s2">&quot;Roman Catholic&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Christianity&quot;</span><span class="p">,</span> <span class="s2">&quot;Eastern Orthodox&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Roman Catholic&quot;</span><span class="p">,</span> <span class="s2">&quot;Anglican&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Roman Catholic&quot;</span><span class="p">,</span> <span class="s2">&quot;Protestant&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Protestant&quot;</span><span class="p">,</span> <span class="s2">&quot;Lutheran&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Protestant&quot;</span><span class="p">,</span> <span class="s2">&quot;Calvinism&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Protestant&quot;</span><span class="p">,</span> <span class="s2">&quot;Evangelical     &quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Calvinism&quot;</span><span class="p">,</span> <span class="s2">&quot;           Presbyterian&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Calvinism&quot;</span><span class="p">,</span> <span class="s2">&quot;            Reformed&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Lutheran&quot;</span><span class="p">,</span> <span class="s2">&quot;G-Evangelical         &quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Eastern Orthodox&quot;</span><span class="p">,</span> <span class="s2">&quot;Russian Orthodox          &quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Eastern Orthodox&quot;</span><span class="p">,</span> <span class="s2">&quot;          Greek Orthodox&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Russian Orthodox          &quot;</span><span class="p">,</span> <span class="s2">&quot;Old Believers&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Russian Orthodox          &quot;</span><span class="p">,</span> <span class="s2">&quot;ROCOR&quot;</span><span class="p">)</span>  <span class="c1"># Russian Orthodox Church Outside Russia</span>
+<span class="p">])</span>
+
+<span class="c1"># Setting positions for nodes (manual layout for better visualization)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Christianity&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s2">&quot;Roman Catholic&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="s2">&quot;Eastern Orthodox&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="s2">&quot;Anglican&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="s2">&quot;Protestant&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="s2">&quot;Lutheran&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;Calvinism&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;Evangelical     &quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;           Presbyterian&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;            Reformed&quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;G-Evangelical         &quot;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;Eastern Orthodox&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="s2">&quot;Russian Orthodox          &quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="s2">&quot;          Greek Orthodox&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="s2">&quot;Old Believers&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;ROCOR&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># Plot the graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Genealogy of Major Christian Schisms Leading to Russian Orthodoxy&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Display the graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/3ee49618ef4e16a4bab69ec80bc8b20f4d4e40d0266ddb65859ffeaf2cc74253.png" src="../_images/3ee49618ef4e16a4bab69ec80bc8b20f4d4e40d0266ddb65859ffeaf2cc74253.png" />
+</div>
+</div>
+<p>If asked to compare which is more “utopian,” the Catholic Church or the Orthodox Church, the answer depends on how we define “utopian.”</p>
+<p>If “utopian” refers to an idealized vision of creating a structured, universal order on Earth that aligns with divine principles, then the Roman Catholic Church could be considered more utopian. The Catholic Church, with its hierarchical structure and mission to embody the Kingdom of God on Earth, pursued a vision of universal order and unity. Its emphasis on building institutions, establishing law, and spreading a common religious and moral framework points to a desire to create an earthly reality that mirrors divine ideals. In this sense, the Catholic Church’s project of achieving ordo universalis—a unified order—aimed at an earthly reflection of God’s kingdom, complete with its own political, legal, and educational systems.</p>
+<p>However, if we take “utopian” to mean an ideal that is otherworldly, mystical, and aimed more at spiritual transcendence and personal transformation rather than the perfection of society, then the Orthodox Church might fit the bill. The Orthodox tradition places a strong emphasis on inner spiritual transformation, ascetic practices, and achieving theosis—union with God. Rather than building an earthly utopia, the Orthodox vision is about aligning the soul and the community with the divine reality, emphasizing the mystical experience of God over worldly achievements. This perspective is less concerned with reshaping political structures or establishing universal governance and more focused on preserving the spiritual integrity of the faith community.</p>
+<p>Therefore, in a traditional sense of utopianism that involves grand social structures and universal aspirations, the Catholic Church embodies a more tangible and systematic utopian vision. It aims for a comprehensive order that manifests divine will in every aspect of life. On the other hand, the Orthodox Church could be seen as embodying a more spiritual and inward-looking utopia, focused on transcending worldly realities rather than perfecting them.</p>
+<p>Ultimately, I would argue that the Catholic Church, with its systematic and universal ambitions, leans more into the classical notion of a utopia—a perfectly ordered society. In contrast, the Orthodox Church’s utopia is less concrete and more oriented towards personal and mystical communion with God, which reflects a different ideal altogether.</p>
+<blockquote>
+<div><p>Which church did Father Zosima belong to?</p>
+</div></blockquote>
+<p>Father Zosima, a character in Dostoyevsky’s The Brothers Karamazov, belonged to the Russian Orthodox Church. Dostoyevsky portrays him as a spiritual elder or starets—a revered and wise monk who offers spiritual guidance to others. Father Zosima embodies the ideals of the Eastern Orthodox tradition, emphasizing humility, spiritual insight, and the transformative power of love and forgiveness. His character reflects the <code class="docutils literal notranslate"><span class="pre">mystical</span></code> and contemplative aspects of Orthodoxy, focusing on personal holiness and <code class="docutils literal notranslate"><span class="pre">communal</span></code> spiritual life, rather than institutional authority or doctrinal rigidity.</p>
+<blockquote>
+<div><p>Thy will be done on earth as in heaven</p>
+</div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Orthodox&#39;</span><span class="p">,</span> <span class="s1">&#39;Catholic&#39;</span><span class="p">,</span> <span class="s1">&#39;Fragmented&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Modify specific connections to have thicker edges (will to resilience, selfplay to will, and will to interaction)</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="n">u</span> <span class="o">==</span> <span class="s1">&#39;Selfplay&#39;</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span><span class="p">):</span>
+        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>  <span class="c1"># Thicker edges for selected connections</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Orthodox&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Catholic&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Fragmented&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zeitgeist&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/328786697f59fd320df06287903d5cac27bd35451aaea3528bb672420ed6653a.png" src="../_images/328786697f59fd320df06287903d5cac27bd35451aaea3528bb672420ed6653a.png" />
+</div>
+</div>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text"><em>Thy Will Be Done on Earth as in Heaven</em>. The Green nodes are true to our Lords Prayer. The Catholic church has formed a hierarchical institutional infrastructure on earth to mirror heaven. And it has had an international flavor over the last 2000 years. By contrast the Orthodox church has been nationally oriented and spiritual and <code class="docutils literal notranslate"><span class="pre">mystical</span></code> in interpretating the Lords prayer. The Monks here manifest this almost physiologically when you consider Father Zosima &amp; the impacts of meditation on dumpening allostatic load (red node). The Blue nodes capture these communal homeostasis. Finally, the Red nodes capture the fragmentary expansion of christianity westard: Protestanism, Anglicanism, Evangelism, etc. While these fragmentary groups have retained some of the institutional frameworks of the Catholic church, especially the Anglican, they represent relativism, individualism, and ultimately secularization. But at a global scale!</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Roman Catholic Church played a foundational role in establishing complex, hierarchical institutions that not only shaped religious life but also influenced the broader social, political, and economic order in Europe and beyond. The Church’s structure, with the Pope at the top and a clear hierarchy of cardinals, bishops, priests, and laypeople, served as a model for other forms of governance and organization in Western society.</p>
+<p>During the medieval period, the Catholic Church was arguably the most sophisticated and international institution in Europe. It established a network of dioceses, monasteries, and schools that crossed national boundaries, creating a shared religious and cultural framework that connected the diverse and often fragmented political entities of Europe. This centralized structure allowed the Church to exert significant influence over monarchs and states, shaping law, education, and social norms.</p>
+<p>Moreover, the Church’s development of canon law provided one of the earliest systematic legal codes in the West. Canon law, with its intricate rules and procedures, influenced the development of secular legal systems in Europe. The Church’s judicial and administrative systems set precedents for legal and bureaucratic structures in emerging nation-states.</p>
+<p>The Church’s institutions also extended to education and intellectual life. Through its sponsorship of monasteries and cathedral schools, which eventually evolved into universities, the Catholic Church laid the groundwork for higher education in Europe. Institutions like the University of Paris and the University of Bologna were originally founded under the Church’s auspices and served as centers for the study of theology, philosophy, law, and the sciences. This intellectual infrastructure helped to preserve and transmit knowledge across generations, catalyzing the Renaissance and the scientific revolution.</p>
+<p>Even beyond Europe, the Catholic Church’s missionary efforts spread its institutional model to the Americas, Africa, and Asia. The establishment of parishes, missions, and dioceses in these regions was part of a global project to extend not just Christianity but also a certain kind of order, governance, and cultural norms.</p>
+<p>This hierarchical and institutional approach had far-reaching implications. It provided a blueprint for modern international organizations, administrative systems, and even corporate structures. The idea of a centralized authority with subsidiary branches and local administrators can be seen as a precursor to modern nation-states and multinational corporations. This hierarchical structure enabled coordination and consistency across vast distances, which was essential for maintaining unity and authority in a world without modern communication technologies.</p>
+<p>In contrast, Protestantism, which emerged from this context, took issue with this top-down model. It rejected the central authority of the Pope and the Church’s monopoly on interpreting Scripture, favoring a more decentralized and individual approach to faith. However, Protestant traditions still inherited and modified elements of this institutional framework, leading to the development of their own organizational structures.</p>
+<p>Overall, the Catholic Church’s institutional framework laid a foundation for the development of complex, hierarchical, and international systems that shaped much of Western civilization, setting the stage for the rise of nation-states, global trade networks, and even modern corporations.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -4242,6 +4433,7 @@ By Aaliyah</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#national-identity">National (Identity)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#immersion-churn">Immersion (Churn)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polyphony-view">Polyphony (View)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schisms-christian">Schisms (Christian)</a></li>
 </ul>
   </nav></div>
 
