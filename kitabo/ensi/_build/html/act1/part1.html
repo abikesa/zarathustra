@@ -431,6 +431,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frontiers">Frontiers</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glp-1">GLP-1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#allostatic-overload-the-modern-dilemma">Allostatic Overload: The Modern Dilemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sinusoidal-cycle-ancient-times">A Sinusoidal Cycle: Ancient Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-flatline-of-modernity">The Flatline of Modernity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bringing-the-visualization-to-life">Bringing the Visualization to Life</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#politics">Politics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neutrality">Neutrality</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dionysian">Dionysian</a></li>
@@ -729,6 +736,220 @@ document.write(`
 <li><p>Iterations of Apollo Missions</p></li>
 <li><p>Cosmic Frontiers</p></li>
 </ul>
+</section>
+</section>
+<section id="glp-1">
+<h2>GLP-1<a class="headerlink" href="#glp-1" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">def</span> <span class="nf">visualize_nn</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+    <span class="c1"># Input nodes with examples of the domains</span>
+    <span class="n">input_examples</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SBP&#39;</span><span class="p">,</span> <span class="s1">&#39;Corrupted&#39;</span><span class="p">,</span> <span class="s1">&#39;Eden&#39;</span><span class="p">,</span> <span class="s1">&#39;Dante&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Epilepsy&#39;</span><span class="p">,</span> <span class="s1">&#39;Jazz&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamlet&#39;</span><span class="p">,</span> <span class="s1">&#39;Figaro&#39;</span><span class="p">,</span> <span class="s1">&#39;Gambler&#39;</span><span class="p">,</span> <span class="s1">&#39;Strategy&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_examples</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+    <span class="c1"># Hidden layer (3 nodes: Inferno, Limbo, Paradiso)</span>
+    <span class="n">hidden_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Brawl&#39;</span><span class="p">,</span> <span class="s1">&#39;Camaraderie&#39;</span><span class="p">,</span> <span class="s1">&#39;Satisfaction&#39;</span><span class="p">]</span>
+    <span class="n">hidden_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Output nodes (10 domains)</span>
+    <span class="n">output_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Salt&#39;</span><span class="p">,</span> <span class="s1">&#39;Neutrality&#39;</span><span class="p">,</span> <span class="s1">&#39;Information&#39;</span><span class="p">,</span> <span class="s1">&#39;Alliances&#39;</span><span class="p">,</span> <span class="s1">&#39;Roulette&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;Improvisation&#39;</span><span class="p">,</span> <span class="s1">&#39;Knowledge&#39;</span><span class="p">,</span> <span class="s1">&#39;Scheming&#39;</span><span class="p">,</span> <span class="s1">&#39;Agency&#39;</span><span class="p">,</span> <span class="s1">&#39;Resources&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_domains</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+
+    <span class="c1"># Connect input layer to hidden layer</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_examples</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Connect hidden layer to output layer</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_size</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">output_domains</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">hidden_colors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Drawing the graph</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;lavender&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+    
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> 
+            <span class="n">node_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GLP-1-in-a-Nutshell&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualize the updated network architecture</span>
+<span class="n">visualize_nn</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/c0a8febd42575b98f95725dfc4e94bff9e354e2716afd55f1410dc75698962b5.png" src="../_images/c0a8febd42575b98f95725dfc4e94bff9e354e2716afd55f1410dc75698962b5.png" />
+</div>
+</div>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Allegory for GLP-1 Desired &amp; Adverse Effects</em>. If we map satisfaction, camarederie, and brawl onto equilbrium, payoff, and strategy, or insulostasis, gratification, calories then we might be onto something. Picture the release of innate GLP-1 agonists in the pancrease upon feast of Bison some one million years ago. This perhaps at dusk in a ritual celebration with the warrior-hunters as the celebrants. Contemplate the tissue, cellular, and molecular events in play.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Homeostasis (Equilibrium)</p>
+<ul>
+<li><p>Insulostasis</p></li>
+<li><p>Glucagonemia</p></li>
+</ul>
+</li>
+<li><p>Exostasis (Payoff)</p>
+<ul>
+<li><p>Meal</p></li>
+<li><p>Celebrity</p></li>
+<li><p>Women</p></li>
+</ul>
+</li>
+<li><p>Allostasis (Strategy)</p>
+<ul>
+<li><p>Hunting Bison</p></li>
+<li><p>Overload</p></li>
+</ul>
+</li>
+</ul>
+<p>Imagine a hunter a million years ago standing on the plains at dusk. The chase of a lifetime has just ended, and the lifeblood of a freshly killed bison spills across the grass. The ritual that follows is more than a meal—it’s an intricate dance of survival and triumph, a moment that weaves the hunter into the fabric of his environment, each feast strengthening the fragile equilibrium between body and nature. As bison meat nourishes the tribe, a primal, ancient system quietly stirs within each member: a network of hormones that spark life, regulate hunger, and keep the warrior’s mind sharp.</p>
+<p>Fast forward to the present. Scientists have tapped into this primal system with the creation of GLP-1 receptor agonists, like semaglutide and tirzepatide, drugs that could redefine how we think of not just weight loss or diabetes, but the very concept of health. In this modern allegory, GLP-1 is the Swiss Army knife that slices through the complexity of human physiology. The hunter’s feast has now transformed into a precision tool—one that could tackle not just glucose levels but an array of chronic diseases from cardiovascular issues to neurodegeneration. It is a molecular key, unlocking pathways within the body as ancient as the tribe’s ritual bison hunts.</p>
+<p>To grasp what GLP-1 drugs promise, visualize the interconnectedness of these primal mechanisms. At a cellular level, GLP-1 isn’t just about blood sugar regulation—it is about a holistic state where survival, satisfaction, and strategy merge. We might map this as a network, a neural architecture where different nodes represent the interplay of internal states and external demands. On one end is Homeostasis, the balanced baseline maintained through insulostasis and glucagonemia. On the other, Exostasis—the disruptive yet rewarding experiences that shift equilibrium, like a well-earned meal or a victorious hunt. In the middle stands Allostasis, the strategies and adjustments that manage life’s volatility, mirroring the collective efforts of the ancient tribe to maintain their hold on survival.</p>
+<p>If you could look at GLP-1’s effects as a network diagram, you’d see connections between nodes of resilience and synthesis, maximization and use-disuse. These drugs aren’t simply blunt instruments; they’re more akin to adaptive algorithms that fine-tune the intricate balance between survival and reward. This is why semaglutide can impact the brain’s pathways linked to cravings, while also reducing inflammation and oxidative stress across the entire body. Just like how a hunter’s feast was more than food—a sacred act that restored both body and spirit—these drugs influence not just cells but behavior, from curbing addictions to protecting the aging brain.</p>
+<p>Consider what GLP-1 does to cravings: it quells them not by brute force but by realigning reward pathways, signaling to the brain that balance has been achieved. This aligns with the modern understanding that obesity is not simply a failure of willpower but an intricate dance between biology and environment. The obese, like the hunter at the edge of survival, are locked in a battle against their own physiology—a battle that GLP-1 drugs are uniquely equipped to mediate.</p>
+<p>But what’s most startling about these drugs is their potential to transcend their origins. Like the mythical Swiss Army knife that unfolds endless possibilities, GLP-1 receptor agonists are showing promise in areas that seem unrelated: from treating addictions to addressing neurodegeneration and even promoting longevity. Each effect is a variation on a theme, a different tool that emerges from the same conceptual blade.</p>
+<p>Imagine if the ancient hunter’s ritual feast activated this suite of protective mechanisms. In the glow of the fire, the feast wasn’t merely survival—it was a complex signal to the body, a message to recalibrate systems and store energy efficiently. Today, we no longer feast on bison at dusk, but through GLP-1 drugs, we are rediscovering an ancient wisdom locked within our own biology.</p>
+<p>Perhaps the true brilliance of GLP-1 drugs isn’t that they combat obesity or diabetes but that they bridge a gap between the body’s fragmented systems. They act as mediators, like a shaman guiding the tribe, balancing glucose while tamping down inflammation and oxidative stress, whispering to immune cells, and nudging neurons towards resilience. Like an intricate strategy game with a vast network of decisions, these drugs present an equilibrium—where each health challenge can be met not with brute force, but with the strategic finesse of an ancient dance.</p>
+<p>In this light, GLP-1 becomes more than a drug; it’s an allegory of harmony between body and mind, chaos and order. Just as the ancient hunter celebrated the kill, not just for sustenance but for its symbolic victory over nature, modern medicine celebrates GLP-1 for its multifaceted impact on our health. The feast is no longer a moment in the plains—it’s in every syringe, pill, or injection of a new era’s Swiss Army knife. The dawn of GLP-1 drugs isn’t just about fixing problems; it’s about unlocking the body’s deepest, most ancient secrets.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Exostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Allostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/72b600e880f440195a284806c34f89ecbe512be3f3ca854868f439414f1acc1e.png" src="../_images/72b600e880f440195a284806c34f89ecbe512be3f3ca854868f439414f1acc1e.png" />
+</div>
+</div>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>Sinusoidal vs. Flatfline</em>. This is a recurrent contrast throughout this book whether implicit or nuanced. Lifes dynamics at the personal, relationship, national, and even cosmic, are seasonal. Only death offers a flatline. We’ll discuss this further in the book.</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The neural network architecture visualized here offers a way to understand the complex interactions that define states of equilibrium, adaptation, and imbalance within both ancient and modern contexts. Let’s explore how this links to the concept of “allostatic overload” and its implications in different epochs.</p>
+<p>In the diagram, the input nodes (Molecular, Cellular, Tissue, Other, Selfplay) feed into hidden layers labeled Homeostasis, Exostasis, and Allostasis, which represent the body’s core strategies for maintaining balance. The output nodes—Synthesis, Interaction, Resilience, Maximization, and Usedisuse—illustrate the results of these strategies. Each pathway in this architecture can be seen as a metaphor for different physiological responses to environmental and internal demands.</p>
+<section id="allostatic-overload-the-modern-dilemma">
+<h3>Allostatic Overload: The Modern Dilemma<a class="headerlink" href="#allostatic-overload-the-modern-dilemma" title="Permalink to this heading">#</a></h3>
+<p>In modern times, we face what scientists call <em>allostatic overload</em>—a chronic state of imbalance where our bodies are constantly forced to adapt to prolonged stressors without sufficient recovery. Unlike brief periods of acute stress that our ancestors faced (such as a hunt or battle), today’s allostatic load is more like a relentless, unyielding drumbeat. From environmental pollutants, social pressures, and information overload to sedentary lifestyles and the endless cycle of unhealthy consumption, modern life pushes our allostatic systems beyond their evolutionary limits.</p>
+<p>In our network visualization, this chronic state could be seen as an imbalance in the pathways that lead to resilience or usedisuse. When “Exostasis” (the external triggers and stimuli) continually fires without adequate returns to “Homeostasis” or strategic adaptations via “Allostasis,” the system starts to break down. The nodes representing Interaction and Resilience become strained, and the connections between Selfplay and Allostasis—our strategies to cope—wear thin.</p>
+</section>
+<section id="a-sinusoidal-cycle-ancient-times">
+<h3>A Sinusoidal Cycle: Ancient Times<a class="headerlink" href="#a-sinusoidal-cycle-ancient-times" title="Permalink to this heading">#</a></h3>
+<p>But in ancient times, the story was different. Stress, danger, and opportunity came in waves. Imagine a sine curve—a cycle of highs and lows. Our hunter-gatherer ancestors experienced acute stressors like hunting, fleeing from predators, or fighting rival tribes, followed by restorative phases—feasts, communal gatherings, sleep, or quietude. The systems of Exostasis (external challenges) were intense but brief, punctuated by periods of Homeostasis (recovery) and deliberate, strategic adaptations through Allostasis (the strategies of survival and ritual). The neuroendocrine responses that helped them survive, like cortisol and adrenaline spikes, were tied to immediate life-or-death events, with ample recovery afterward.</p>
+<p>This cyclical rhythm meant that while ancient humans faced plenty of stress, it wasn’t a chronic, unrelenting force but rather a series of pulses. It allowed their strategies to “reset” at regular intervals. In our network model, ancient life might look like well-balanced connections between input and output, with Selfplay and Allostasis interacting efficiently to ensure resilience and synthesis.</p>
+</section>
+<section id="the-flatline-of-modernity">
+<h3>The Flatline of Modernity<a class="headerlink" href="#the-flatline-of-modernity" title="Permalink to this heading">#</a></h3>
+<p>In contrast, modern allostatic overload resembles a flatline, devoid of the rhythm ancient humans experienced. There’s no respite between challenges. Instead of rhythmic spikes of adrenaline and cortisol during a hunt or a bison feast, modern individuals face low-grade, sustained stress from deadlines, social anxieties, environmental toxins, and digital noise. This constant Exostasis without corresponding phases of recovery pushes Allostasis beyond its capacity, leading to breakdowns in Interaction and Resilience, and resulting in chronic diseases, mental health disorders, and systemic inflammation.</p>
+</section>
+<section id="bringing-the-visualization-to-life">
+<h3>Bringing the Visualization to Life<a class="headerlink" href="#bringing-the-visualization-to-life" title="Permalink to this heading">#</a></h3>
+<p>Imagine our neural network visualization again, but now with an overlay that simulates sinusoidal waves in ancient times versus the flatline pressures of today. In the past, the arrows connecting Allostasis to Homeostasis and Exostasis pulsed in a regular cadence, allowing tissues, cells, and molecules to recover and repair. Now, these same arrows flicker frantically, representing an unrelenting state of demand, leaving no room for strategic adaptation or self-repair.</p>
+<p><strong>In essence</strong>, what we see in this model is a depiction of how our bodies are wired to handle bursts of challenge followed by recovery, yet in modernity, we have transformed this wave into a constant signal, perpetually demanding, never resolving. The output nodes—our synthesis, resilience, and interactions—struggle to sustain this unnatural load, resulting in the widespread chronic illnesses and psychological pressures that define our era.</p>
+<p>By exploring this visual metaphor of ancient and modern states, we can draw a deeper understanding of allostatic overload as not merely a physiological condition but a reflection of the shift in the rhythms of life itself. Ancient life’s sinusoidal pulse—hunt, feast, rest—has been replaced by the flatline drone of emails, deadlines, and societal expectations. The result is a system straining at every seam, desperate for a recalibration to those lost rhythms.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1086,6 +1307,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cathedrals">Cathedrals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skyscrapers">Skyscrapers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frontiers">Frontiers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glp-1">GLP-1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#allostatic-overload-the-modern-dilemma">Allostatic Overload: The Modern Dilemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sinusoidal-cycle-ancient-times">A Sinusoidal Cycle: Ancient Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-flatline-of-modernity">The Flatline of Modernity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bringing-the-visualization-to-life">Bringing the Visualization to Life</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#politics">Politics</a></li>
