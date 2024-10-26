@@ -448,6 +448,97 @@ document.write(`
 <section id="music">
 <h2>Music<a class="headerlink" href="#music" title="Permalink to this heading">#</a></h2>
 <p>Consider the Ionian mode, which became dominant in Western music, symbolizing stability and brightness. A famous example is Pachelbel’s <em>Canon in D Major</em>. However, this dominance wasn’t an intentional decision by the ancient Ionians—it was the result of historical happenstance and church standardization, reinforcing an ideal symbolized by the Lyre.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Selfplay&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Maximization&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ionian&#39;</span><span class="p">,</span> <span class="s1">&#39;Suspended&#39;</span><span class="p">,</span> <span class="s1">&#39;Aeolian&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Draw the graph with different colors for specific nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Synthesis&#39;</span><span class="p">,</span> <span class="s1">&#39;Ionian&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="s1">&#39;Suspended&#39;</span><span class="p">,</span> <span class="s1">&#39;Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Resilience&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximization&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Selfplay&#39;</span><span class="p">,</span> <span class="s1">&#39;Aeolian&#39;</span><span class="p">,</span> <span class="s1">&#39;Usedisuse&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/6eff45b12e09df9dac20326757e06ac7b5422503255f1ac84208cbcfa760c3ae.png" src="_images/6eff45b12e09df9dac20326757e06ac7b5422503255f1ac84208cbcfa760c3ae.png" />
+</div>
+</div>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>Modes</em>. The Iolian (Major) amd Aelian (Minor) modes dominate western folk, classical, and pop music as do their respective chords. But the suspended chord represents ambiguity that must be resolved. The most influential musician to me had the uncanny ability to match lyrics to harmony as illustrated in the song <a class="reference external" href="https://www.youtube.com/watch?v=fohpiig8N4U">Read or Not</a>. The chorus kicks off with a suspended, cloudy, and spooky mood. Then resolves to the dark and broody minor. But the gives way to a bright and clearly resolved verse in the major mode. And the lyrics open with “I’ll give you the sun, the moon, the stars, and the mountains.”</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In contrast, stormier modes like the Aeolian have come to represent darker themes and emotions in Western music. Think of the haunting Gregorian chant <em>Dies Irae</em> or Mozart’s <em>Requiem Mass</em>, both in <em>D Minor</em>. These modes, with their minor tonalities, reckon with the inevitability of death as symbolized by the Spear.</p>
 <p>But what about neutrality in music? Is there a mode that embodies this delicate balance? In the chapters that follow, we will explore this question and its implications.</p>
 <section id="on-plato-and-musical-modes">
@@ -548,10 +639,10 @@ document.write(`
 <img alt="_images/400450c8b2515bb7cdfbd65e1a261274a6cebde8634bd56481869dc157dcff30.png" src="_images/400450c8b2515bb7cdfbd65e1a261274a6cebde8634bd56481869dc157dcff30.png" />
 </div>
 </div>
-<figure class="align-default" id="id6">
+<figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="_images/blanche.png"><img alt="_images/blanche.png" src="_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>The Descent of Man From Paradise to Hell</em>. This book examines the arc of human experience from the fall to return. We ask: what <code class="docutils literal notranslate"><span class="pre">strategic</span></code> alliances does the fallen man seek? We explore the changes in <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> these alliances create, the <code class="docutils literal notranslate"><span class="pre">payoffs</span></code> they provide to the protagonist and allies, and the strategic interest underlying their choices. <span id="id1"><sup><a class="reference internal" href="part3_3.html#id56" title="John Milton. Paradise Lost. Penguin Classics, 2003. URL: https://www.gutenberg.org/cache/epub/20/pg20-images.html.">1</a></sup></span> <span id="id2"><sup><a class="reference internal" href="part3_3.html#id53" title="Dante Alighieri. The Divine Comedy: Volume 1: Inferno. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/997/pg997-images.html.">2</a></sup></span> <span id="id3"><sup><a class="reference internal" href="part3_3.html#id54" title="Dante Alighieri. The Divine Comedy: Volume 2: Purgatorio. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/998/pg998-images.html.">3</a></sup></span> <span id="id4"><sup><a class="reference internal" href="part3_3.html#id55" title="Dante Alighieri. The Divine Comedy: Volume 3: Paradiso. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/999/pg999-images.html.">4</a></sup></span></span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>The Descent of Man From Paradise to Hell</em>. This book examines the arc of human experience from the fall to return. We ask: what <code class="docutils literal notranslate"><span class="pre">strategic</span></code> alliances does the fallen man seek? We explore the changes in <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> these alliances create, the <code class="docutils literal notranslate"><span class="pre">payoffs</span></code> they provide to the protagonist and allies, and the strategic interest underlying their choices. <span id="id1"><sup><a class="reference internal" href="part3_3.html#id56" title="John Milton. Paradise Lost. Penguin Classics, 2003. URL: https://www.gutenberg.org/cache/epub/20/pg20-images.html.">1</a></sup></span> <span id="id2"><sup><a class="reference internal" href="part3_3.html#id53" title="Dante Alighieri. The Divine Comedy: Volume 1: Inferno. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/997/pg997-images.html.">2</a></sup></span> <span id="id3"><sup><a class="reference internal" href="part3_3.html#id54" title="Dante Alighieri. The Divine Comedy: Volume 2: Purgatorio. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/998/pg998-images.html.">3</a></sup></span> <span id="id4"><sup><a class="reference internal" href="part3_3.html#id55" title="Dante Alighieri. The Divine Comedy: Volume 3: Paradiso. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/999/pg999-images.html.">4</a></sup></span></span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>These layers reflect essential themes: Betrayal, Power, Survival (Adversarial); Loyalty, Empathy, Resilience (Iterative); Faith, Love, Hope (Cooperative). Like a fractal, human experience repeats and evolves, echoing themes from Dante’s <em>Divine Comedy</em> to Milton’s <em>Paradise Lost</em>. The journey isn’t a simple linear progression but a deepening spiral through strategic alliances, shifting equilibria, and the quest for redemption.</p>
