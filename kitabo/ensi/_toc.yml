@@ -28,27 +28,27 @@ chapters:
       - title: Strategy
         file: act3/act1
         sections:
-          - title: Autoencoder
+          - title: Biology
             file: act3/part1/part1_1
-          - title: Elizabeth
+          - title: Sociology
             file: act3/part1/part1_2
-          - title: Hierarchy
+          - title: Psychology
             file: act3/part1/part1_3
       - title: Equilibria
         file: act3/act2
         sections:
-          - title: Pollution
+          - title: Cooperative
             file: act3/part2/part2_1
-          - title: Israel
+          - title: Iterative
             file: act3/part2/part2_2
-          - title: Dynamic
+          - title: Adversarial
             file: act3/part2/part2_3
       - title: Payoff
         file: act3/act3
         sections:
-          - title: Freud
+          - title: Forward Propagation
             file: act3/part3/part3_1
-          - title: Bootstraps
+          - title: Back Propagation
             file: act3/part3/part3_2
 
   - file: act3/part3/part3_3
