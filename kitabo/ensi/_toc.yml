@@ -5,7 +5,7 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Suspense
+      - title: Life
         file: act1/chapter1
       - title: Games
         file: act1/chapter2
