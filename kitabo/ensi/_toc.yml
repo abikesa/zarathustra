@@ -5,27 +5,27 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Recurrence
+      - title: Suspense
         file: act1/chapter1
-      - title: Sentiments
-        file: act1/chapter2
       - title: Games
+        file: act1/chapter2
+      - title: Evolution
         file: act1/chapter3
         
   # Sing O Muse!
   - file: act2/part2
     sections:
-      - title: Odyssey
+      - title: Paradise
         file: act2/chapter1
-      - title: Theomarchy
+      - title: Earth
         file: act2/chapter2
-      - title: A Priori
+      - title: Hell
         file: act2/chapter3
 
   # Apollo
   - file: act3/part3
     sections:
-      - title: Debussy
+      - title: Strategy
         file: act3/act1
         sections:
           - title: Autoencoder
@@ -34,7 +34,7 @@ chapters:
             file: act3/part1/part1_2
           - title: Hierarchy
             file: act3/part1/part1_3
-      - title: Numero Uno
+      - title: Equilibria
         file: act3/act2
         sections:
           - title: Pollution
@@ -43,7 +43,7 @@ chapters:
             file: act3/part2/part2_2
           - title: Dynamic
             file: act3/part2/part2_3
-      - title: Compression
+      - title: Payoff
         file: act3/act3
         sections:
           - title: Freud
