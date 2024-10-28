@@ -5,11 +5,11 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Life
+      - title: Lyre
         file: act1/chapter1
-      - title: Games
+      - title: Roulette
         file: act1/chapter2
-      - title: Evolution
+      - title: Spear
         file: act1/chapter3
         
   # Sing O Muse!
