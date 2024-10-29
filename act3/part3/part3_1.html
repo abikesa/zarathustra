@@ -456,7 +456,7 @@ document.write(`
     <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span>
 <span class="p">]</span>
 
-<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine&#39;</span><span class="p">]</span>
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pastoral&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragical&#39;</span><span class="p">,</span> <span class="s1">&#39;Historical&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -498,11 +498,11 @@ document.write(`
 <span class="c1"># Draw the graph with different colors for specific nodes</span>
 <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragical&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Historical&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
@@ -518,9 +518,15 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/d6a52d8159bcfa795357eacd898d259e6476c0e8fd1d74581581fb9753f58e17.png" src="../../_images/d6a52d8159bcfa795357eacd898d259e6476c0e8fd1d74581581fb9753f58e17.png" />
+<img alt="../../_images/cc0968e7a5d225d5e485f1d5db12e9d09049a60277bcb0f58f0fa04dbf9942f5.png" src="../../_images/cc0968e7a5d225d5e485f1d5db12e9d09049a60277bcb0f58f0fa04dbf9942f5.png" />
 </div>
 </div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/blanche.png"><img alt="../../_images/blanche.png" src="../../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 61 </span><span class="caption-text"><em>Polonious</em>. The best actors in the world, either for tragedy, comedy, history, pastoral, pastoral-comical, historical-pastoral, tragical-historical tragical-comical-historical-pastoral, scene individable, or poem unlimited. Seneca cannot be too heavy, nor Plautus too light, for the law of writ and the liberty. These are the only men.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="chapter-neural-networks-and-the-shifting-equilibria-of-art-innovation-and-culture">
 <h2>Chapter: Neural Networks and the Shifting Equilibria of Art, Innovation, and Culture<a class="headerlink" href="#chapter-neural-networks-and-the-shifting-equilibria-of-art-innovation-and-culture" title="Permalink to this heading">#</a></h2>
 <section id="introduction-a-dynamic-framework">
