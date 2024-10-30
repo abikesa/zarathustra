@@ -1154,15 +1154,10 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 <span class="c1"># Create a list of edges to make thicker and keep solid</span>
 <span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;HDL&#39;</span><span class="p">,</span> <span class="s1">&#39;CVD&#39;</span><span class="p">),</span> 
                <span class="p">(</span><span class="s1">&#39;LDL&#39;</span><span class="p">,</span> <span class="s1">&#39;CVD&#39;</span><span class="p">),</span> 
-               <span class="p">(</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span><span class="s1">&#39;Psychology&#39;</span><span class="p">),</span> 
-               <span class="p">(</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span><span class="s1">&#39;Sociology&#39;</span><span class="p">),</span>
                <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span><span class="s1">&#39;CVD Risk&#39;</span><span class="p">),</span> 
                <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span><span class="s1">&#39;Diet&#39;</span><span class="p">),</span>
                <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span> <span class="s1">&#39;Atorvastatin&#39;</span><span class="p">),</span>
-               <span class="p">(</span><span class="s1">&#39;Psychology&#39;</span><span class="p">,</span><span class="s1">&#39;CVD Risk&#39;</span><span class="p">),</span>
-               <span class="p">(</span><span class="s1">&#39;Psychology&#39;</span><span class="p">,</span><span class="s1">&#39;Diet&#39;</span><span class="p">),</span>
-               <span class="p">(</span><span class="s1">&#39;Sociology&#39;</span><span class="p">,</span><span class="s1">&#39;Diet&#39;</span><span class="p">),</span>
-               <span class="p">(</span><span class="s1">&#39;Sociology&#39;</span><span class="p">,</span><span class="s1">&#39;CVD Risk&#39;</span><span class="p">)</span>
+               <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span><span class="s1">&#39;WebApp&#39;</span><span class="p">)</span>
                <span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -1173,10 +1168,10 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 
 <span class="c1"># Draw grey dashed edges with arrows, excluding the ones you want to make thicker</span>
 <span class="n">edges_to_draw_dashed</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">thick_edges</span><span class="p">]</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges_to_draw_dashed</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges_to_draw_dashed</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">arrowsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
 <span class="c1"># Draw thicker solid edges with arrows</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">thick_edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">thick_edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">arrowsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="c1"># Show the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clinical Medicine&quot;</span><span class="p">)</span>
@@ -1188,7 +1183,7 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e1e6da68202ebf18374118e4c66109bb6653cc79a77e8f2993ccaa52235804f.png" src="../../_images/6e1e6da68202ebf18374118e4c66109bb6653cc79a77e8f2993ccaa52235804f.png" />
+<img alt="../../_images/e5b5dd82d46cd9d5004e0e49bc9614c89173c55c44631264dfaf17d47452b0f3.png" src="../../_images/e5b5dd82d46cd9d5004e0e49bc9614c89173c55c44631264dfaf17d47452b0f3.png" />
 </div>
 </div>
 <figure class="align-default" id="id4">
@@ -1197,8 +1192,13 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 <p><span class="caption-number">Fig. 66 </span><span class="caption-text">While 398 pg/mL is within normal limits, it’s on the lower side of what is ideal for older adults. Given that this patient is experiencing neurological symptoms (“pins and needles”), it may be prudent to proactively consider a mild B12 deficiency or address any underlying absorption issues. Some doctors may initiate a B12 supplement trial even in these cases, to determine if symptoms improve, especially in light of a borderline or low-normal reading. Would a level of 398 pg/mL be a red flag on its own? Not necessarily. However, in combination with age-related factors and symptoms, it’s enough to warrant further investigation or supplementation to rule out a potential contributing factor.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
@@ -1276,9 +1276,16 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 </pre></div>
 </div>
 </div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <img alt="../../_images/b5d0a6bd6c561546ea49a27b0e8d78e40ac0093510744277e19a75181d5026cf.png" src="../../_images/b5d0a6bd6c561546ea49a27b0e8d78e40ac0093510744277e19a75181d5026cf.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
