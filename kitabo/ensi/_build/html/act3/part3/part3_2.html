@@ -493,7 +493,7 @@ document.write(`
     <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span>
 <span class="p">]</span>
 
-<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Idyllic&#39;</span><span class="p">,</span> <span class="s1">&#39;Introspective&#39;</span><span class="p">,</span> <span class="s1">&#39;Contextual&#39;</span><span class="p">]</span>
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragedy&#39;</span><span class="p">,</span> <span class="s1">&#39;History&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -535,11 +535,11 @@ document.write(`
 <span class="c1"># Draw the graph with different colors for specific nodes</span>
 <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Idyllic&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Introspective&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Contextual&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;History&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span><span class="p">]:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
@@ -555,7 +555,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/7eb385c53f2044e33753c4bf8f477cab86179369013c9d6bf195e7a8a4c0cdca.png" src="../../_images/7eb385c53f2044e33753c4bf8f477cab86179369013c9d6bf195e7a8a4c0cdca.png" />
+<img alt="../../_images/9f948dd13af3c5c239d32c5f3948928b09a2be30ec8aadbd4e19c823a3cc89d9.png" src="../../_images/9f948dd13af3c5c239d32c5f3948928b09a2be30ec8aadbd4e19c823a3cc89d9.png" />
 </div>
 </div>
 <figure class="align-default" id="id1">
