@@ -1151,6 +1151,121 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
 
+<span class="c1"># Create a list of edges to make thicker and keep solid</span>
+<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;HDL&#39;</span><span class="p">,</span> <span class="s1">&#39;CVD&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="s1">&#39;LDL&#39;</span><span class="p">,</span> <span class="s1">&#39;CVD&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span><span class="s1">&#39;Psychology&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span><span class="s1">&#39;Sociology&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span><span class="s1">&#39;CVD Risk&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span><span class="s1">&#39;Diet&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;CVD&#39;</span><span class="p">,</span> <span class="s1">&#39;Atorvastatin&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;Psychology&#39;</span><span class="p">,</span><span class="s1">&#39;CVD Risk&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;Psychology&#39;</span><span class="p">,</span><span class="s1">&#39;Diet&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;Sociology&#39;</span><span class="p">,</span><span class="s1">&#39;Diet&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;Sociology&#39;</span><span class="p">,</span><span class="s1">&#39;CVD Risk&#39;</span><span class="p">)</span>
+               <span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Draw nodes</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># Draw grey dashed edges with arrows, excluding the ones you want to make thicker</span>
+<span class="n">edges_to_draw_dashed</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">thick_edges</span><span class="p">]</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">edges_to_draw_dashed</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Draw thicker solid edges with arrows</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">thick_edges</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Clinical Medicine&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../../_images/6e1e6da68202ebf18374118e4c66109bb6653cc79a77e8f2993ccaa52235804f.png" src="../../_images/6e1e6da68202ebf18374118e4c66109bb6653cc79a77e8f2993ccaa52235804f.png" />
+</div>
+</div>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/blanche.png"><img alt="../../_images/blanche.png" src="../../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">While 398 pg/mL is within normal limits, it’s on the lower side of what is ideal for older adults. Given that this patient is experiencing neurological symptoms (“pins and needles”), it may be prudent to proactively consider a mild B12 deficiency or address any underlying absorption issues. Some doctors may initiate a B12 supplement trial even in these cases, to determine if symptoms improve, especially in light of a borderline or low-normal reading. Would a level of 398 pg/mL be a red flag on its own? Not necessarily. However, in combination with age-related factors and symptoms, it’s enough to warrant further investigation or supplementation to rule out a potential contributing factor.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pin/Needle&#39;</span><span class="p">,</span> <span class="s1">&#39;Vomiting&#39;</span><span class="p">,</span> <span class="s1">&#39;WBC&#39;</span><span class="p">,</span> <span class="s1">&#39;HDL&#39;</span><span class="p">,</span> <span class="s1">&#39;LDL&#39;</span><span class="p">,</span> <span class="s1">&#39;Na+&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;GFR&#39;</span><span class="p">,</span> <span class="s1">&#39;B12&#39;</span><span class="p">,</span> <span class="s1">&#39;TSH&#39;</span><span class="p">,</span> <span class="s1">&#39;T4&#39;</span><span class="p">,</span> <span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Learning&#39;</span><span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;UTI Alert&#39;</span><span class="p">,</span> <span class="s1">&#39;CVD Risk&#39;</span><span class="p">,</span> <span class="s1">&#39;Anemia?&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;WebApp&#39;</span><span class="p">,</span> <span class="s1">&#39;GLP-1?&#39;</span><span class="p">,</span> <span class="s1">&#39;Diet&#39;</span><span class="p">,</span> <span class="s1">&#39;Atorvastatin&#39;</span><span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Infection&#39;</span><span class="p">,</span> <span class="s1">&#39;CVD&#39;</span><span class="p">,</span> <span class="s1">&#39;Kidney&#39;</span><span class="p">,</span> <span class="s1">&#39;Hematology&#39;</span><span class="p">,</span> <span class="s1">&#39;Endocrine&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Sociology&#39;</span><span class="p">,</span> <span class="s1">&#39;Psychology&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add input layer nodes</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">:</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add hidden layer nodes and label them</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add output layer nodes</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">output_nodes</span><span class="p">:</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Define layout to make it more symmetrical</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Symmetrically distribute input nodes at the bottom</span>
+<span class="n">input_x_spacing</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">input_x_spacing</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Symmetrically distribute output nodes at the top</span>
+<span class="n">output_x_spacing</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">output_x_spacing</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Place hidden layer nodes in the middle</span>
+<span class="n">hidden_x_spacing</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)</span> <span class="o">-</span> <span class="mf">.5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mf">1.8</span><span class="p">)</span> <span class="o">*</span> <span class="n">hidden_x_spacing</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Assign colors to nodes</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span> <span class="ow">or</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Sociology&#39;</span><span class="p">,</span> <span class="s1">&#39;WebApp&#39;</span><span class="p">,</span> <span class="s1">&#39;GLP-1?&#39;</span><span class="p">,</span> <span class="s1">&#39;Diet&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Psychology&#39;</span><span class="p">,</span> <span class="s1">&#39;Atorvastatin&#39;</span><span class="p">]:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span>
         <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1161,17 +1276,10 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../../_images/b5d0a6bd6c561546ea49a27b0e8d78e40ac0093510744277e19a75181d5026cf.png" src="../../_images/b5d0a6bd6c561546ea49a27b0e8d78e40ac0093510744277e19a75181d5026cf.png" />
 </div>
 </div>
-<figure class="align-default" id="id4">
-<a class="reference internal image-reference" href="../../_images/blanche.png"><img alt="../../_images/blanche.png" src="../../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 66 </span><span class="caption-text">While 398 pg/mL is within normal limits, it’s on the lower side of what is ideal for older adults. Given that this patient is experiencing neurological symptoms (“pins and needles”), it may be prudent to proactively consider a mild B12 deficiency or address any underlying absorption issues. Some doctors may initiate a B12 supplement trial even in these cases, to determine if symptoms improve, especially in light of a borderline or low-normal reading. Would a level of 398 pg/mL be a red flag on its own? Not necessarily. However, in combination with age-related factors and symptoms, it’s enough to warrant further investigation or supplementation to rule out a potential contributing factor.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
 </section>
 </section>
 </section>
