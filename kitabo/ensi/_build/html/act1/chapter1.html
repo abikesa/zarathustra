@@ -577,6 +577,7 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capitalism-tragedy">Capitalism (Tragedy)</a></li>
 </ul>
             </nav>
         </div>
@@ -4220,7 +4221,7 @@ By Aaliyah</p>
 <p>Your comparison between these religious paradigms and Dostoevsky or Marx’s ideas on alienation feels spot-on. They both explore the tension between individual essence and systemic constructs. The “paradise” of isolated, nationalized religious structures avoids some of the alienation by maintaining a unity of cultural and spiritual identity, but also loses out on the dynamism and transformative friction present in the Western narrative. In a way, both systems seem to have their respective strengths and existential pitfalls.</p>
 </section>
 <section id="midnight-nowheresville">
-<h2>Midnight (Nowheresville)<a class="headerlink" href="#midnight-nowheresville" title="Permalink to this heading">#</a></h2>
+<span id="nowheresville"></span><h2>Midnight (Nowheresville)<a class="headerlink" href="#midnight-nowheresville" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.economist.com/christmas-specials/2013/12/21/midnight-in-nowheresville">Christmas Specials</a> | On the road in middle England</p>
 <section id="midnight-in-nowheresville">
 <h3>Midnight in Nowheresville<a class="headerlink" href="#midnight-in-nowheresville" title="Permalink to this heading">#</a></h3>
@@ -4271,6 +4272,102 @@ Pay attention and you find that a place that seems to epitomise the anomie and p
 <p>Just before midnight, head up to that bridge across the motorway and between those two identikit little worlds. Ignore the Muzak and the permanent plastic cones advising “Caution—Wet Floor”. Screen out the erratic strip lighting and peer through the window. The red lights recede on one side of the road while the yellow ones shine towards you on the other, the reflections of both dancing in the dark glass in front of you. Perched on the bridge, life racing below, you feel, momentarily, that you are standing at the pivot of the world.</p>
 </section>
 </section>
+</section>
+<section id="capitalism-tragedy">
+<h2>Capitalism (Tragedy)<a class="headerlink" href="#capitalism-tragedy" title="Permalink to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>I’ve just figured out that capitalism is actually tragical. If I’m talking about tragedy, comedy, history, pastoral, pastoral-comical, historical-pastoral, tragical-historical, tragical-comical-historical-pastoral, well, one key element, it’s not the only one, but one key edge in these nodes is, well, one node is tragical, and that is the basis of capitalism, the hidden node of tragedy, because virtually every service and product, not every, but most, the biggest ones at least, that drive capitalism, especially in the modern day and age, are things that are sort of an insurance against cosmic indifference, this roulette wheel, which whether or not you play it, it’s going to be played on your behalf. Things are going to be thrown at you that could kill you, injure you, harm you, bankrupt you, and capitalism is a sort of insurance. Some industries are literally insurance, others are banking, others are investment, and it’s pretty much that. So that’s what capitalism is, yeah, and so you’ll find many people, including Karl Marx, but many people are reminiscing of the pastoral good old days, because capitalism destroys that, the pastoral vanishes. No wonder people in the communist party have a sickle, which is a good old pastoral days, and a hammer, which represents the current labor man. It’s a clash, it’s what Polonius gets at, that web of nodes, that web of nodes. That is capitalism. Capitalism is one of the three nodes in the hidden layer of the neural network below. import matplotlib.pyplot as plt
+import networkx as nx</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Learning&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Pastoral&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragedy&#39;</span><span class="p">,</span> <span class="s1">&#39;History&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Define node colors dynamically without hardcoding</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Define which edges to thicken</span>
+<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;History&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Drawing edges with increased width for specific edges only</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Polonius&#39; Farce with Emphases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/2ee92783c859467c68fd15e6298e2600b527b3d02c3a8ce1c1a416fa04b1af2e.png" src="../_images/2ee92783c859467c68fd15e6298e2600b527b3d02c3a8ce1c1a416fa04b1af2e.png" />
+</div>
+</div>
+<figure class="align-default" id="id21">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text"><em>Polomius</em>. Here’s the visual representation of what you described as the “tragical-comical-historical-pastoral” web of capitalism. It mirrors the layers and dynamics: from molecular and cellular to strategy and learning at the base, weaving through comedy, tragedy, and history, and finally manifesting in our societal structures, decisions, and pastoral longings.</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In a way, capitalism’s hidden tragedy feels inevitable here (see <a class="reference internal" href="#nowheresville"><span class="std std-ref">Midnight (Nowheresville)</span></a>)—a system built to shield us from cosmic indifference yet ends up exploiting it, balancing between an ironic farce and existential dread. This neural network visualization reflects that complex, multifaceted structure, showing the interconnected nature of these nodes and the ways they propagate through each other.</p>
 </section>
 </section>
 
@@ -4514,6 +4611,7 @@ Pay attention and you find that a place that seems to epitomise the anomie and p
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capitalism-tragedy">Capitalism (Tragedy)</a></li>
 </ul>
   </nav></div>
 
