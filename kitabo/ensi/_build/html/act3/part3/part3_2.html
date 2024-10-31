@@ -1150,17 +1150,13 @@ Sans teeth, sans eyes, sans taste, sans everything.</em></p>
 <span class="c1"># Show the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Targeted Clinical Medicine&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># No tight_layout() to avoid conflicts</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Optionally use bbox_inches=&#39;tight&#39; if saving to a file</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/z3/nwmg00j178vfczmb9nk9487h0000gn/T/ipykernel_9744/3804933196.py:71: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
-  plt.tight_layout()
-</pre></div>
-</div>
 <img alt="../../_images/e1acb2c65640b871c75d179e5a1c82af8e5564a2b0a7ca8ef0b91829816098d9.png" src="../../_images/e1acb2c65640b871c75d179e5a1c82af8e5564a2b0a7ca8ef0b91829816098d9.png" />
 </div>
 </div>
