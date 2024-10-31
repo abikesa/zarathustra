@@ -489,7 +489,7 @@ document.write(`
     <span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Learning&#39;</span>
 <span class="p">]</span>
 <span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Pastoral&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span>
 <span class="p">]</span>
 
@@ -498,27 +498,20 @@ document.write(`
 <span class="c1"># Initialize graph</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
 
-<span class="c1"># Add input layer nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
-
-<span class="c1"># Add hidden layer nodes and label them</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
-
-<span class="c1"># Add output layer nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
 
 <span class="c1"># Add edges between input and hidden nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
-        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
 
 <span class="c1"># Add edges between hidden and output nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
-        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
 
 <span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
@@ -530,38 +523,41 @@ document.write(`
 
 <span class="c1"># Add hidden layer nodes in the middle</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
-    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
 
-<span class="c1"># Draw the graph with different colors for specific nodes</span>
-<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">]:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;History&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span><span class="p">]:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+<span class="c1"># Define node colors dynamically without hardcoding</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Define which edges to thicken</span>
+<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;History&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Drawing edges with increased width for specific edges only</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
 
 <span class="c1"># Show the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Polonius&#39; Farce&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Polonius&#39; Farce with Emphases&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/9f948dd13af3c5c239d32c5f3948928b09a2be30ec8aadbd4e19c823a3cc89d9.png" src="../../_images/9f948dd13af3c5c239d32c5f3948928b09a2be30ec8aadbd4e19c823a3cc89d9.png" />
+<img alt="../../_images/2ee92783c859467c68fd15e6298e2600b527b3d02c3a8ce1c1a416fa04b1af2e.png" src="../../_images/2ee92783c859467c68fd15e6298e2600b527b3d02c3a8ce1c1a416fa04b1af2e.png" />
 </div>
 </div>
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/blanche.png"><img alt="../../_images/blanche.png" src="../../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 63 </span><span class="caption-text"><em>Taxonomy of the Drama of Life</em>. This taxonomy of drama feels like a reflection on the layered complexity of human experience, capturing the spectrum from straightforward genres to nuanced blends.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text"><em>Taxonomy of the Drama of Life</em>. This taxonomy of drama feels like a reflection on the layered complexity of human experience, capturing the spectrum from straightforward genres to nuanced blends. All these thoughts passed through my mind during the few moments that, having left the old lady’s rooms, I was ascending to my own room on the top storey. What most struck me was the fact that, though I had <code class="docutils literal notranslate"><span class="pre">divined</span> <span class="pre">the</span> <span class="pre">chief,</span> <span class="pre">the</span> <span class="pre">stoutest,</span> <span class="pre">threads</span> <span class="pre">which</span> <span class="pre">united</span> <span class="pre">the</span> <span class="pre">various</span> <span class="pre">actors</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">drama</span></code>, I had, until now, been ignorant of the methods and secrets of the game. For Polina had never been completely open with me. Although, on occasions, it had happened that involuntarily, as it were, she had revealed to me something of her heart, I had noticed that in most cases—in fact, nearly always—she had either laughed away these revelations, or grown confused, or purposely imparted to them a false guise. Yes, she must have concealed a great deal from me. But, I had a presentiment that now the end of this strained and mysterious situation was approaching. Another stroke, and all would be finished and exposed. - <strong>Alexis Ivanovitch</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="genre-polyphony">
