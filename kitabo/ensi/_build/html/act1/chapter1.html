@@ -592,6 +592,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-the-hidden-layer-of-capitalisms-neural-network">Closing: The Hidden Layer of Capitalism’s Neural Network</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#under-representation">Under (Representation)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-start-up-incubator">Part 1 (Start-up, Incubator)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-panel-discussion-summary">Part 2 (Panel Discussion Summary)</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -4443,6 +4448,143 @@ import networkx as nx</p>
 <p>In capitalism, every node—be it tragedy, comedy, or history—serves a purpose, highlighting that this system is more than a mere mechanism for generating wealth. It is a stage for human relationships in all their complexity: tragic in its transactions, historical in its rivalries, and comedic in its alliances. This hidden layer encapsulates the essence of capitalism, revealing a system that is as much about human dynamics as it is about supply and demand.</p>
 </section>
 </section>
+<section id="under-representation">
+<h2>Under (Representation)<a class="headerlink" href="#under-representation" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define the neural network structure</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Learning&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Pastoral&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Tragedy&#39;</span><span class="p">,</span> <span class="s1">&#39;History&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
+
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Define node colors dynamically without hardcoding</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Define which edges to thicken</span>
+<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;History&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastoral&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Drawing edges with increased width for specific edges only</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Polonius&#39; Farce with Emphases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4a7a9e2f356055a04dcaae53a7a4064108d9cb1d318453fa939d22251915262b.png" src="../_images/4a7a9e2f356055a04dcaae53a7a4064108d9cb1d318453fa939d22251915262b.png" />
+</div>
+</div>
+<figure class="align-default" id="id22">
+<img alt="../_images/blanche.png" src="../_images/blanche.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text"><em>There is no shameless self-promotion</em>. Networking is key to getting funding for a startup. Under-represented groups in business and industry lack the critical “input-nodes” including technical collaborators (e.g. web design, physician-scientist, aging researchers) for “forward propagation”. Being on social media, linkedin, etc. is key to accessing the “hidden-nodes” where funders, grants, and the market operates – the games &amp; equilibria. Mentors, like Virgil and Beatrice, are critical to navigating these hidden nodes (which in essence are adversarial/inferno, iterative/limbo, and cooperative/paradiso). Someone with an MBA background is absolutely critical to this … and push you out of your comfort zone. How can an academic handle this?</span><a class="headerlink" href="#id22" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="part-1-start-up-incubator">
+<h3>Part 1 (Start-up, Incubator)<a class="headerlink" href="#part-1-start-up-incubator" title="Permalink to this heading">#</a></h3>
+<p>From the images provided, this startup accelerator program appears strategically designed to support ventures addressing aging and health-related issues. The program structure balances mentorship, practical guidance, and networking, specifically curated to equip innovators with resources, expertise, and exposure. Here’s a detailed outline based on the slides:</p>
+<ol class="arabic simple">
+<li><p><strong>Mentorship</strong>: This program emphasizes a personalized mentorship experience, pairing startups with experienced mentors, including entrepreneurs, investors, and product development experts. The mentors’ roles extend beyond advising; they offer continuous support, help fine-tune business models, refine pitches, and enable networking opportunities. Mentorship goals are threefold: <strong>advice</strong>, <strong>cheerleading</strong>, and <strong>networking</strong>.</p></li>
+<li><p><strong>Submission Success Tips</strong>: Key success criteria for applicants:</p>
+<ul class="simple">
+<li><p><strong>Significance</strong>: Demonstrating how the solution addresses unmet health needs for older adults, with references to scientific research where possible.</p></li>
+<li><p><strong>Innovation</strong>: Highlighting the novelty of the idea and its competitive edge.</p></li>
+<li><p><strong>Commercialization</strong>: Showcasing a robust value proposition and clearly identifying the target market and commercialization potential.</p></li>
+<li><p><strong>Team</strong>: Emphasizing each team member’s expertise and commitment while identifying any gaps that might need filling.</p></li>
+<li><p><strong>Impact</strong>: Aligning the project with aging-related R&amp;D goals, particularly those of the National Institute on Aging (NIA).</p></li>
+</ul>
+</li>
+<li><p><strong>In-Person Events</strong>:</p>
+<ul class="simple">
+<li><p><strong>Bootcamp</strong>: A foundational business basics bootcamp held in Philadelphia in June 2025, focused on essential business training.</p></li>
+<li><p><strong>Graduation &amp; HLTH Conference</strong>: Culminates with final pitches at the HLTH conference in Las Vegas, October 2025, with travel covered by NIH for at least one finalist per team.</p></li>
+</ul>
+</li>
+<li><p><strong>Entrepreneurial Learning Sessions</strong>: Regular virtual learning sessions covering essential topics, such as customer discovery, go-to-market strategies, intellectual property, FDA regulations, branding, revenue models, investor discovery, and valuation. Led by the Science Center, these sessions are conducted twice a week to maintain engagement and skill development.</p></li>
+<li><p><strong>Timeline</strong>: The program spans May to November 2025, incorporating virtual learning, mentorship, and the in-person bootcamp. The program concludes with final pitches, with winners announced in January 2026.</p></li>
+<li><p><strong>Program Overview</strong>:</p>
+<ul class="simple">
+<li><p><strong>Stage 1</strong>: Up to 21 finalists, each receiving a $10,000 cash prize, enter the accelerator.</p></li>
+<li><p><strong>Stage 2</strong>: Out of these, up to 7 winners receive an additional $65,000.</p></li>
+</ul>
+</li>
+<li><p><strong>Challenge Fit</strong>: The program is aligned with the NIA’s research priorities, specifically targeting innovative, science-driven solutions to improve the health and quality of life for older adults, with a focus on minority and underserved populations.</p></li>
+<li><p><strong>NIA Small Business R&amp;D Interests</strong>: The NIA focuses on areas such as Alzheimer’s disease, aging in place, and other aging-related diseases. The specific R&amp;D interests include digital health, monitoring technologies, diagnostics, treatments, and devices, with a particular emphasis on reducing health disparities.</p></li>
+</ol>
+<p>Let me know if you’d like visual summaries or if there are any specific areas where more detail would be helpful.</p>
+</section>
+<hr class="docutils" />
+<section id="part-2-panel-discussion-summary">
+<h3>Part 2 (Panel Discussion Summary)<a class="headerlink" href="#part-2-panel-discussion-summary" title="Permalink to this heading">#</a></h3>
+<p>Networking isn’t just an add-on in the startup ecosystem; it’s the lifeblood of growth and funding access, especially for startups in underserved or underrepresented sectors. In these sectors, the challenge isn’t only about securing funding but also about bridging the gaps in critical “input nodes” – technical collaborators, domain-specific experts (e.g., web developers, physician-scientists, and aging researchers) – that fuel forward momentum and product development.</p>
+<p>In today’s ecosystem, visibility is a currency. Platforms like LinkedIn or niche startup communities serve as “hidden nodes” where funding opportunities, strategic alliances, and the broader market converge, essentially acting as arenas where different games and equilibria unfold. Startups must tap into these arenas, where the right moves (like forming connections, demonstrating market traction, or leveraging niche expertise) play out as calculated steps towards funding and influence.</p>
+<p>Mentors are invaluable in this landscape, akin to guides from Dante’s <em>Divine Comedy</em>:</p>
+<ul class="simple">
+<li><p><strong>Virgil-like mentors</strong> help navigate the complex, often adversarial nodes of startup survival (the Inferno phase).</p></li>
+<li><p><strong>Beatrice-like mentors</strong> usher entrepreneurs through phases of strategic iteration and refinement (Limbo).</p></li>
+<li><p>And some mentors resemble figures in <strong>Paradiso</strong>, supporting startups as they enter spaces of collaboration, partnership, and growth.</p></li>
+</ul>
+<p>Having an MBA background or business-focused team member is almost indispensable; they provide a critical push beyond the academic comfort zone, arming the venture with competitive market strategies, pitching skills, and the hard-nosed understanding of business dynamics necessary for survival.</p>
+<p>For an academic venturing into this realm, the key challenge is recalibrating from a research-centric mindset to an entrepreneurial one. This means embracing ambiguity, leaning into iterative processes, and cultivating an openness to risk – skills not typically honed in academic settings. A mentor can help bridge this gap by providing hands-on insights, pointing out blind spots, and reframing academic expertise as a unique competitive edge.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -4698,6 +4840,11 @@ import networkx as nx</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adversarial-historical">Adversarial (Historical)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capitalisms-complex-web">Capitalism’s Complex Web</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-the-hidden-layer-of-capitalisms-neural-network">Closing: The Hidden Layer of Capitalism’s Neural Network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#under-representation">Under (Representation)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-start-up-incubator">Part 1 (Start-up, Incubator)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-panel-discussion-summary">Part 2 (Panel Discussion Summary)</a></li>
 </ul>
 </li>
 </ul>
