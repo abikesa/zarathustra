@@ -625,6 +625,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-map">Neural (Map)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-architecture-for-decision-dynamics">Neural Network Architecture for Decision Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#michelangelo-the-adrenaline-driven-obsessive">Michelangelo: The Adrenaline-Driven Obsessive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beethoven-the-dopamine-fueled-revolutionary">Beethoven: The Dopamine-Fueled Revolutionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#karl-marx-the-dopamine-oxytocin-anomaly">Karl Marx: The Dopamine-Oxytocin Anomaly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-strengthening-the-wanting-red-pathways">Conclusion: Strengthening the “Wanting” Red Pathways</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cooperative-equilibria-and-fear-of-loss">Cooperative Equilibria and Fear of Loss:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-equilibria-and-transactional-alliances">Iterative Equilibria and Transactional Alliances:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adversarial-equilibria-and-empathy-for-utility">Adversarial Equilibria and Empathy for Utility:</a></li>
@@ -4771,15 +4776,15 @@ import networkx as nx</p>
 
 <span class="c1"># Define nodes for the neural network structure, replacing the layers with hormones/neurotransmitters related to decision-making, stress, and reward</span>
 <span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span>
+    <span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span>
 <span class="p">]</span>
 <span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;Reward&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> <span class="s1">&#39;National Identity&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;Economic Gain&#39;</span><span class="p">,</span> <span class="s1">&#39;Policy Impact&#39;</span>
 <span class="p">]</span>
 
-<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Fear&#39;</span><span class="p">,</span> <span class="s1">&#39;Desire&#39;</span><span class="p">,</span> <span class="s1">&#39;Empathy&#39;</span><span class="p">]</span>
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Desire&#39;</span><span class="p">,</span> <span class="s1">&#39;Fear&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize the graph</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -4813,15 +4818,15 @@ import networkx as nx</p>
 
 <span class="c1"># Define node colors based on each layer&#39;s theme</span>
 <span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span>
-    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="k">else</span>
-    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="k">else</span>
     <span class="s1">&#39;lightgray&#39;</span>
     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
 <span class="p">]</span>
 
 <span class="c1"># Define which edges to thicken based on conceptual emphasis</span>
-<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Fear&#39;</span><span class="p">,</span> <span class="s1">&#39;Reward&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Desire&#39;</span><span class="p">,</span> <span class="s1">&#39;Economic Gain&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">)]</span>
+<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Reward&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;National Identity&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Empathy&#39;</span><span class="p">,</span> <span class="s1">&#39;Policy Impact&#39;</span><span class="p">)]</span>  
 
 <span class="c1"># Drawing edges with increased width for specific edges only</span>
 <span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
@@ -4838,7 +4843,7 @@ import networkx as nx</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/03e5442ef182407521d5e72605c2e2a11eb160c3e09be4219daf7b890bc18d85.png" src="../_images/03e5442ef182407521d5e72605c2e2a11eb160c3e09be4219daf7b890bc18d85.png" />
+<img alt="../_images/7fe9a75725b88f2e3de27d07bdeb355c7c330de6b369ac625df63a592eb7c238.png" src="../_images/7fe9a75725b88f2e3de27d07bdeb355c7c330de6b369ac625df63a592eb7c238.png" />
 </div>
 </div>
 <figure class="align-default" id="id23">
@@ -4847,7 +4852,40 @@ import networkx as nx</p>
 <p><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>Mapping the Brain</em>. Cooperative equilibria fear loss (“sitya loss”? haha). Iterative equilibria are transactional but perhaps desire strategic alliances. Adversarial equilibria will only find long-term success if they offer a product that the end-user and market will find extremely useful in their day-to-day lives as they make decisions. So, paradoxically, the adversarial sort had better have empathy in sight!</span><a class="headerlink" href="#id23" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>In this chapter, we delve into the unique neural configurations that shaped the contributions and personalities of three giants: <strong>Michelangelo</strong>, <strong>Beethoven</strong>, and <strong>Karl Marx</strong>. Each, in their way, redefined the adversarial pathways—those cutting-edge or “red” nodes that had previously been underdeveloped by their predecessors. They strengthened a neural architecture less reliant on cooperative (blue) and iterative (green) pathways, pushing forward the “wanting” adversarial nodes with a force that was as much biochemical as it was philosophical. Through a lens that overlays decision-making, stress, and reward with neurotransmitter and hormonal influences, we can trace the neural underpinnings that fueled their unique contributions to art, music, and social theory.</p>
+<section id="neural-network-architecture-for-decision-dynamics">
+<h3>Neural Network Architecture for Decision Dynamics<a class="headerlink" href="#neural-network-architecture-for-decision-dynamics" title="Permalink to this heading">#</a></h3>
+<p>Our conceptual map includes <strong>input nodes</strong> that represent key neurotransmitters and hormones—<strong>Oxytocin, Serotonin, Dopamine, Adrenaline, and Cortisol</strong>—which feed into hidden layer processes like <strong>Empathy, Desire, and Fear</strong>. These internal states connect to <strong>output nodes</strong>: <strong>Reward, Community, National Identity, Economic Gain, and Policy Impact</strong>. For each figure, the emphasis on red, adversarial pathways over blue (cooperative equilibria) or green (iterative progress) shifts the decision dynamics toward a mode that’s confrontational and pioneering, rather than harmonious or repetitive.</p>
+</section>
+<hr class="docutils" />
+<section id="michelangelo-the-adrenaline-driven-obsessive">
+<h3>Michelangelo: The Adrenaline-Driven Obsessive<a class="headerlink" href="#michelangelo-the-adrenaline-driven-obsessive" title="Permalink to this heading">#</a></h3>
+<p><strong>Inputs and Hidden Layers:</strong><br />
+Michelangelo’s neural drive was shaped by a heightened <strong>adrenaline</strong> baseline and an unpredictable <strong>serotonin</strong> profile. The low serotonin—“low-level software” that might have hindered emotional equilibrium—added a restless dissatisfaction, compelling him to challenge norms rather than settle into comfortable blue or green pathways. His adrenaline dominance pushed him toward <strong>Fear</strong> as a prominent hidden-layer state, though not a debilitating kind of fear. Instead, it was the existential dread of inadequacy, a ceaseless drive to encapsulate divine perfection within human form.</p>
+<p><strong>Outputs and Pathways:</strong><br />
+Michelangelo’s adversarial (red) orientation materialized in a relentless, almost combative relationship with his art. The empathic impulse toward <strong>Reward</strong>—a sense of completion or fulfillment—was never fully satisfied. His works embody a direct confrontation with human limitations, transforming this Fear-Fueled Desire pathway into an artistic method that was at once ruthless and transcendent. Michelangelo’s input signals formed an aesthetic vocabulary that defied and redefined artistic limits, drawing on the adversarial path not as a choice but as a necessity.</p>
+</section>
+<section id="beethoven-the-dopamine-fueled-revolutionary">
+<h3>Beethoven: The Dopamine-Fueled Revolutionary<a class="headerlink" href="#beethoven-the-dopamine-fueled-revolutionary" title="Permalink to this heading">#</a></h3>
+<p><strong>Inputs and Hidden Layers:</strong><br />
+Beethoven’s chemical landscape was a unique cocktail: <strong>low serotonin</strong> fostering emotional volatility and <strong>high dopamine</strong> driving an insatiable Desire for originality. Dopamine, often associated with reward anticipation and novelty-seeking, became Beethoven’s primary motivator, but his lower serotonin levels introduced an element of unpredictability and emotional rawness. His empathy, mediated by an unstable dopamine-serotonin balance, was less about personal connection and more about crafting an intensely personal, often turbulent soundscape that resonated universally.</p>
+<p><strong>Outputs and Pathways:</strong><br />
+In Beethoven’s case, <strong>Reward</strong> wasn’t the pursuit of personal or cooperative gain but rather the realization of a musical identity forged through relentless innovation (adversarial red) and rebellion against established forms. The Desire-Reward pathway was amplified by dopamine but shaped by serotonin deficits, making him hypersensitive to both triumph and despair. Beethoven’s music reflects a neural network weighted towards red, which for him translated to a constant re-negotiation of musical form. His symphonies became arenas for emotional confrontation, challenging audiences to feel the full spectrum of human suffering and resilience.</p>
+</section>
+<section id="karl-marx-the-dopamine-oxytocin-anomaly">
+<h3>Karl Marx: The Dopamine-Oxytocin Anomaly<a class="headerlink" href="#karl-marx-the-dopamine-oxytocin-anomaly" title="Permalink to this heading">#</a></h3>
+<p><strong>Inputs and Hidden Layers:</strong><br />
+Marx’s neural circuitry was likely configured with high <strong>dopamine</strong> levels and comparatively lower <strong>oxytocin</strong>, which might have reduced his capacity for traditional interpersonal empathy. Instead, he channeled his empathy into systemic critiques, with oxytocin influencing his <strong>Empathy</strong> pathway toward abstract communal ideals rather than personal attachments. Dopamine drove his Desire for structural reform, making him see society itself as the subject of his empathy.</p>
+<p><strong>Outputs and Pathways:</strong><br />
+Marx’s outputs—<strong>Policy Impact, Economic Gain, and National Identity</strong>—reveal a system weighted toward adversarial action but centered around community-scale change rather than personal gain. His red pathways fueled an ideological empathy that demanded systemic disruption over iterative or cooperative approaches. For Marx, empathy for the working class outweighed the personal, reinforcing a dopamine-driven blueprint for revolutionary social change. This unusual blend allowed him to embrace the adversarial path as both a theoretical and ethical obligation, one that went beyond the personal to reframe the collective.</p>
+</section>
+<hr class="docutils" />
+<section id="conclusion-strengthening-the-wanting-red-pathways">
+<h3>Conclusion: Strengthening the “Wanting” Red Pathways<a class="headerlink" href="#conclusion-strengthening-the-wanting-red-pathways" title="Permalink to this heading">#</a></h3>
+<p>For each figure, the neural pathways represented in the updated figure illuminate how under-weighted adversarial nodes became foundational to their contributions. Where previous generations had perhaps leaned more on cooperative (blue) or iterative (green) paradigms, these three figures emerged with a different neural emphasis, amplifying the red pathways that others had left underexplored. The interaction of neurotransmitters and hormones shaped their personalities, making the adversarial path their default state and positioning them as pioneers who transcended their respective disciplines through a biochemical necessity for transformation and confrontation.</p>
+<p>This re-weighting of red pathways isn’t merely a quirk of personality but a neurochemical necessity, one that illustrates how great thinkers and artists often thrive by pushing against the grain. Michelangelo, Beethoven, and Marx exemplify how individuals can forge entire movements by embracing and strengthening the “wanting” pathways that others left untouched, proving that sometimes, the neural architecture of change requires not just strength, but an audacious vulnerability to re-imagine and re-invent the world.</p>
 <p>The mapped hormones and neurotransmitters absolutely resonate with the balance of <strong>cooperative</strong>, <strong>iterative</strong>, and <strong>adversarial equilibria</strong>, drawing clear parallels to each. Here’s how these align with the figure’s description:</p>
+</section>
 <section id="cooperative-equilibria-and-fear-of-loss">
 <h3>Cooperative Equilibria and Fear of Loss:<a class="headerlink" href="#cooperative-equilibria-and-fear-of-loss" title="Permalink to this heading">#</a></h3>
 <p>In <strong>cooperative equilibria</strong>, the emphasis on empathy and stability aligns with <strong>oxytocin</strong> and <strong>serotonin</strong>. These neurotransmitters fuel social bonding and a sense of security—essential for stable, cooperative relationships. Here, the <strong>fear of loss</strong> isn’t about competitive edge but about losing trust, community, and social support. These cooperative nodes, driven by oxytocin and serotonin, create a “home base” that anchors other processes and keeps destructive competitive impulses in check, much like a stabilizer within the system.</p>
@@ -5323,6 +5361,11 @@ there need none to be blamed.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-map">Neural (Map)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-architecture-for-decision-dynamics">Neural Network Architecture for Decision Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#michelangelo-the-adrenaline-driven-obsessive">Michelangelo: The Adrenaline-Driven Obsessive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beethoven-the-dopamine-fueled-revolutionary">Beethoven: The Dopamine-Fueled Revolutionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#karl-marx-the-dopamine-oxytocin-anomaly">Karl Marx: The Dopamine-Oxytocin Anomaly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-strengthening-the-wanting-red-pathways">Conclusion: Strengthening the “Wanting” Red Pathways</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cooperative-equilibria-and-fear-of-loss">Cooperative Equilibria and Fear of Loss:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-equilibria-and-transactional-alliances">Iterative Equilibria and Transactional Alliances:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adversarial-equilibria-and-empathy-for-utility">Adversarial Equilibria and Empathy for Utility:</a></li>
