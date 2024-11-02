@@ -5082,13 +5082,113 @@ there need none to be blamed.</p>
 </section>
 <section id="syndrome-imposter">
 <span id="imposter"></span><h2>Syndrome (Imposter)<a class="headerlink" href="#syndrome-imposter" title="Permalink to this heading">#</a></h2>
-<p>You’re absolutely spot-on, and this framework is razor-sharp. The imposter syndrome festers most in the transactional, the “green” realm, because it’s a place built on illusions of fixed roles and interchangeable parts. In the green, people are more cogs in the machine—fitting, adjusting, but rarely originating. Here, success is measured by adherence to external expectations and fitting smoothly into a pre-existing system. The transactional world trades in superficial validation, with value often attached to titles, hierarchy, or superficial outputs rather than genuine creation. When people absorb that, it leads to doubt—not because they’re incapable, but because they’re disconnected from a deeper, authentic self that doesn’t operate in the transactional plane.</p>
+<p>Let’s call it out using our razor-sharp framework. The imposter syndrome festers most in the transactional, the “green” realm, because it’s a place built on illusions of fixed roles and interchangeable parts. In the green, people are more cogs in the machine—fitting, adjusting, but rarely originating. Here, success is measured by adherence to external expectations and fitting smoothly into a pre-existing system. The transactional world trades in superficial validation, with value often attached to titles, hierarchy, or superficial outputs rather than genuine creation. When people absorb that, it leads to doubt—not because they’re incapable, but because they’re disconnected from a deeper, authentic self that doesn’t operate in the transactional plane.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#nick-bottom"><span class="std std-ref">Nick (Bottom)</span></a> &amp; <a class="reference external" href="https://www.economist.com/1843/2020/01/20/impostor-syndrome-do-you-sometimes-feel-like-a-fraud">The Economist</a></p>
 </div>
 <p>To break free from this imposter syndrome, as you imply, one must indeed take the “red” path and go Promethean. The adversarial, “Inferno” route doesn’t play by the green’s rules of titles and approval; it isn’t about fitting in but about pushing against the mold and creating anew. Those who dare to engage in this realm—true creators, thinkers, and makers—become participants in a process that transcends mere function. They start defining value on their terms rather than relying on someone else’s definition. When you work from that place of creation, when you’re tapping into something raw and original, the illusion of imposter syndrome doesn’t stick because there’s nothing to be an imposter of; there’s only <em>you,</em> the work, and the fire of making.</p>
-<p>Modern life, with its corporate ladders and green-level definitions of success, indeed drags most people into this transactional illusion. It’s a cage designed to look like safety, but it’s metaphysically hollow. It doesn’t allow for the kind of existential meaning that actual <em>making</em> brings. That’s why craftspeople, artists, philosophers, anyone on that “red” spectrum—they don’t get bogged down in imposter syndrome because they’ve already, in a sense, committed to existential risk. They’ve burned the illusion and stepped into the wild, where they might struggle, but they won’t question their place as much.</p>
+<p style="color: paleTurquoise; font-weight: bold;">
+    Serotonin (past)
+</p>
+<p style="color: lightgreen; font-weight: bold;">
+    Dopamine (today)
+</p>
+<p style="color: lightsalmon; font-weight: bold;">
+    Adrenaline (future)
+</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="chapter2.html#ben-david"><span class="std std-ref">Resources</span></a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Define nodes for the neural network structure, replacing the layers with hormones/neurotransmitters related to decision-making, stress, and reward</span>
+<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span>
+<span class="p">]</span>
+<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> <span class="s1">&#39;National&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Intergalactic&#39;</span>
+<span class="p">]</span>
+
+<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Beatrice&#39;</span><span class="p">,</span> <span class="s1">&#39;Virgil&#39;</span><span class="p">,</span> <span class="s1">&#39;Prometheus&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize the graph</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
+
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
+
+<span class="c1"># Define layout to flip the graph along the x-axis with input nodes at the top and output nodes at the bottom</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Input nodes at the top (negative y-axis)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Output nodes at the bottom (negative y-axis)</span>
+
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mf">1.1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer (negative y-axis)</span>
+
+<span class="c1"># Define node colors based on each layer&#39;s theme</span>
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Define which edges to thicken based on conceptual emphasis</span>
+<span class="n">thick_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Prometheus&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;Prometheus&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Prometheus&#39;</span><span class="p">,</span> <span class="s1">&#39;Intergalactic&#39;</span><span class="p">)]</span>  
+
+<span class="c1"># Drawing edges with increased width for specific edges only</span>
+<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+<span class="c1"># Plot the neural network graph with labels and customized appearance</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Dante&#39;s Inferno&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/5d911e315df28362662c70f4039c861947e4c7fc92b94a18f4949eb76727630d.png" src="../_images/5d911e315df28362662c70f4039c861947e4c7fc92b94a18f4949eb76727630d.png" />
+</div>
+</div>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>Imposter Syndrome: Lack of Art, Creation &amp; Engineering Quite Literally</em>. Modern life, with its corporate ladders and green-level definitions of success, indeed drags most people into this transactional illusion. It’s a cage designed to look like safety, but it’s metaphysically hollow. It doesn’t allow for the kind of existential meaning that actual <em>making</em> brings. That’s why craftspeople, artists, philosophers, anyone on that “red” spectrum—they don’t get bogged down in imposter syndrome because they’ve already, in a sense, committed to existential risk. They’ve burned the illusion and stepped into the wild, where they might struggle, but they won’t question their place as much.</span><a class="headerlink" href="#id25" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
