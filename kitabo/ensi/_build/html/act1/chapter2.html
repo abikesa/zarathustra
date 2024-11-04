@@ -662,59 +662,100 @@ Russian meddling is intended to put pressure on nato without provoking a war. �
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the patient-specific neural network structure</span>
+<span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Folate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">]</span>
 
-<span class="c1"># Create a directed graph (DAG)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="c1"># Alerts</span>
+<span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">]</span>
 
-<span class="c1"># Add nodes and edges based on the neuron structure</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="c1"># Compression</span>
+<span class="n">hidden_layer_labels_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;Reward/Punish&#39;</span><span class="p">,</span> <span class="s1">&#39;Duty&#39;</span><span class="p">,</span> 
+                               <span class="s1">&#39;Utility&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom&#39;</span><span class="p">,</span> 
+                               <span class="s1">&#39;Systems&#39;</span><span class="p">,</span> <span class="s1">&#39;Moral Philosophy&#39;</span><span class="p">]</span>
 
-<span class="c1"># Define positions for each node</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)}</span>
+<span class="c1"># Initialize graph</span>
+<span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
 
-<span class="c1"># Labels to reflect parts of a neuron</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Duty&#39;</span><span class="p">,</span> 
-    <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Reward vs. Punishment&#39;</span><span class="p">,</span> 
-    <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Actions&#39;</span><span class="p">,</span> 
-    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Custom&#39;</span><span class="p">,</span>
-    <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Utility&#39;</span><span class="p">,</span> 
-    <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Philosophy&#39;</span>
-<span class="p">}</span>
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
 
-<span class="c1"># Define node colors</span>
-<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lemonchiffon&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;mistyrose&#39;</span><span class="p">,</span> <span class="s1">&#39;thistle&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
 
-<span class="c1"># Create a figure and axis with a specified size</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1"># Adjust width and height as needed</span>
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
 
-<span class="c1"># Draw the nodes and edges first with turquoise edges</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;turquoise&#39;</span><span class="p">)</span>
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos_patient</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
 
-<span class="c1"># Draw the labels with the color of the previous node</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-    <span class="n">previous_color</span> <span class="o">=</span> <span class="n">node_colors</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">node_colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Shift colors</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">previous_color</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">1.2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
 
-<span class="c1"># Set the title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Moral Sentiments&quot;</span><span class="p">)</span>
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
 
-<span class="c1"># Display the plot</span>
+<span class="c1"># Define node colors dynamically without hardcoding</span>
+<span class="n">node_colors_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">12</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Create a list of edges to make thicker and keep solid</span>
+<span class="n">thick_edges_patient</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Action&#39;</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Action&#39;</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Reward/Punish&#39;</span><span class="p">),</span>
+                       <span class="p">(</span><span class="s1">&#39;Duty&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">),</span>
+                       <span class="p">(</span><span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom&#39;</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;Custom&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Define edge widths dynamically based on whether the edge is in the thick_edges list</span>
+<span class="c1"># edge_widths_patient = [3 if edge in thick_edges_patient else 0.2 for edge in G_patient.edges()]</span>
+<span class="n">edge_widths_patient</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.2</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges_patient</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+<span class="c1"># Rotate the network diagram 90 degrees counterclockwise for improved label readability</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+
+<span class="c1"># Adjust positions for a 90-degree counterclockwise rotation</span>
+<span class="n">pos_rotated</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos_patient</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="c1"># Draw the graph with the rotated positions</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_patient</span><span class="p">,</span> <span class="n">pos_rotated</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors_patient</span><span class="p">,</span> 
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths_patient</span><span class="p">)</span>
+
+<span class="c1"># Show the rotated plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Grind&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a33d72a33ce67c7ba32e2ad64d212fd8c906ff6b9362f9ff7beea052f060b95a.png" src="../_images/a33d72a33ce67c7ba32e2ad64d212fd8c906ff6b9362f9ff7beea052f060b95a.png" />
+<img alt="../_images/2f488a537961ae9b94c728977926ae1f1e8b6325967af705dea74d0cd147ff78.png" src="../_images/2f488a537961ae9b94c728977926ae1f1e8b6325967af705dea74d0cd147ff78.png" />
 </div>
 </div>
 <figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Two Fractals Considered in <a class="reference external" href="https://www.gutenberg.org/cache/epub/67363/pg67363-images.html">Moral Sentiments</a></em>. The first fractal is of individual strategy, payoff, and equilibrium: duty, reward or punishment, and actions. The second fractal is of societal: custom, utility, and philosophy. These are the broad themes Adam Smith explored in his <em>Theory of Moral Sentiments</em> and they are aligned with Tikkun: Olam &amp; Atzmi. It’s all about healing.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><em><a class="reference external" href="https://www.gutenberg.org/cache/epub/67363/pg67363-images.html">Moral Sentiments</a></em>. These are the broad themes Adam Smith explored in his <em>Theory of Moral Sentiments</em> and they are aligned with Tikkun: Olam &amp; Atzmi. It’s all about healing.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -916,59 +957,100 @@ Russian meddling is intended to put pressure on nato without provoking a war. �
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the patient-specific neural network structure</span>
+<span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Folate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">]</span>
 
-<span class="c1"># Create a directed graph (DAG)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="c1"># Alerts</span>
+<span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">]</span>
 
-<span class="c1"># Add nodes and edges based on the neuron structure</span>
-<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="c1"># Compression</span>
+<span class="n">hidden_layer_labels_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Worker&#39;</span><span class="p">,</span> <span class="s1">&#39;Capital&#39;</span><span class="p">,</span> <span class="s1">&#39;Land&#39;</span><span class="p">,</span> 
+                               <span class="s1">&#39;Systems&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;Taxes&#39;</span><span class="p">]</span>
 
-<span class="c1"># Define positions for each node</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)}</span>
+<span class="c1"># Initialize graph</span>
+<span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
 
-<span class="c1"># Labels to reflect parts of a neuron</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Worker&#39;</span><span class="p">,</span> 
-    <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Capital&#39;</span><span class="p">,</span> 
-    <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Land&#39;</span><span class="p">,</span> 
-    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Inputs&#39;</span><span class="p">,</span>
-    <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Taxes&#39;</span><span class="p">,</span> 
-    <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;System&#39;</span>
-<span class="p">}</span>
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
 
-<span class="c1"># Define node colors</span>
-<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lemonchiffon&#39;</span><span class="p">,</span> <span class="s1">&#39;paleturquoise&#39;</span><span class="p">,</span> <span class="s1">&#39;mistyrose&#39;</span><span class="p">,</span> <span class="s1">&#39;thistle&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightsalmon&#39;</span><span class="p">]</span>
+<span class="c1"># Add edges between input and hidden nodes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
 
-<span class="c1"># Create a figure and axis with a specified size</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1"># Adjust width and height as needed</span>
+<span class="c1"># Add edges between hidden and output nodes</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
 
-<span class="c1"># Draw the nodes and edges first with turquoise edges</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;turquoise&#39;</span><span class="p">)</span>
+<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
+<span class="n">pos_patient</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
 
-<span class="c1"># Draw the labels with the color of the previous node</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-    <span class="n">previous_color</span> <span class="o">=</span> <span class="n">node_colors</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">node_colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Shift colors</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">previous_color</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">1.2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
 
-<span class="c1"># Set the title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Wealth of Nations&quot;</span><span class="p">)</span>
+<span class="c1"># Add hidden layer nodes in the middle</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
 
-<span class="c1"># Display the plot</span>
+<span class="c1"># Define node colors dynamically without hardcoding</span>
+<span class="n">node_colors_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">12</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Create a list of edges to make thicker and keep solid</span>
+<span class="n">thick_edges_patient</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Worker&#39;</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Worker&#39;</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Capital&#39;</span><span class="p">),</span>
+                       <span class="p">(</span><span class="s1">&#39;Land&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">),</span>
+                       <span class="p">(</span><span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom&#39;</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;Custom&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Define edge widths dynamically based on whether the edge is in the thick_edges list</span>
+<span class="c1"># edge_widths_patient = [3 if edge in thick_edges_patient else 0.2 for edge in G_patient.edges()]</span>
+<span class="n">edge_widths_patient</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.2</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges_patient</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+<span class="c1"># Rotate the network diagram 90 degrees counterclockwise for improved label readability</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+
+<span class="c1"># Adjust positions for a 90-degree counterclockwise rotation</span>
+<span class="n">pos_rotated</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos_patient</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="c1"># Draw the graph with the rotated positions</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_patient</span><span class="p">,</span> <span class="n">pos_rotated</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors_patient</span><span class="p">,</span> 
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths_patient</span><span class="p">)</span>
+
+<span class="c1"># Show the rotated plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Grind&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c9962f9d402db26f7d83ecba774466e918b02e4877301e352917c0c00112086a.png" src="../_images/c9962f9d402db26f7d83ecba774466e918b02e4877301e352917c0c00112086a.png" />
+<img alt="../_images/81a3ba7bf5b629a4475636b1ac4bddd9e77f45d88f00d422b12eb542e7bd7bfb.png" src="../_images/81a3ba7bf5b629a4475636b1ac4bddd9e77f45d88f00d422b12eb542e7bd7bfb.png" />
 </div>
 </div>
 <figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text"><em>Two Fractals Considered in <a class="reference external" href="https://www.gutenberg.org/cache/epub/3300/pg3300-images.html">Wealth of Nations</a></em>. In one fractal, the strategic resource inputs are the worker, capital, and land. In a sense, the owners <code class="docutils literal notranslate"><span class="pre">strategy</span></code> is to hire workers, the <code class="docutils literal notranslate"><span class="pre">payoff</span></code> is improvement in value of capital stock, and the <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> is land ownership. This equilibrium has been the basis of virtually all wars throughout history to today. Whether a future might emerge where the equilibrium at stake is platform ownership by Alphabet, Amazon, Apple, Meta, Microsoft, Elon, or Nvidia (AMEN!) is yet to be seen. For now land &amp; energy are dearly needed to support the intelligence that will drive these platforms of the future. The other fractal begins with the <code class="docutils literal notranslate"><span class="pre">strategic</span></code> input, the <code class="docutils literal notranslate"><span class="pre">payoff</span></code> after taxes and input costs are deducted, and the <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> of the market place, which is dependent on household &amp; business inputs as well as governments policies insofar as they affect taxes. <a class="reference external" href="https://scholar.google.com/citations?user=RB-RKykAAAAJ&amp;amp;hl=en">Andrei Shleifer’s</a> top-two most cited papers focuses on <code class="docutils literal notranslate"><span class="pre">inputs</span></code> (corporate governance) &amp; <code class="docutils literal notranslate"><span class="pre">taxes/system</span></code> (law &amp; finance). There’s perhaps no room in the 21st century for the discussion of <code class="docutils literal notranslate"><span class="pre">frontier</span></code> territories like the wild west, where the equilibrium is adversarial and colonial in tone. But Andrei Shleifer’s third most cited paper investigates cooperate ownership around the world, where countries are on a continuum from the wild frontiers to bustling capitals of the west. Taken together, these three themes are color-coded to ease mapping onto Dante’s allegory: <code class="docutils literal notranslate"><span class="pre">paradiso</span></code>, <code class="docutils literal notranslate"><span class="pre">limbo</span></code>, and <code class="docutils literal notranslate"><span class="pre">inferno</span></code>.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text"><em><a class="reference external" href="https://www.gutenberg.org/cache/epub/3300/pg3300-images.html">Wealth of Nations</a></em>. In a sense, the owners <code class="docutils literal notranslate"><span class="pre">strategy</span></code> is to hire workers, the <code class="docutils literal notranslate"><span class="pre">payoff</span></code> is improvement in value of capital stock across various territories, and the <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> is maintaining land ownership. This equilibrium has been the basis of virtually all wars throughout history to today. Whether a future might emerge where the equilibrium at stake is platform ownership by Alphabet, Amazon, Apple, Meta, Microsoft, Elon, or Nvidia (AMEN!) is yet to be seen. For now land &amp; energy are dearly needed to support the intelligence that will drive these platforms of the future. The other fractal begins with the <code class="docutils literal notranslate"><span class="pre">strategic</span></code> input, the <code class="docutils literal notranslate"><span class="pre">payoff</span></code> after taxes and input costs are deducted, and the <code class="docutils literal notranslate"><span class="pre">equilibrium</span></code> of the market place, which is dependent on household &amp; business inputs as well as governments policies insofar as they affect taxes. <a class="reference external" href="https://scholar.google.com/citations?user=RB-RKykAAAAJ&amp;amp;hl=en">Andrei Shleifer’s</a> top-two most cited papers focuses on <code class="docutils literal notranslate"><span class="pre">inputs</span></code> (corporate governance) &amp; <code class="docutils literal notranslate"><span class="pre">taxes/system</span></code> (law &amp; finance). There’s perhaps no room in the 21st century for the discussion of <code class="docutils literal notranslate"><span class="pre">frontier</span></code> territories like the wild west, where the equilibrium is adversarial and colonial in tone. But Andrei Shleifer’s third most cited paper investigates cooperate ownership around the world, where countries are on a continuum from the wild frontiers to bustling capitals of the west. Taken together, these three themes are color-coded to ease mapping onto Dante’s allegory: <code class="docutils literal notranslate"><span class="pre">paradiso</span></code>, <code class="docutils literal notranslate"><span class="pre">limbo</span></code>, and <code class="docutils literal notranslate"><span class="pre">inferno</span></code>.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell tag_hide-input docutils container">
