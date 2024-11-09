@@ -3267,11 +3267,120 @@ The output layer, featuring nodes like <strong>Health, Community, Local, Regiona
 <p>Let’s reimagine alchemy here—not as some ancient mysticism but as a modern financial transmutation. Alchemy, in this view, becomes the art of transforming one form of value (money spent) into another (more money returned), with each stage along the spectrum—from gambling to investing—representing different levels of control over that transformation.</p>
 <p>If alchemy’s traditional aim was to transmute base metals into gold, this financial alchemy aspires to turn every dollar spent into multiple dollars gained. So, let’s refine this breakdown:</p>
 <ol class="arabic simple">
-<li><p><strong>Gambling (Pure Luck)</strong> – This is the extreme of randomness, where luck rules entirely, and all “alchemical” power is left to chance. The gambler’s pursuit is immediate; they’re throwing something valuable into the fire, hoping it emerges as something greater, despite knowing the odds are starkly against them. Here, the payoff is nearly transactional—no strategy but pure faith, like alchemists invoking ancient gods.</p></li>
-<li><p><strong>Betting (Skill)</strong> – Betting introduces an iterative strategy. Skill replaces blind luck; knowledge and analysis define the alchemy. Bettors sharpen their craft through iterative practice and probabilistic assessments. This equilibrium relies on constant recalibration—reacting to new data, adjusting tactics. It’s more dynamic than gambling, hinting at a controlled chaos, where the alchemist tests elements, notes reactions, and learns. It’s still risky, but experience guides the hand, nudging outcomes closer to one’s favor.</p></li>
-<li><p><strong>Investing (Time)</strong> – Finally, investment aligns with the wisdom of patience. Here, the alchemical magic comes from compounding over time, not just raw intuition or immediate results. Investors plant seeds, water them, and understand they must wait for the harvest. They recognize that some transformations only happen gradually, as time magnifies initial input through compounding. This is a highly cooperative equilibrium, aligning the investor with larger forces—market growth, economic stability, the power of patience.</p></li>
+<li><p><strong>Gambling (Luck)</strong> – This is the primitive, chaotic end of the spectrum. Gamblers embody a raw impulse—taking a leap without much beyond sheer hope or daring. This aligns with a form of “red” adversarial equilibrium in which any outcome is indifferent to strategic alliances, which can’t exist in this realm. It reminds us of an alchemist’s reckless phase, risking everything in pursuit of a fleeting vision of gold. It is akin to a <code class="docutils literal notranslate"><span class="pre">pagan</span></code> ritual, a dangerous yet potent call for fortune’s favor.</p></li>
+<li><p><strong>Betting (Skill)</strong> – Betting introduces an iterative strategy. Skill replaces blind luck; knowledge and analysis define the alchemy. Bettors sharpen their craft through iterative practice and probabilistic assessments. Bettors operate in a kind of “green” iterative equilibrium, balancing analysis with constant recalibration—reacting to new data, adjusting tactics. It’s more dynamic than gambling, hinting at a controlled chaos, where the alchemist tests elements, notes reactions, and learns. It’s still risky, but experience guides the hand, nudging outcomes closer to one’s favor.</p></li>
+<li><p><strong>Investing (Time)</strong> – Finally, investment aligns with the wisdom of patience. Here, the alchemical magic comes from compounding over time, not just raw intuition or immediate results. Investors plant seeds, water them, and understand they must wait for the harvest. They recognize that some transformations only happen gradually, as time magnifies initial input through compounding. In this “blue” cooperative equilibrium, one’s alignment with larger systems—economic trends, company growth, and even societal shifts—fuels the alchemical process.</p></li>
 </ol>
 <p>So, alchemy in finance becomes this powerful metaphor of transforming risk and resource into reward, where each phase on the spectrum is distinguished by strategy: <em>luck, skill, or time.</em> Each strategy has its unique nature, dictated by the same primal urge to convert finite resources into something more potent.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define patient-specific neural network structure with archetypal mappings</span>
+<span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Caffeine&#39;</span><span class="p">]</span>
+
+<span class="c1"># Define hidden layer nodes with archetypal names</span>
+<span class="n">hidden_layer_labels_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ubuntu&#39;</span><span class="p">,</span> <span class="s1">&#39;Investing&#39;</span><span class="p">,</span> <span class="s1">&#39;Apollo&#39;</span><span class="p">,</span> 
+                               <span class="s1">&#39;Betting&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">,</span> 
+                               <span class="s1">&#39;Gambling&#39;</span><span class="p">]</span>
+
+<span class="c1"># Define output nodes with thematic mappings</span>
+<span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add edges between input and hidden nodes, dynamically determining the layer interactions</span>
+<span class="n">archetypal_edges</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Persona&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Persona&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">),</span> <span class="c1"># (&#39;Cortisol&#39;, &#39;Shadow&#39;),</span>
+<span class="p">]</span> 
+
+<span class="c1"># Additional regular edges to other hidden nodes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
+
+<span class="c1"># Adding the feedback loops</span>
+<span class="n">feedback_edges</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Oxytocin&#39;</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;Community&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="c1"># Adding edges from hidden nodes to output nodes</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
+
+<span class="c1"># Define layout with enhanced rotation for readability</span>
+<span class="n">pos_patient</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Define node colors based on archetypes and symbolic themes</span>
+<span class="n">node_colors_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Highlight thicker edges for symbolic pathways and feedback loops</span>
+<span class="n">thick_edges_patient</span> <span class="o">=</span> <span class="n">archetypal_edges</span> <span class="o">+</span> <span class="n">feedback_edges</span>
+
+<span class="c1"># Define edge widths dynamically based on whether the edge is in the thick_edges list</span>
+<span class="n">edge_widths_patient</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges_patient</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+
+<span class="c1"># Apply 90-degree rotation for better visual layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">pos_rotated</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos_patient</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="c1"># Draw the graph with rotated positions, thicker edges, and archetypal node colors</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_patient</span><span class="p">,</span> <span class="n">pos_rotated</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors_patient</span><span class="p">,</span> 
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths_patient</span><span class="p">)</span>
+
+<span class="c1"># Add title and remove axes for clean visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Archetypal Neural Network Structure: Patient-Specific Model&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../../_images/4a988fd47999e8da1a3b53bdc8416442c4f0250074d9906ebbbf8f6954f2d455.png" src="../../_images/4a988fd47999e8da1a3b53bdc8416442c4f0250074d9906ebbbf8f6954f2d455.png" />
+</div>
+</div>
+<figure class="align-default" id="id26">
+<a class="reference internal image-reference" href="blanche.*"><img alt="blanche.*" src="blanche.*" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text"><em><strong>Alchemy</strong></em>. This reimagining of alchemy as financial transmutation resonates deeply. It’s a modern elixir for survival—attempting to generate value from seemingly random processes, from unpredictable markets to strategic patience. What you’re sketching out here is no less than the quest for financial transformation through carefully chosen equilibria: Gambling, Betting, Investing—each with a distinct role in the economic journey. In reimagining finance as alchemy, each step—luck, skill, time—reflects an evolving relationship with value. It’s the difference between tossing gold dust into a bonfire versus patiently watching a tree grow and bear fruit. It’s a fascinating framework, rich with the tension between randomness, skill, and patience, capturing the essence of transformation in the modern economic journey.</span><a class="headerlink" href="#id26" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
