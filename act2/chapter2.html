@@ -589,8 +589,8 @@ document.write(`
 
 <span class="c1"># Define output nodes with thematic mappings</span>
 <span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> 
-                        <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> 
-                        <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">]</span>
+                        <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Veep&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
 <span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -602,9 +602,9 @@ document.write(`
 
 <span class="c1"># Add edges between input and hidden nodes, dynamically determining the layer interactions</span>
 <span class="n">archetypal_edges</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;Apollo&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Apollo&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Apollo&#39;</span><span class="p">),</span> <span class="c1"># (&#39;Persona&#39;, &#39;Regional&#39;), </span>
-    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Apollo&#39;</span><span class="p">),</span> <span class="c1"># (&#39;Cortisol&#39;, &#39;Shadow&#39;),</span>
+    <span class="p">(</span><span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Persona&#39;</span><span class="p">,</span> <span class="s1">&#39;Veep&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">),</span> <span class="c1"># (&#39;Persona&#39;, &#39;Regional&#39;), </span>
+    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Persona&#39;</span><span class="p">),</span> <span class="c1"># (&#39;Cortisol&#39;, &#39;Shadow&#39;),</span>
 <span class="p">]</span> 
 
 <span class="c1"># Additional regular edges to other hidden nodes</span>
@@ -666,7 +666,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/372e0e744dfba4ac9ad19e992fd273b606ec5d2d70a4f5b6baf42de4c53c0878.png" src="../_images/372e0e744dfba4ac9ad19e992fd273b606ec5d2d70a4f5b6baf42de4c53c0878.png" />
+<img alt="../_images/405a333edbd02edaffb6bc71eb70ba7651d56b4a3a1ee002680aad57267ae440.png" src="../_images/405a333edbd02edaffb6bc71eb70ba7651d56b4a3a1ee002680aad57267ae440.png" />
 </div>
 </div>
 <p>In this model, neurotransmitters act as the <code class="docutils literal notranslate"><span class="pre">primal</span></code> drives—signals that ignite the archetypes within us. For instance, <em>Oxytocin</em> connects to familial bonds, reinforcing themes of connection and loyalty. When these pathways are disrupted—through betrayal or trauma—the neural network reconfigures, emphasizing survival over trust.</p>
