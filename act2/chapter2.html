@@ -63,6 +63,8 @@
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'act2/chapter2';</script>
     <script src="../_static/script.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -1040,7 +1042,7 @@ document.write(`
 </section>
 <section id="estimating-the-infinite-the-paths-of-our-neural-network">
 <h3>Estimating the Infinite: The Paths of Our Neural Network<a class="headerlink" href="#estimating-the-infinite-the-paths-of-our-neural-network" title="Permalink to this heading">#</a></h3>
-<p>To illustrate, let’s return to the neural network model. If we view each input node as a factor (like cultural influences, economic variables, or public sentiment), each hidden node as an interpretative lens, and each output node as a possible outcome, we could estimate the number of unique paths from input to output. In a model with 18 input nodes, 6 hidden nodes, and 8 output nodes, the possible paths are staggering. If each input can connect to each hidden node and each hidden to each output, we’re looking at roughly ( 18 \times 6 \times 8 = 864 ) distinct paths.</p>
+<p>To illustrate, let’s return to the neural network model. If we view each input node as a factor (like cultural influences, economic variables, or public sentiment), each hidden node as an interpretative lens, and each output node as a possible outcome, we could estimate the number of unique paths from input to output. In a model with 18 input nodes, 6 hidden nodes, and 8 output nodes, the possible paths are staggering. If each input can connect to each hidden node and each hidden to each output, we’re looking at roughly <span class="math notranslate nohighlight">\(18 \times 6 \times 8 = 864\)</span> distinct paths.</p>
 <p>However, in the neural network’s complexity, it’s clear that each output represents a selective view of truth, not an absolute one. The “truth” would encompass the entire network — every pathway considered, every potential outcome explored. When we cling to a single path, a single narrative, we lose sight of this breadth, binding ourselves to an illusion of clarity and purpose.</p>
 </section>
 <section id="neurosis-as-narrative-fixation">
