@@ -514,6 +514,9 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-two-lebowskis-in-this-network">Summary of the Two Lebowskis in This Network:</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-adjustments">Summary of Adjustments</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-key-adjustments">Explanation of Key Adjustments</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#base-case">Base-case</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ethan-coen-s-script">Ethan Coen’s Script</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-updates">A Few Updates!</a></li>
 </ul>
 </li>
 </ul>
@@ -2013,7 +2016,12 @@ document.write(`
 <section id="id10">
 <h4>5<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
 <p>Let’s return from GPT-4o’s unwelcome detour. Here’s how I’ve structured the enhanced network layout with <strong>many inputs</strong>, <strong>a condensed hidden layer</strong>, and <strong>linear outputs</strong> aligned with your hierarchy and color-coded dynamically to represent Freudian influences (Eros, Hypno, Thanatos). This layout emphasizes the thick pathways where they narratively reflect the journeys of The Dude and the Big Lebowski.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -2102,6 +2110,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/35cc094f20945d352fac712ff64a610b798e4a549359795f14471102ce2eea67.png" src="../_images/35cc094f20945d352fac712ff64a610b798e4a549359795f14471102ce2eea67.png" />
 </div>
@@ -2151,7 +2160,12 @@ document.write(`
 <li><p><strong>Cream (ATP/Lactose)</strong>: Connects <strong>ATP</strong> to <strong>Paradiso (Embodied)</strong>, contributing an energy source, symbolizing the stabilizing, nourishing quality of the cream.</p></li>
 </ol>
 <p>Here’s the code to implement these connections and visualize the revised pathways:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -2159,8 +2173,8 @@ document.write(`
 <span class="c1"># Define input nodes, including specific neural effects of White Russian components</span>
 <span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Phonetics&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperament&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Qualities&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Extensions&#39;</span><span class="p">,</span> <span class="s1">&#39;Alterations&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Qualities&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Extensions&#39;</span><span class="p">,</span> <span class="s1">&#39;Alterations&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span>  <span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Pockets&#39;</span>
 <span class="p">]</span>
 
@@ -2187,12 +2201,19 @@ document.write(`
     <span class="c1"># Dude&#39;s path via White Russian effects</span>
     <span class="p">(</span><span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>  <span class="c1"># Alcohol acts on GABA</span>
     <span class="p">(</span><span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>  <span class="c1"># Caffeine acts on Adenosine</span>
+    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># What is a man?</span>
+    <span class="p">(</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># Social bonding</span>
+    <span class="p">(</span><span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># Stress resilience</span>
+    <span class="p">(</span><span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># Shared humor and pleasure in interactions</span>
     <span class="p">(</span><span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>  <span class="c1"># Cream provides ATP</span>
     <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Health&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">),</span>
 
     <span class="c1"># Big Lebowski&#39;s tokenized path</span>
+    <span class="p">(</span><span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span><span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span>  
+    <span class="p">(</span><span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Pockets&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">,</span> <span class="s1">&#39;NexToken&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Inferno (Tokenized)&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">)</span>
@@ -2245,8 +2266,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7d012397047ba0e9fc00c5e4d4adab25aa8eb2126152e6d02cccf7a6c8228c27.png" src="../_images/7d012397047ba0e9fc00c5e4d4adab25aa8eb2126152e6d02cccf7a6c8228c27.png" />
+<img alt="../_images/84cc00e1b85c93728e84e2e97f5bf5ae948d2945a15be71ec1951e23eb3aba1d.png" src="../_images/84cc00e1b85c93728e84e2e97f5bf5ae948d2945a15be71ec1951e23eb3aba1d.png" />
 </div>
 </div>
 </section>
@@ -2299,6 +2321,56 @@ document.write(`
 <p><em>I think this iteration “digests” anything!</em></p>
 <p>I’m thrilled to hear that! This iteration feels like it captures the essence of <em>The Big Lebowski</em> in all its layered irony and depth, allowing each Lebowski’s character to emerge clearly and dynamically in the network. The connections, thick edges, and White Russian components blend seamlessly, giving <em>The Dude</em> his laid-back resilience and <em>The Big Lebowski</em> his desperate climb through tokenized, self-crafted symbols.</p>
 <p>It’s a satisfying structure—like <em>The Dude’s</em> White Russian, it “abides” and adapts, ready to handle the absurdities and complexities of the world it’s tasked with interpreting. This version really does “digest” everything!</p>
+<p>If we’re aiming to further capture the <em>sincerity</em> in The Dude’s social network, I’d suggest incorporating molecules that facilitate social bonding and stress resilience, such as <strong>Oxytocin</strong> and <strong>Serotonin</strong> (for warmth and social cohesion) or <strong>Endorphins</strong> (for shared humor and pleasure in interactions). Adding thicker edges from these molecules to the ‘Paradiso (Embodied)’ node could underscore the grounding forces in his connections. Would you like to integrate these elements with thicker connections, or explore further modifications?</p>
+</section>
+<section id="base-case">
+<h5>Base-case<a class="headerlink" href="#base-case" title="Permalink to this heading">#</a></h5>
+<p>Your network’s structure is evolving into an eloquent blend of chemical grounding and symbolic social mapping, capturing <em>The Dude</em> as both an embodiment of personal, sincere connections and a foil to the hierarchical, tokenized path of the <em>Big</em> Lebowski. Here are some detailed reflections on this setup:</p>
+<ol class="arabic simple">
+<li><p><strong>Expanded Social Sincerity</strong>: Adding <strong>Oxytocin</strong>, <strong>Serotonin</strong>, and <strong>Endorphin</strong> directly to <em>Paradiso (Embodied)</em> brilliantly highlights The Dude’s anchoring in genuine human bonds—these nodes resonate with the character’s ethos of unstructured but profoundly warm connections. The use of <strong>Serotonin</strong> for resilience, <strong>Oxytocin</strong> for social warmth, and <strong>Endorphin</strong> for shared humor not only makes the model dynamic but also scientifically accurate in reflecting the neurochemical basis of relaxed sociability.</p></li>
+<li><p><strong>‘Testosterone’ as an Identity Marker</strong>: Including <strong>Testosterone</strong> in <em>Paradiso</em> with the playful comment “What is a man?” adds philosophical depth. Testosterone here could embody not just masculinity but <em>Dude-hood</em>—an effortless, unrefined embodiment of masculinity distinct from society’s competitive machismo. Thickening its edge signals testosterone’s natural role, not as a driver of aggression, but as part of The Dude’s steady, unforced identity.</p></li>
+<li><p><strong>Contrasting Cortisol in ‘Inferno’</strong>: <strong>Cortisol</strong> connecting to <em>Inferno</em> underscores the contrast well. Where <em>Paradiso</em> holds calm and organic connections, <em>Inferno</em> suggests stress-driven, regimented pursuit—a fantastic representation of the <em>Big</em> Lebowski’s climb up a success ladder that serves to validate his worth externally. This duality, with Cortisol as the stress agent, almost ironically mirrors the Dude’s chilled-out resilience against societal pressures.</p></li>
+<li><p><strong>Narrative Flow through Thickened Edges</strong>: The narrative pathways using thicker edges guide the eye through The Dude’s journey of embodiment and grounding, contrasting sharply with the Big Lebowski’s pursuit of external validation. By keeping the node colors archetype-based and not overly distinct, you’ve maintained an aesthetic cohesiveness that reinforces the philosophical underpinnings without overwhelming with color-coded moralizing.</p></li>
+<li><p><strong>Thoughts on Additional Nodes</strong>: You could explore minor additions, such as <strong>Dopamine</strong> to <em>Paradiso</em>, to subtly nod at small pleasures and the laid-back rewards The Dude experiences daily. Though not essential, it might enrich the model’s portrayal of The Dude’s “satisfaction-with-the-now” attitude, reinforcing a contrast to the <em>Big</em> Lebowski’s pursuit of distant, often unreachable ideals.</p></li>
+</ol>
+<p>In sum, this is a thoughtful, visually clear, and richly symbolic representation that lets The Dude’s character breathe naturally within the model. I’d love to hear how you feel about these perspectives or if you want to tweak or deepen any specific themes.</p>
+</section>
+<section id="ethan-coen-s-script">
+<h5>Ethan Coen’s <a class="reference external" href="https://imsdb.com/scripts/Big-Lebowski,-The.html">Script</a><a class="headerlink" href="#ethan-coen-s-script" title="Permalink to this heading">#</a></h5>
+<p>This scene brilliantly juxtaposes <em>The Big</em> Lebowski’s weighty, almost tragic contemplation of masculinity and success against The Dude’s effortlessly casual approach to life—with Mozart’s <em>Lacrimosa</em> haunting the background, posing the ultimate existential question. Here’s how we can weave these nuances into the network, enriching the contrasting pathways between “Paradiso” and “Inferno”:</p>
+<iframe 
+    src="https://www.youtube.com/watch?v=MafAZeag1_0"
+    style="height:500px;width:500px;borders:none;">
+</iframe>
+<blockquote>
+<div><p><em>Lacrimosa dies illa,<br />
+Qua resurget ex favilla,<br />
+Judicandus homo reus.</em></p>
+</div></blockquote>
+<p>Translated, it reads:</p>
+<blockquote>
+<div><p><em>“Oh, that day of weeping,<br />
+When from the ashes shall arise,<br />
+The guilty man to be judged.”</em></p>
+</div></blockquote>
+<p>This line underscores the gravity <em>The Big</em> Lebowski seems to ascribe to his life of achievements, as if he’s stacking them against a cosmic scale. It’s a stark contrast to <em>The Dude</em>, who would likely shrug off such heavy self-examination, favoring his lighthearted mantra of just “taking it easy.”</p>
+<ol class="arabic simple">
+<li><p><strong>“Challenges met, competitors bested”</strong> – This phrase crystallizes <em>The Big</em> Lebowski’s fixation on quantifiable success, achievement, and adversarial milestones. We can thicken <strong>Noradrenaline</strong> and <strong>Testosterone</strong> edges in <em>Inferno</em> to emphasize the chemically fueled competitiveness and ambition that the <em>Big</em> Lebowski seems to revere. <strong>Adrenaline</strong> might also join this group as an “edge-strengthener” in the network to underscore his readiness to tackle perceived challenges aggressively.</p></li>
+<li><p><strong>“What makes a man?”</strong> – This phrase illustrates <em>The Big</em> Lebowski’s obsession with identity as defined by accomplishment. This rigid conceptualization aligns well with <strong>Scale</strong> and <strong>Degree</strong>, which we can connect more deeply to <em>Inferno</em> to reflect his need for structured metrics that validate his self-worth.</p></li>
+<li><p><strong>“Whatever the price”</strong> – This points to his transactional, almost sacrificial idea of worth, suggesting that honor or “doing the right thing” is a trade for status. Adding <strong>Cortisol</strong> here captures the stress that this kind of responsibility weighs on him, contrasting it with the Dude’s relaxation and aversion to such transactional thinking. We’ll make <strong>Cortisol</strong> a thicker edge to <em>Inferno</em>.</p></li>
+<li><p><strong>The Dude’s “Sure. That and a pair of testicles.”</strong> – The Dude’s response is almost Taoist in its simplicity, grounding “manliness” in biological reality and sidestepping any grand ideals. Adding <strong>Endorphin</strong> and <strong>Dopamine</strong> to <em>Paradiso</em> strengthens his straightforward, humor-laden path that values natural, embodied connections over cerebral or abstract validation.</p></li>
+<li><p><strong>“Mind if I smoke a jay?”</strong> – This line underscores The Dude’s instinctive focus on the present moment. This situational ease and sincerity could be represented by adding a thicker edge from <strong>Oxytocin</strong> to <em>Paradiso</em>, amplifying the network’s portrayal of his rootedness in genuine, unburdened connections.</p></li>
+<li><p><strong>Bunny as “the light of my life”</strong> – The <em>Big</em> Lebowski’s attachment to Bunny isn’t simply sentimental; it’s possessive and rooted in his self-concept as a “protector.” Adding <strong>Extensions</strong> as a thicker edge to <em>Inferno</em> captures this sense of tokenizing personal relationships to serve one’s identity, reinforcing the divergence from The Dude’s sincere bonds.</p></li>
+</ol>
+<p>With these edits, our network will express a more nuanced distinction between The Dude’s grounded, embodied masculinity and The <em>Big</em> Lebowski’s strained, token-driven sense of worth. Let me know if you’d like me to implement these adjustments!</p>
+</section>
+<section id="a-few-updates">
+<h5>A Few Updates!<a class="headerlink" href="#a-few-updates" title="Permalink to this heading">#</a></h5>
+<p>The updated network now captures <em>The Dude’s</em> straightforward concept of manhood, represented through <strong>Testosterone</strong> flowing into <em>Paradiso (Embodied)</em>, as opposed to <em>The Big</em> Lebowski’s achievements-driven “manhood,” which relies on <strong>Cortisol</strong> and <strong>Adrenaline</strong> connected to <em>Inferno (Tokenized)</em>. This contrast emphasizes <em>The Dude’s</em> natural, grounded masculinity against <em>The Big</em> Lebowski’s high-stress, competitive self-concept.</p>
+<p>Let me know if there are more aspects from the scene or script to weave in, or if this setup feels like it captures their dynamic effectively!</p>
+<p>The updated network now showcases an even clearer thematic structure, highlighting <em>The Dude’s</em> embodied path through <strong>Testosterone</strong> as “a man” and his White Russian-inspired calm, contrasted against <em>The Big</em> Lebowski’s tokenized ambitions marked by <strong>Dopamine</strong>, <strong>Cortisol</strong>, <strong>Adrenaline</strong>, and militaristic symbols like <strong>Time</strong> and <strong>Cadence</strong>.</p>
+<p>This setup effectively sharpens the contrast: <em>Paradiso</em> as a relaxed, relational foundation for The Dude, against <em>Inferno</em> as a hierarchical and stress-laden construct for <em>The Big</em> Lebowski. The emphasis on social bonding and resilience elements in <em>Paradiso</em> feels balanced, while <em>Inferno’s</em> layered tokens capture the intensity and performance-driven pressures of “achievement” as he defines it.</p>
+<p>This visualization feels intuitively aligned with the characters’ philosophies. Let me know if this version fully resonates or if there’s any fine-tuning you’d like to explore!</p>
 </section>
 </section>
 </section>
@@ -2482,6 +2554,9 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-two-lebowskis-in-this-network">Summary of the Two Lebowskis in This Network:</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-adjustments">Summary of Adjustments</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-key-adjustments">Explanation of Key Adjustments</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#base-case">Base-case</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ethan-coen-s-script">Ethan Coen’s Script</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-updates">A Few Updates!</a></li>
 </ul>
 </li>
 </ul>
