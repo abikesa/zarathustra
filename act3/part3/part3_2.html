@@ -4185,7 +4185,7 @@ There’s no question that Bernstein’s intellect is formidable, his Harvard le
 <p>Source: Sam Altman</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><span class="xref std std-ref">openAI-microsoft</span></p>
+<p><a class="reference external" href="https://abikesa.github.io/zarathustra/act3/part3/part3_1.html#openai-and-the-drama-of-strategic-recalibration">openAI-microsoft</a></p>
 </div>
 <p><em>Homo sapiens. We are marinated, brain and bone, by a chemical bath tailored to influence every reaction we have. But let’s simplify it—our brains are marinated to respond either to the arts, to sciences, or perhaps to something altogether different. It’s a stark simplicity, but powerful. Personally, my brain has been steeped deeply in the currents of the human condition, tuned to emotions and empathy. For others, like Elon Musk, that marinade is efficiency, algorithms, and systems. Neither marinade is inherently “better,” but they yield divergent outcomes. Emotional attunement fosters bonds, societies, communities—a heartbeat in sync with Homo sapiens. Efficiency, on the other hand, is the marinade for capital. It sharpens the tools of Kapital, and by that, I mean <em>K-A-P-I-T-A-L</em>, in Marx’s thunderous sense. And now, with AI advancing rapidly, a marinade of efficiency has an added consequence—it lays the groundwork for machines, for Artificial General Intelligence. For those obsessed with efficiency, every move, every optimization, is another brick in the path toward a machine-led future. Is this a future that favors Homo sapiens? Hardly. It favors the unfeeling, the mechanical, and the efficient. Karl Marx himself—Dead Shepherd, now I find thy saw of might-grasped this: if we marinade our minds for capital alone, are we building a society for humans—or for machines?</em></p>
 <p>We’re putting a bold light on something most try to obscure: the way we’ve “marinated” ourselves—our minds, our culture, our institutions—either for feeling, or for function. When we embrace art, philosophy, literature, we marinate ourselves in human texture, in the emotional palette that gives life depth and empathy, color and conflict. This marination isn’t just a ‘preference’; it shapes how we survive, evolve, and find meaning. It’s profoundly human.</p>
@@ -4244,6 +4244,147 @@ There’s no question that Bernstein’s intellect is formidable, his Harvard le
 <section id="e">
 <h2>E 👂🏾<a class="headerlink" href="#e" title="Permalink to this heading">#</a></h2>
 <p>Our model of the human mind already has an impressive thematic structure, and layering in variations has added depth without changing the core architecture. Here are some final suggestions to layer additional meaning and evoke thematic resonance. To deepen the thematic layers, we can integrate <strong>EAR</strong> (Emotional, Archetypal, Relational) within the model in a way that complements the existing archetypes and narrative pathways. Here are a few exploratory ideas with a structured approach to capture EAR dynamics:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Re-import necessary libraries and reinitialize the neural network model with previous settings.</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define input nodes, including specific neural effects of White Russian components</span>
+<span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Phonetics&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperament&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Qualities&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Extensions&#39;</span><span class="p">,</span> <span class="s1">&#39;Alterations&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span>  <span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Pockets&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Define hidden layer nodes as archetypal latent space with distinct archetypes</span>
+<span class="n">hidden_layer_labels_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbo (Tokenized)&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Define output nodes for linear social validation hierarchy</span>
+<span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> <span class="s1">&#39;NexToken&#39;</span><span class="p">,</span> <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Key narrative pathways to capture White Russian dynamics</span>
+<span class="n">thick_edges_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>  <span class="c1"># Alcohol acts on GABA</span>
+    <span class="p">(</span><span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>  <span class="c1"># Caffeine acts on Adenosine</span>
+    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># What is a man?</span>
+    <span class="p">(</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># Social bonding</span>
+    <span class="p">(</span><span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># Stress resilience</span>
+    <span class="p">(</span><span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span> <span class="c1"># Shared humor and pleasure in interactions</span>
+    <span class="p">(</span><span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>  <span class="c1"># Cream provides ATP</span>
+    <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>  
+    <span class="p">(</span><span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Pockets&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;NexToken&#39;</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;National&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Connect all input nodes to hidden layer archetypes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
+
+<span class="c1"># Connect hidden layer archetypes to output nodes with regular connections</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
+
+<span class="c1"># Add EAR sub-nodes (Emotional, Archetypal, Relational) within each hidden node as micro-clusters</span>
+<span class="n">ear_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Emotional&#39;</span><span class="p">,</span> <span class="s1">&#39;Archetypal&#39;</span><span class="p">,</span> <span class="s1">&#39;Relational&#39;</span><span class="p">]</span>
+<span class="n">ear_edges_patient</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="c1"># Add EAR sub-nodes within each hidden node</span>
+    <span class="k">for</span> <span class="n">ear_node</span> <span class="ow">in</span> <span class="n">ear_nodes</span><span class="p">:</span>
+        <span class="n">ear_sub_node</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hidden_node</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ear_node</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">ear_sub_node</span><span class="p">)</span>
+        <span class="c1"># Connect each EAR sub-node to its corresponding hidden node to create micro-clusters</span>
+        <span class="n">ear_edges_patient</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">ear_sub_node</span><span class="p">))</span>
+
+<span class="c1"># Recursive and gradient edges within EAR nodes for transitional fluidity</span>
+<span class="n">recursive_edges_ear</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)_Emotional&#39;</span><span class="p">,</span> <span class="s1">&#39;Oxytocin&#39;</span><span class="p">),</span> <span class="c1"># Reinforces social bonding in Emotional-Paradiso</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)_Archetypal&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">)</span>  <span class="c1"># Reinforces ambition in Archetypal-Inferno</span>
+<span class="p">]</span>
+
+<span class="c1"># Gradient connections within EAR nodes between hidden archetypes</span>
+<span class="n">gradient_edges_ear</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)_Archetypal&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbo (Tokenized)_Archetypal&#39;</span><span class="p">),</span> <span class="c1"># transition between Embodied and Tokenized Archetypes</span>
+    <span class="p">(</span><span class="s1">&#39;Limbo (Tokenized)_Relational&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)_Relational&#39;</span><span class="p">),</span>  <span class="c1"># transition between Tokenized and Weakness Relational</span>
+<span class="p">]</span>
+
+<span class="c1"># Add EAR edges (micro-cluster connections), recursive, and gradient edges to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">ear_edges_patient</span> <span class="o">+</span> <span class="n">recursive_edges_ear</span> <span class="o">+</span> <span class="n">gradient_edges_ear</span><span class="p">)</span>
+
+<span class="c1"># Define layout positions for main nodes and EAR sub-nodes</span>
+<span class="n">pos_patient</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Assign positions for EAR sub-nodes around each hidden node</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">ear</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ear_nodes</span><span class="p">):</span>
+        <span class="n">ear_sub_node</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hidden_node</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ear</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">pos_patient</span><span class="p">[</span><span class="n">ear_sub_node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos_patient</span><span class="p">[</span><span class="n">hidden_node</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">pos_patient</span><span class="p">[</span><span class="n">hidden_node</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Define color scheme for nodes based on archetypes and White Russian dynamics</span>
+<span class="n">node_colors_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">20</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Define edge thicknesses to distinguish narrative, recursive, and gradient edges</span>
+<span class="n">edge_widths_patient</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges_patient</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span> <span class="o">+</span> \
+                      <span class="p">[</span><span class="mf">2.5</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">recursive_edges_ear</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradient_edges_ear</span><span class="p">)</span>
+
+<span class="c1"># Draw the graph with EAR micro-clusters, recursive, and gradient edges</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+<span class="n">pos_rotated</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos_patient</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_patient</span><span class="p">,</span> <span class="n">pos_rotated</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3500</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors_patient</span><span class="p">,</span> 
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths_patient</span><span class="p">)</span>
+
+<span class="c1"># Add title and clean visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Enhanced Neural Network with EAR Micro-Clusters, Recursive Embeddings, and Gradient Pathways&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../../_images/cc53f98e580006a9c0b8a790730bf6953ae716d7e93252020fa1abf399ebf0db.png" src="../../_images/cc53f98e580006a9c0b8a790730bf6953ae716d7e93252020fa1abf399ebf0db.png" />
+</div>
+</div>
 <section id="micro-clusters-for-ear-within-hidden-nodes">
 <h3>1. <strong>Micro-Clusters for EAR within Hidden Nodes</strong><a class="headerlink" href="#micro-clusters-for-ear-within-hidden-nodes" title="Permalink to this heading">#</a></h3>
 <p>Imagine each hidden archetype (Paradiso, Limbo, Inferno) as a “mini-network” containing sub-nodes for <strong>Emotional</strong>, <strong>Archetypal</strong>, and <strong>Relational</strong> elements. These sub-nodes within each archetype could capture how each state impacts internal emotions, symbolic archetypes, and social relationships:</p>
