@@ -657,8 +657,8 @@ The <strong>Apple Watch</strong> provides a continuous, non-invasive way to moni
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Define input nodes for user signals</span>
 <span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
@@ -704,7 +704,7 @@ The <strong>Apple Watch</strong> provides a continuous, non-invasive way to moni
         <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
 
 <span class="c1"># Define symmetric layout positions</span>
-<span class="k">def</span> <span class="nf">centered_positions</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">y_position</span><span class="p">,</span> <span class="n">total_width</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">centered_positions</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">y_position</span><span class="p">,</span> <span class="n">total_width</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates symmetric x positions for nodes centered at total_width.&quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
     <span class="n">center_offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_width</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
