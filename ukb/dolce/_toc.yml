@@ -5,52 +5,50 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Idols
+      - title: Lyre
         file: act1/chapter1
-      - title: Realities
+      - title: Roulette
         file: act1/chapter2
-      - title: Question
+      - title: Spear
         file: act1/chapter3
         
-  # Of Athena
+  # Sing O Muse!
   - file: act2/part2
     sections:
-      - title: Eternal
+      - title: Paradise
         file: act2/chapter1
-      - title: War
+      - title: Earth
         file: act2/chapter2
-      - title: Hammer
+      - title: Hell
         file: act2/chapter3
 
   # Apollo
   - file: act3/part3
     sections:
-      - title: 'Self 🗡'
+      - title: Strategy
         file: act3/act1
         sections:
-          - title: Adversarial
+          - title: Biology
             file: act3/part1/part1_1
-          - title: Competitive
+          - title: Sociology
             file: act3/part1/part1_2
-          - title: Worthy
+          - title: Psychology
             file: act3/part1/part1_3
-      - title: 'Emergent 🤝'  
+      - title: Equilibria
         file: act3/act2
         sections:
-          - title: Transactional
+          - title: Cooperative
             file: act3/part2/part2_1
-          - title: Suspended
+          - title: Iterative
             file: act3/part2/part2_2
-          - title: Loyal
+          - title: Adversarial
             file: act3/part2/part2_3
-      - title: 'Nonself ❤️' 
+      - title: Payoff
         file: act3/act3
         sections:
-          - title: Cooperative
+          - title: Forward Propagation
             file: act3/part3/part3_1
-          - title: Unconditional
+          - title: Back Propagation
             file: act3/part3/part3_2
-          - title: 'Family 🎹' 
-            file: act3/part3/part3_3
 
-  - file: bibliography
+  - file: act3/part3/part3_3
